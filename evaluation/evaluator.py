@@ -10,7 +10,7 @@ from tools.assertion_counter import run_assertion_percentage
 from tools.unit_test_checker import run_unit_test_detection
 from tools.howfairis_runner import run_howfairis_license_check
 
-def evaluate_metrics(metrics, path):
+def evaluate_metrics(metrics, path, github_url=None):
     """
     Evaluates selected software quality metrics on a given Python file or folder.
 
@@ -32,110 +32,125 @@ def evaluate_metrics(metrics, path):
     results = {}  # Final output dictionary containing all scanned file results
     files = []    # A list to hold all .py files we find
 
-    # ------------------------------------------------------------
-    # STEP 1: Determine whether path is a file or folder
-    # ------------------------------------------------------------
+    # Determine whether to scan files or not
+    scanning_files = any(
+        metric not in ["Presence of License"] for metric in metrics
+    )
 
-    # Case 1: User entered a single .py file
-    if os.path.isfile(path) and path.endswith(".py"):
-        files.append(path)
+    # ---------------------------------------------
+    # PART A – Project-level metric (e.g., license)
+    # ---------------------------------------------
+    if "Presence of License" in metrics:
+        results["Project-Level Results"] = {
+            "Presence of License": run_howfairis_license_check(github_url)
+        }
 
-    # Case 2: User entered a folder → walk recursively through subfolders
-    elif os.path.isdir(path):
-        # os.walk() recursively traverses a directory tree
-        # It yields a tuple (root, dirs, files) for every directory it visits:
-        # - root: current folder path
-        # - dirs: list of subfolders
-        # - files: list of files in this folder
-        for root, dirs, filenames in os.walk(path):
-            for filename in filenames:
-                if filename.endswith(".py"):
-                    # Construct full file path and add it to our list
-                    full_path = os.path.join(root, filename)
-                    files.append(full_path)
+    # ---------------------------------------------
+    # PART B – File-level metrics
+    # ---------------------------------------------
+    if scanning_files:
 
-    # Case 3: Input path is invalid (not a file or folder)
-    else:
-        return {
-            "ERROR": {
+        # ------------------------------------------------------------
+        # STEP 1: Determine whether path is a file or folder
+        # ------------------------------------------------------------
+
+        # Case 1: User entered a single .py file
+        if os.path.isfile(path) and path.endswith(".py"):
+            files.append(path)
+
+        # Case 2: User entered a folder → walk recursively through subfolders
+        elif os.path.isdir(path):
+            # os.walk() recursively traverses a directory tree
+            # It yields a tuple (root, dirs, files) for every directory it visits:
+            # - root: current folder path
+            # - dirs: list of subfolders
+            # - files: list of files in this folder
+            for root, dirs, filenames in os.walk(path):
+                for filename in filenames:
+                    if filename.endswith(".py"):
+                        # Construct full file path and add it to our list
+                        full_path = os.path.join(root, filename)
+                        files.append(full_path)
+
+        # Case 3: Input path is invalid (not a file or folder)
+        else:
+            results["ERROR"] = {
                 "Input Path": {
                     "status": "fail",
                     "message": "Path is not a valid Python file or folder."
                 }
             }
-        }
+            return results
 
-    # ------------------------------------------------------------
-    # STEP 2: If no .py files were found, return a failure message
-    # ------------------------------------------------------------
-    if not files:
-        return {
-            "ERROR": {
+        # ------------------------------------------------------------
+        # STEP 2: If no .py files were found, return a failure message
+        # ------------------------------------------------------------
+        if not files:
+            results["ERROR"] = {
                 "No Python Files Found": {
                     "status": "fail",
                     "message": f"No .py files found under path: {path}"
                 }
             }
-        }
+            return results
 
-    # ------------------------------------------------------------
-    # STEP 3: Evaluate all selected metrics for each .py file found
-    # ------------------------------------------------------------
+        # ------------------------------------------------------------
+        # STEP 3: Evaluate all selected metrics for each .py file found
+        # ------------------------------------------------------------
 
-    for file in files:
-        file_results = {}  # Dictionary to hold results for one file
+        for file in files:
+            file_results = {}  # Dictionary to hold results for one file
 
-        for metric in metrics:
-            # 🔎 Match the metric to its corresponding analysis tool
-            if metric == "Code Smells":
-                file_results[metric] = run_pylint_code_smell(file)
+            for metric in metrics:
 
-            elif metric == "Maintainability Index":
-                file_results[metric] = run_radon_maintainability_index(file)
+                if metric == "Presence of License":
+                    continue  
 
-            elif metric == "Cyclomatic Complexity":
-                file_results[metric] = run_radon_cyclomatic_complexity(file)
+                # Match the metric to its corresponding analysis tool
+                if metric == "Code Smells":
+                    file_results[metric] = run_pylint_code_smell(file)
 
-            elif metric == "Code Duplication":
-                # Run jscpd per folder
-                file_results[metric] = run_jscpd_code_duplication(os.path.dirname(file))
+                elif metric == "Maintainability Index":
+                    file_results[metric] = run_radon_maintainability_index(file)
 
-            elif metric == "Comment Density":
-                file_results[metric] = run_radon_comment_density(file)
+                elif metric == "Cyclomatic Complexity":
+                    file_results[metric] = run_radon_cyclomatic_complexity(file)
 
-            elif metric == "Software Size (LoC)":
-                # Always calculate full project size
-                project_loc = run_project_loc()
+                elif metric == "Code Duplication":
+                    # Run jscpd per folder
+                    file_results[metric] = run_jscpd_code_duplication(os.path.dirname(file))
 
-                # Also calculate lines of code per file under user input target_path
-                file_locs = run_loc_per_target(path)
+                elif metric == "Comment Density":
+                    file_results[metric] = run_radon_comment_density(file)
 
-                file_list_text = "  \n".join([f"    • {os.path.basename(fname)}: {loc} lines" for fname, loc in file_locs.items()])
+                elif metric == "Software Size (LoC)":
+                    # Always calculate full project size
+                    project_loc = run_project_loc()
 
-                file_results[metric] = {
-                    "status": "pass",
-                    "message": f"{project_loc['message']}\n\n{file_list_text}"
-                }
-            
-            elif metric == "Percentage of Assertions":
-                file_results[metric] = run_assertion_percentage(path)
+                    # Also calculate lines of code per file under user input target_path
+                    file_locs = run_loc_per_target(path)
 
-            elif metric == "Unit Tests":
-                file_results[metric] = run_unit_test_detection(path)
+                    file_list_text = "  \n".join([f"    • {os.path.basename(fname)}: {loc} lines" for fname, loc in file_locs.items()])
 
-            elif metric == "Presence of License":
-                # Always use the Jupyter root directory regardless of user selection
-                root_path = os.getcwd()
-                file_results[metric] = run_howfairis_license_check(root_path)
+                    file_results[metric] = {
+                        "status": "pass",
+                        "message": f"{project_loc['message']}\n\n{file_list_text}"
+                    }
+                
+                elif metric == "Percentage of Assertions":
+                    file_results[metric] = run_assertion_percentage(path)
 
-            else:
-                # Placeholder for future metrics (e.g., Test Success Rate, Security)
-                file_results[metric] = {
-                    "status": "pass",
-                    "message": "Simulated result"
-                }
+                elif metric == "Unit Tests":
+                    file_results[metric] = run_unit_test_detection(path)
 
-        # Store the results for this file in the overall result dictionary
-        results[file] = file_results
+                else:
+                    # Placeholder for future metrics (e.g., Test Success Rate, Security)
+                    file_results[metric] = {
+                        "status": "pass",
+                        "message": "Simulated result"
+                    }
+
+            # Store the results for this file in the overall result dictionary
+            results[file] = file_results
 
     return results

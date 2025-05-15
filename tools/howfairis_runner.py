@@ -1,42 +1,33 @@
 import subprocess
-import os
 
-def run_howfairis_license_check(path=None):
+def run_howfairis_license_check(github_url):
     """
-    Run howfairis as a subprocess to check for license presence.
-    
-    Returns:
-        dict: {
-            "status": "pass" or "fail",
-            "message": str
-        }
+    Executes the howfairis CLI tool on the provided GitHub URL.
+    Returns the full raw CLI output, line by line.
     """
-    project_root = os.getcwd() 
 
     try:
         result = subprocess.run(
-            ["howfairis", project_root],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            ["howfairis", github_url],
+            capture_output=True,
             text=True,
-            check=True 
+            timeout=20
         )
 
-        output = result.stdout.lower()
-
-        if "has_license: true" in output:
-            return {
-                "status": "pass",
-                "message": "License file detected in project root."
-            }
-        else:
+        if result.returncode != 0:
             return {
                 "status": "fail",
-                "message": "No license file found in the project root."
+                "message": result.stderr.strip() or result.stdout.strip()
             }
-    
-    except subprocess.CalledProcessError as e:
+
+        # Return raw lines (no markdown block formatting!)
+        return {
+            "status": "pass",
+            "message": result.stdout.strip()  # clean multiline string
+        }
+
+    except Exception as e:
         return {
             "status": "fail",
-            "message": f"howfairis CLI failed: {e.stderr.strip()}"
+            "message": f"Exception while running howfairis: {str(e)}"
         }

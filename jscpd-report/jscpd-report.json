@@ -1,72 +1,12 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-02T19:42:46.359Z",
+    "detectionDate": "2025-05-15T17:08:18.561Z",
     "formats": {
       "python": {
         "sources": {
-          "tools/unit_test_checker.py": {
-            "lines": 66,
-            "tokens": 412,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "tools/radon_runner.py": {
-            "lines": 226,
-            "tokens": 1117,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "tools/pylint_runner.py": {
-            "lines": 55,
-            "tokens": 233,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "tools/loc_counter.py": {
-            "lines": 77,
-            "tokens": 538,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "tools/jscpd_runner.py": {
-            "lines": 90,
-            "tokens": 498,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "tools/assertion_counter.py": {
-            "lines": 73,
-            "tokens": 452,
+          "lifecycle/stage_manager.py": {
+            "lines": 38,
+            "tokens": 166,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -78,9 +18,9 @@
           }
         },
         "total": {
-          "lines": 587,
-          "tokens": 3250,
-          "sources": 6,
+          "lines": 38,
+          "tokens": 166,
+          "sources": 1,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
@@ -92,9 +32,9 @@
       }
     },
     "total": {
-      "lines": 587,
-      "tokens": 3250,
-      "sources": 6,
+      "lines": 38,
+      "tokens": 166,
+      "sources": 1,
       "clones": 0,
       "duplicatedLines": 0,
       "duplicatedTokens": 0,

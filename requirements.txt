@@ -1,0 +1,8 @@
+# Required tools for metric analysis
+pylint
+radon
+jscpd
+
+# UI and Jupyter support
+ipywidgets
+notebook
