@@ -71,6 +71,12 @@ def on_run_button_click(_b):
             display(Markdown("📁 **Project-Level Results**"))
 
             for metric, result in project_metrics.items():
+                if metric == "----------------------------------------":
+                    display(Markdown("---"))
+                    continue
+
+                display(Markdown(f"**{metric}**"))
+
                 if isinstance(result, dict):
                     raw_output = result.get("message", "").strip()
                     for line in raw_output.splitlines():

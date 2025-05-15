@@ -3,10 +3,11 @@ import subprocess
 def run_howfairis_license_check(github_url):
     """
     Executes the howfairis CLI tool on the provided GitHub URL.
-    Returns the full raw CLI output, line by line.
+    Returns the full raw CLI output with status flag.
     """
 
     try:
+        # Run howfairis as subprocess and capture all output
         result = subprocess.run(
             ["howfairis", github_url],
             capture_output=True,
@@ -20,10 +21,10 @@ def run_howfairis_license_check(github_url):
                 "message": result.stderr.strip() or result.stdout.strip()
             }
 
-        # Return raw lines (no markdown block formatting!)
+        # Show full raw output from howfairis
         return {
             "status": "pass",
-            "message": result.stdout.strip()  # clean multiline string
+            "message": f"```\n{result.stdout.strip()}\n```"
         }
 
     except Exception as e:
