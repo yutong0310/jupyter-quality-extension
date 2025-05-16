@@ -10,6 +10,7 @@ from tools.assertion_counter import run_assertion_percentage
 from tools.unit_test_checker import run_unit_test_detection
 from tools.howfairis_runner import run_howfairis_license_check
 from tools.gitleaks_runner import run_gitleaks_secret_scan
+from tools.bandit_runner import run_bandit_security_scan
 
 def evaluate_metrics(metrics, path, github_url=None):
     """
@@ -41,26 +42,14 @@ def evaluate_metrics(metrics, path, github_url=None):
     # ---------------------------------------------
     # PART A – Project-level metric (e.g., license)
     # ---------------------------------------------
-    if any(m in metrics for m in ["Presence of License", "No Leaked Private Credentials"]):
+    if any(m in metrics for m in ["Presence of License", "No Leaked Private Credentials", "Security Vulnerabilities"]):
         results["Project-Level Results"] = {
-            # Section 1: FAIRness via Howfairis
             "FAIR Assessment (howfairis)": run_howfairis_license_check(github_url),
-
-            # Divider
-            "----------------------------------------": {
-                "status": "pass",
-                "message": ""
-            },
-
-            # Section 2: Gitleaks secret scan
-             "Leaked Secrets Scan (Gitleaks)": run_gitleaks_secret_scan()
+            "----------------------------------------": {"status": "pass", "message": ""},
+            "Leaked Secrets Scan (Gitleaks)": run_gitleaks_secret_scan(),
+            "----------------------------------------": {"status": "pass", "message": ""},
+            "Security Vulnerability Scan (Bandit)": run_bandit_security_scan()
         }
-
-        #if "Presence of License" in metrics:
-        #    results["Project-Level Results"]["Presence of License"] = run_howfairis_license_check(github_url)
-
-        #if "No Leaked Private Credentials" in metrics:
-        #    results["Project-Level Results"]["No Leaked Private Credentials"] = run_gitleaks_secret_scan()
 
     # ---------------------------------------------
     # PART B – File-level metrics
