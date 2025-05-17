@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-17T17:15:16.491Z",
+    "detectionDate": "2025-05-17T21:33:27.128Z",
     "formats": {
       "python": {
         "sources": {
@@ -29,8 +29,8 @@
             "newClones": 0
           },
           "tools/pylint_runner.py": {
-            "lines": 55,
-            "tokens": 233,
+            "lines": 45,
+            "tokens": 333,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -114,8 +114,8 @@
           }
         },
         "total": {
-          "lines": 792,
-          "tokens": 4555,
+          "lines": 782,
+          "tokens": 4655,
           "sources": 9,
           "clones": 0,
           "duplicatedLines": 0,
@@ -128,8 +128,8 @@
       }
     },
     "total": {
-      "lines": 792,
-      "tokens": 4555,
+      "lines": 782,
+      "tokens": 4655,
       "sources": 9,
       "clones": 0,
       "duplicatedLines": 0,

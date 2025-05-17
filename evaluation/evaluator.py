@@ -114,7 +114,10 @@ def evaluate_metrics(metrics, path, github_url=None):
 
                 # Match the metric to its corresponding analysis tool
                 if metric == "Code Smells":
-                    file_results[metric] = run_pylint_code_smell(file)
+                    result = run_pylint_code_smell(file)
+                    # result["message"] = "\n".join(result["message"])  # flatten list into lines
+                    result["message"] = "<br>".join(result["message"])
+                    file_results[metric] = result
 
                 elif metric == "Maintainability Index":
                     file_results[metric] = run_radon_maintainability_index(file)
