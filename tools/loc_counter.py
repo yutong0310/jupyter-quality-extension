@@ -12,28 +12,26 @@ def run_project_loc():
             "message": readable summary
         }
     """
+    root_dir = os.getcwd()  # Get the current working directory (assumed as project root)
+    total_loc = 0  # This will store the cumulative lines of code
 
-    root_dir = os.getcwd() # Get the current working directory (assumed as project root)
-    total_loc = 0 # This will store the cumulative lines of code
+    excluded_dirs = {"venv", "__pycache__", ".ipynb_checkpoints", ".git", "bandit-report", "gitleaks-report", "jscpd-report"}
 
-    # os.walk() recursively traverses all directories from root_dir
     for dirpath, dirnames, filenames in os.walk(root_dir):
-        # Skip any folders we don't want to include (like virtualenvs, caches)
-        if 'venv' in dirpath or '__pycache__' in dirpath:
-            continue
+        # In-place prune excluded directories (minimally invasive)
+        dirnames[:] = [d for d in dirnames if d not in excluded_dirs]
 
         for filename in filenames:
             if filename.endswith(".py"):  # Only count Python files
                 file_path = os.path.join(dirpath, filename)
+                try:
+                    with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                        # Count lines that are not just whitespace
+                        file_loc = sum(1 for line in f if line.strip())
+                        total_loc += file_loc
+                except Exception:
+                    continue  # Skip unreadable files
 
-            try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-                    # Count lines that are not just whitespace
-                    file_loc = sum(1 for line in f if line.strip())
-                    total_loc += file_loc
-            except Exception:
-                    # Skip unreadable files
-                    continue
     return {
         "status": "pass",
         "loc": total_loc,

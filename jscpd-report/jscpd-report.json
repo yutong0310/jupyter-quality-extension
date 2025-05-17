@@ -1,12 +1,108 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-15T17:08:18.561Z",
+    "detectionDate": "2025-05-17T17:15:16.491Z",
     "formats": {
       "python": {
         "sources": {
-          "lifecycle/stage_manager.py": {
-            "lines": 38,
-            "tokens": 166,
+          "tools/unit_test_checker.py": {
+            "lines": 66,
+            "tokens": 412,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/radon_runner.py": {
+            "lines": 226,
+            "tokens": 1117,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/pylint_runner.py": {
+            "lines": 55,
+            "tokens": 233,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/loc_counter.py": {
+            "lines": 75,
+            "tokens": 570,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/jscpd_runner.py": {
+            "lines": 90,
+            "tokens": 498,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/howfairis_runner.py": {
+            "lines": 33,
+            "tokens": 170,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/gitleaks_runner.py": {
+            "lines": 65,
+            "tokens": 426,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/bandit_runner.py": {
+            "lines": 109,
+            "tokens": 677,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/assertion_counter.py": {
+            "lines": 73,
+            "tokens": 452,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -18,9 +114,9 @@
           }
         },
         "total": {
-          "lines": 38,
-          "tokens": 166,
-          "sources": 1,
+          "lines": 792,
+          "tokens": 4555,
+          "sources": 9,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
@@ -32,9 +128,9 @@
       }
     },
     "total": {
-      "lines": 38,
-      "tokens": 166,
-      "sources": 1,
+      "lines": 792,
+      "tokens": 4555,
+      "sources": 9,
       "clones": 0,
       "duplicatedLines": 0,
       "duplicatedTokens": 0,
