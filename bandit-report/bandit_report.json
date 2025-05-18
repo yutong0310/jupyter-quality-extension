@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-05-16T22:28:00Z",
+  "generated_at": "2025-05-18T20:32:55Z",
   "metrics": {
     "./extension.py": {
       "CONFIDENCE.HIGH": 0,
@@ -11,7 +11,7 @@
       "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 91,
+      "loc": 93,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -24,7 +24,7 @@
       "SEVERITY.LOW": 23,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 805,
+      "loc": 835,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -63,7 +63,7 @@
       "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 101,
+      "loc": 131,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -206,7 +206,7 @@
       "SEVERITY.LOW": 3,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 40,
+      "loc": 38,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -535,8 +535,8 @@
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "33                     total_loc += file_loc\n34             except Exception:\n35                     # Skip unreadable files\n36                     continue\n37     return {\n",
-      "col_offset": 12,
+      "code": "31                         total_loc += file_loc\n32                 except Exception:\n33                     continue  # Skip unreadable files\n34 \n",
+      "col_offset": 16,
       "end_col_offset": 28,
       "filename": "tools/loc_counter.py",
       "issue_confidence": "HIGH",
@@ -546,11 +546,10 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Try, Except, Continue detected.",
-      "line_number": 34,
+      "line_number": 32,
       "line_range": [
-        34,
-        35,
-        36
+        32,
+        33
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b112_try_except_continue.html",
       "test_id": "B112",
@@ -577,7 +576,7 @@
       "test_name": "blacklist"
     },
     {
-      "code": "26         # STEP 2: Run pylint on the file using subprocess\n27         output = subprocess.check_output(\n28             ['pylint', filepath],          # Command to run pylint on the file\n29             stderr=subprocess.STDOUT,      # Redirect standard error to standard output\n30             text=True                      # Return output as a string instead of bytes\n31         )\n32 \n",
+      "code": "24     try:\n25         output = subprocess.check_output(\n26             ['pylint', filepath, '-f', 'text', '--disable=all', '--enable=C,R,W'],\n27             stderr=subprocess.STDOUT,\n28             text=True\n29         )\n30 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/pylint_runner.py",
@@ -588,20 +587,20 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 27,
+      "line_number": 25,
       "line_range": [
+        25,
+        26,
         27,
         28,
-        29,
-        30,
-        31
+        29
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "26         # STEP 2: Run pylint on the file using subprocess\n27         output = subprocess.check_output(\n28             ['pylint', filepath],          # Command to run pylint on the file\n29             stderr=subprocess.STDOUT,      # Redirect standard error to standard output\n30             text=True                      # Return output as a string instead of bytes\n31         )\n32 \n",
+      "code": "24     try:\n25         output = subprocess.check_output(\n26             ['pylint', filepath, '-f', 'text', '--disable=all', '--enable=C,R,W'],\n27             stderr=subprocess.STDOUT,\n28             text=True\n29         )\n30 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/pylint_runner.py",
@@ -612,13 +611,13 @@
       },
       "issue_severity": "LOW",
       "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 27,
+      "line_number": 25,
       "line_range": [
+        25,
+        26,
         27,
         28,
-        29,
-        30,
-        31
+        29
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",

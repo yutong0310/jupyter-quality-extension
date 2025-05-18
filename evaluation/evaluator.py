@@ -1,4 +1,5 @@
 import os  
+from IPython.display import display, HTML, Markdown
 from tools.pylint_runner import run_pylint_code_smell  
 from tools.radon_runner import run_radon_maintainability_index
 from tools.radon_runner import run_radon_cyclomatic_complexity
@@ -11,6 +12,40 @@ from tools.unit_test_checker import run_unit_test_detection
 from tools.howfairis_runner import run_howfairis_license_check
 from tools.gitleaks_runner import run_gitleaks_secret_scan
 from tools.bandit_runner import run_bandit_security_scan
+
+# -------------------------------
+# Maintenance Metrics Status Display Helper
+# -------------------------------
+def get_maintenance_metrics_status():
+    return [
+        ("Presence of License", "measured"),
+        ("Publicly Accessible Repository", "measured"),
+        ("Rich Metadata", "partial"),
+        ("Documentation Quality", "partial"),
+        ("User Satisfaction", "manual"),
+        ("No Leaked Private Credentials", "measured"),
+        ("Security Vulnerabilities", "measured"),
+    ]
+
+def display_maintenance_metric_overview():
+    status_icon = {
+        "measured": "✓",
+        "partial": "~",
+        "manual": "×"
+    }
+
+    display(HTML("<h4> Maintenance Metrics Being Checked:</h4><ul>"))
+    for name, status in get_maintenance_metrics_status():
+        icon = status_icon.get(status, "?")
+        if status == "manual":
+            label = "requires human evaluation"
+        elif status == "partial":
+            label = "partially measured"
+        else:
+            label = "measured"
+        display(HTML(f"<li>{icon} <b>{name}</b> ({label})</li>"))
+    display(HTML("</ul>"))
+# -------------------------------
 
 def evaluate_metrics(metrics, path, github_url=None):
     """
@@ -45,6 +80,7 @@ def evaluate_metrics(metrics, path, github_url=None):
     if any(m in metrics for m in ["Presence of License", "No Leaked Private Credentials", "Security Vulnerabilities"]):
         results["Project-Level Results"] = {
             "FAIR Assessment (howfairis)": run_howfairis_license_check(github_url),
+            
             "----------------------------------------": {"status": "pass", "message": ""},
             "Leaked Secrets Scan (Gitleaks)": run_gitleaks_secret_scan(),
             "----------------------------------------": {"status": "pass", "message": ""},
@@ -66,11 +102,8 @@ def evaluate_metrics(metrics, path, github_url=None):
 
         # Case 2: User entered a folder → walk recursively through subfolders
         elif os.path.isdir(path):
-            # os.walk() recursively traverses a directory tree
-            # It yields a tuple (root, dirs, files) for every directory it visits:
-            # - root: current folder path
-            # - dirs: list of subfolders
-            # - files: list of files in this folder
+            # os.walk() recursively traverses a directory tree. It yields a tuple (root, dirs, files) for every directory it visits:
+            # - root: current folder path.  - dirs: list of subfolders.  - files: list of files in this folder
             for root, dirs, filenames in os.walk(path):
                 for filename in filenames:
                     if filename.endswith(".py"):
@@ -115,7 +148,6 @@ def evaluate_metrics(metrics, path, github_url=None):
                 # Match the metric to its corresponding analysis tool
                 if metric == "Code Smells":
                     result = run_pylint_code_smell(file)
-                    # result["message"] = "\n".join(result["message"])  # flatten list into lines
                     result["message"] = "<br>".join(result["message"])
                     file_results[metric] = result
 
@@ -133,11 +165,9 @@ def evaluate_metrics(metrics, path, github_url=None):
                     file_results[metric] = run_radon_comment_density(file)
 
                 elif metric == "Software Size (LoC)":
-                    # Always calculate full project size
-                    project_loc = run_project_loc()
 
-                    # Also calculate lines of code per file under user input target_path
-                    file_locs = run_loc_per_target(path)
+                    project_loc = run_project_loc() # Always calculate full project size
+                    file_locs = run_loc_per_target(path) # Also calculate lines of code per file under user input target_path
 
                     file_list_text = "  \n".join([f"    • {os.path.basename(fname)}: {loc} lines" for fname, loc in file_locs.items()])
 

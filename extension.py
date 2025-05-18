@@ -7,6 +7,7 @@ import ipywidgets as widgets
 from IPython.display import display, Markdown
 from lifecycle.stage_manager import get_metrics_for_stage
 from evaluation.evaluator import evaluate_metrics
+from evaluation.evaluator import display_maintenance_metric_overview
 
 # -------------------------------------------------------------------
 # UI ELEMENTS: Create all the interactive components for the extension
@@ -55,11 +56,15 @@ def on_run_button_click(_b):
 
     with output_area:
         display(Markdown(f"### Selected Stage: `{selected_stage}`"))
-        if selected_stage != "Maintenance":
-            display(Markdown(f"Target Path: `{target_path}`"))
 
         metrics = get_metrics_for_stage(selected_stage)
-        display(Markdown(f"**Running {len(metrics)} quality checks...**"))
+        # display(Markdown(f"**Running {len(metrics)} quality checks...**"))
+
+        if selected_stage == "Maintenance":
+            display_maintenance_metric_overview()
+
+        if selected_stage != "Maintenance":
+            display(Markdown(f"Target Path: `{target_path}`"))
 
         # Perform evaluation
         results = evaluate_metrics(metrics, target_path, github_url)
