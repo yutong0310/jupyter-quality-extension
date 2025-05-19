@@ -4,7 +4,7 @@ the Jupyter extension that helps assess the quality of Tier-1 research software.
 """
 
 import ipywidgets as widgets
-from IPython.display import display, Markdown
+from IPython.display import display, HTML, Markdown
 from lifecycle.stage_manager import get_metrics_for_stage
 from evaluation.evaluator import evaluate_metrics
 from evaluation.evaluator import display_maintenance_metric_overview
@@ -75,8 +75,16 @@ def on_run_button_click(_b):
             display(Markdown("---"))
             display(Markdown("📁 **Project-Level Results**"))
 
+            # Explain what metrics Howfairis contributes to
+            if "FAIR Assessment (howfairis)" in project_metrics:
+                display(HTML("<i>Howfairis contributes to the following metrics: "
+                            "<b>Presence of License</b>, "
+                            "<b>Publicly Accessible Repository</b>, "
+                            "<b>Rich Metadata</b> (partially), and "
+                            "<b>Documentation Quality</b> (partially).</i><br><br>"))
+
             for metric, result in project_metrics.items():
-                if metric == "----------------------------------------":
+                if metric.startswith("-----divider"):
                     display(Markdown("---"))
                     continue
 
@@ -89,6 +97,9 @@ def on_run_button_click(_b):
                             display(Markdown(line.strip()))
                 else:
                     display(Markdown(str(result)))
+            
+            # display(Markdown("**User Satisfaction (Manual Assessment)**"))
+            # display(HTML("⚠️ <b>User Satisfaction</b>: Not automatically measurable. This requires user surveys or interviews."))
 
         # STEP 2: Display file-level results (skip if Maintenance stage)
         if selected_stage != "Maintenance":

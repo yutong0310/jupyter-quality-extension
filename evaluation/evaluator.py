@@ -13,18 +13,16 @@ from tools.howfairis_runner import run_howfairis_license_check
 from tools.gitleaks_runner import run_gitleaks_secret_scan
 from tools.bandit_runner import run_bandit_security_scan
 
-# -------------------------------
-# Maintenance Metrics Status Display Helper
-# -------------------------------
+# Maintenance metric overview section
 def get_maintenance_metrics_status():
     return [
-        ("Presence of License", "measured"),
-        ("Publicly Accessible Repository", "measured"),
-        ("Rich Metadata", "partial"),
-        ("Documentation Quality", "partial"),
-        ("User Satisfaction", "manual"),
-        ("No Leaked Private Credentials", "measured"),
-        ("Security Vulnerabilities", "measured"),
+        ("Presence of License", "measured", "Automatically checked via howfairis."),
+        ("Publicly Accessible Repository", "measured", "Automatically checked via howfairis."),
+        ("Rich Metadata", "partial", "Note: Partially measured by howfairis. This checks presence of citation metadata only, not completeness or quality."),
+        ("Documentation Quality", "partial", "Note: Partially measured by howfairis. This checks documentation by verifying citation metadata, but not how well-documented the code is."),
+        ("User Satisfaction", "manual", "Not automatically measurable. This requires user surveys or interviews."),
+        ("No Leaked Private Credentials", "measured", "Automatically checked via gitleaks."),
+        ("Security Vulnerabilities", "measured", "Automatically checked via bandit.")
     ]
 
 def display_maintenance_metric_overview():
@@ -35,7 +33,8 @@ def display_maintenance_metric_overview():
     }
 
     display(HTML("<h4> Maintenance Metrics Being Checked:</h4><ul>"))
-    for name, status in get_maintenance_metrics_status():
+
+    for name, status, note in get_maintenance_metrics_status():
         icon = status_icon.get(status, "?")
         if status == "manual":
             label = "requires human evaluation"
@@ -43,7 +42,10 @@ def display_maintenance_metric_overview():
             label = "partially measured"
         else:
             label = "measured"
+        
         display(HTML(f"<li>{icon} <b>{name}</b> ({label})</li>"))
+        display(HTML(f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{note}</i></div><br>"))
+
     display(HTML("</ul>"))
 # -------------------------------
 
@@ -80,10 +82,9 @@ def evaluate_metrics(metrics, path, github_url=None):
     if any(m in metrics for m in ["Presence of License", "No Leaked Private Credentials", "Security Vulnerabilities"]):
         results["Project-Level Results"] = {
             "FAIR Assessment (howfairis)": run_howfairis_license_check(github_url),
-            
-            "----------------------------------------": {"status": "pass", "message": ""},
+            "-----divider-1-----": {"status": "pass", "message": ""},
             "Leaked Secrets Scan (Gitleaks)": run_gitleaks_secret_scan(),
-            "----------------------------------------": {"status": "pass", "message": ""},
+            "-----divider-2-----": {"status": "pass", "message": ""},
             "Security Vulnerability Scan (Bandit)": run_bandit_security_scan()
         }
 
