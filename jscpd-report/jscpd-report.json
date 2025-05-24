@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-24T21:46:29.233Z",
+    "detectionDate": "2025-05-24T22:00:56.519Z",
     "formats": {
       "python": {
         "sources": {
@@ -17,8 +17,8 @@
             "newClones": 0
           },
           "tools/radon_runner.py": {
-            "lines": 263,
-            "tokens": 1298,
+            "lines": 351,
+            "tokens": 1883,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -126,8 +126,8 @@
           }
         },
         "total": {
-          "lines": 882,
-          "tokens": 5270,
+          "lines": 970,
+          "tokens": 5855,
           "sources": 10,
           "clones": 0,
           "duplicatedLines": 0,
@@ -140,8 +140,8 @@
       }
     },
     "total": {
-      "lines": 882,
-      "tokens": 5270,
+      "lines": 970,
+      "tokens": 5855,
       "sources": 10,
       "clones": 0,
       "duplicatedLines": 0,

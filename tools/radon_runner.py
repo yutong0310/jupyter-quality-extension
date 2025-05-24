@@ -115,7 +115,7 @@ def run_radon_maintainability_index(filepath):
             "message": f"Radon error: {e.output.strip()}"
         }
 
-def run_radon_cyclomatic_complexity(filepath):
+def run_radon_cyclomatic_complexity_old(filepath):
     """
     Computes the average Cyclomatic Complexity for a given Python file
     using Radon's command-line interface.
@@ -187,6 +187,94 @@ def run_radon_cyclomatic_complexity(filepath):
     
     except subprocess.CalledProcessError as e:
         # Step 10: If radon crashes (e.g., due to syntax error), catch and return error message
+        return {
+            "status": "fail",
+            "message": f"Radon error: {e.output.strip()}"
+        }
+    
+def run_radon_cyclomatic_complexity(filepath):
+    """
+    Analyzes cyclomatic complexity using Radon and adds interpretation with ranks A–F.
+    Returns:
+        dict: status, average score, most severe rank, and styled user guidance.
+    """
+
+    if not os.path.isfile(filepath):
+        return {
+            "status": "fail",
+            "message": f"File not found: {filepath}"
+        }
+
+    try:
+        output = subprocess.check_output(
+            ['radon', 'cc', '--json', '--no-assert', filepath],
+            stderr=subprocess.STDOUT,
+            text=True
+        )
+        results = json.loads(output)
+        file_results = results.get(filepath, [])
+
+        if not file_results:
+            return {
+                "status": "pass",
+                "score": 0,
+                "message": "No functions or classes found for cyclomatic complexity analysis."
+            }
+
+        # Extract scores and ranks
+        scores = [item.get("complexity", 0) for item in file_results]
+        ranks = [item.get("rank", "") for item in file_results]
+        average = sum(scores) / len(scores)
+        worst_rank = max(ranks, key=lambda r: "ABCDEF".index(r))  # A < B < ... < F
+
+        # Interpret ranking based on official Radon docs
+        rank_explanations = {
+            "A": {
+                "note": "Low complexity – simple and easy to follow.",
+                "tip": "Great job! Your logic blocks are concise and well-structured. Keep enforcing this by maintaining short methods, clear conditionals, and avoiding excessive branching."
+            },
+            "B": {
+                "note": "Low complexity – stable and structured.",
+                "tip": "Your code is well-written, though there may be some minor complexity. Try to simplify branching logic or break down slightly longer methods."
+            },
+            "C": {
+                "note": "Moderate complexity – slightly complex.",
+                "tip": "Consider reviewing areas with nested conditionals, long methods, or large switch/case statements. Break complex logic into helper functions where possible."
+            },
+            "D": {
+                "note": "High complexity – moderately difficult to follow.",
+                "tip": "Several methods may be hard to follow. Refactor to reduce nesting, limit decision paths, and extract reusable logic."
+            },
+            "E": {
+                "note": "Very high complexity – complex and potentially error-prone.",
+                "tip": "Your code is difficult to read and maintain. Simplify loops and conditionals, limit the number of return points, and refactor heavily nested blocks."
+            },
+            "F": {
+                "note": "Extremely high complexity – unstable and difficult to maintain.",
+                "tip": "Code in this file is highly complex. Consider redesigning the structure completely. Aim to decompose logic into smaller, manageable components and apply design patterns if appropriate."
+            }
+        }
+
+        explanation = rank_explanations.get(worst_rank, {})
+        note = explanation.get("note", "")
+        tip = explanation.get("tip", "")
+
+        styled_note = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{note}</i></div>"
+        styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {tip}</div>"
+
+        message = (
+            f"Avg. Cyclomatic Complexity: {average:.2f}, Worst Rank: {worst_rank}"
+            f"{styled_note}{styled_tip}"
+        )
+
+        return {
+            "status": "fail" if worst_rank in ("E", "F") else "pass",
+            "score": average,
+            "rank": worst_rank,
+            "message": message
+        }
+
+    except subprocess.CalledProcessError as e:
         return {
             "status": "fail",
             "message": f"Radon error: {e.output.strip()}"
