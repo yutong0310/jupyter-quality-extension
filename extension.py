@@ -8,6 +8,7 @@ from IPython.display import display, HTML, Markdown
 from lifecycle.stage_manager import get_metrics_for_stage
 from evaluation.evaluator import evaluate_metrics
 from evaluation.evaluator import display_maintenance_metric_overview
+from evaluation.evaluator import display_development_metric_overview
 
 # -------------------------------------------------------------------
 # UI ELEMENTS: Create all the interactive components for the extension
@@ -58,6 +59,9 @@ def on_run_button_click(_b):
         display(Markdown(f"### Selected Stage: `{selected_stage}`"))
 
         metrics = get_metrics_for_stage(selected_stage)
+
+        if selected_stage == "Development":
+            display_development_metric_overview()
 
         if selected_stage == "Maintenance":
             display_maintenance_metric_overview()

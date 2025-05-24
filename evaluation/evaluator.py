@@ -14,7 +14,42 @@ from tools.gitleaks_runner import run_gitleaks_secret_scan
 from tools.bandit_runner import run_bandit_security_scan
 from tools.modularity_checker import run_modularity_check
 
+# Development metric overview section
+def get_development_metrics_status():
+    return [
+        ("Code Smells", "measured", "Automatically checked via pylint."),
+        ("Maintainability Index", "measured", "Automatically checked via radon."),
+        ("Cognitive Complexity", "manual", "Not automatically measurable. Requires human judgment to assess nested structures, logic flow, and mental overhead."),
+        ("Cyclomatic Complexity", "measured", "Automatically checked via radon."),
+        ("Code Duplication", "measured", "Automatically checked via jscpd."),
+        ("Technical Debt", "partial", "Partially approximated using heuristics. No established standard tool."),
+        ("Dependency Management", "partial", "Estimated based on placeholder logic. No robust tooling used."),
+        ("Comment Density", "measured", "Automatically checked via custom parser.")
+    ]
 
+def display_development_metric_overview():
+    status_icon = {
+        "measured": "✓",
+        "partial": "~",
+        "manual": "×"
+    }
+
+    label_text = {
+        "measured": "measured",
+        "partial": "partially measured",
+        "manual": "requires human evaluation"
+    }
+
+    display(HTML("<h4>Development Metrics Being Checked:</h4><ul>"))
+    for name, status, explanation in get_development_metrics_status():
+        icon = status_icon.get(status, "?")
+        label = label_text.get(status, status)
+
+        display(HTML(
+            f"<li>{icon} <b>{name}</b> ({label})"
+            f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{explanation}</i></div></li><br>"
+        ))
+    display(HTML("</ul>"))
 
 # Maintenance metric overview section
 def get_maintenance_metrics_status():
@@ -161,6 +196,9 @@ def evaluate_metrics(metrics, path, github_url=None):
 
                 elif metric == "Maintainability Index":
                     file_results[metric] = run_radon_maintainability_index(file)
+                
+                elif metric == "Cognitive Complexity":
+                    continue
 
                 elif metric == "Cyclomatic Complexity":
                     file_results[metric] = run_radon_cyclomatic_complexity(file)
