@@ -48,21 +48,58 @@ def run_radon_maintainability_index(filepath):
 
         # Step 5: If both values are present, proceed to evaluate them
         if mi_score is not None and mi_rank is not None:
+
+            grade_explanations = {
+                "A": {
+                    "note": "Very high maintainability.",
+                    "tip": (
+                        "Your code demonstrates excellent structure, clarity, and low complexity. "
+                        "To maintain this level, continue enforcing consistent naming conventions, "
+                        "modular design principles, and clean separation of concerns. "
+                        "Ensure all functions remain concise and well-documented. "
+                        "Conduct occasional code reviews to catch early signs of complexity."
+                    )
+                },
+                "B": {
+                    "note": "Moderate maintainability.",
+                    "tip": (
+                        "Your code is functional but may contain areas of growing complexity. "
+                        "Focus on refactoring larger functions into smaller, reusable ones. "
+                        "Add or improve comments and docstrings to enhance clarity for future maintainers. "
+                        "Look out for inconsistent naming or coupled modules that could be abstracted. "
+                        "Regular cleanup and consistent formatting will help elevate maintainability."
+                    )
+                },
+                "C": {
+                    "note": "Extremely low maintainability.",
+                    "tip": (
+                        "The codebase likely suffers from long, complex functions, poor documentation, "
+                        "and high coupling between modules. Start by identifying the most complex areas "
+                        "using tools like cyclomatic complexity. Break large functions into simpler, single-responsibility units. "
+                        "Remove or consolidate redundant code, and use clear, descriptive naming. "
+                        "Comprehensive docstrings and consistent structure will drastically improve maintainability."
+                    )
+                }
+            }
+
+            mi_note = grade_explanations.get(mi_rank, {}).get("note", "")
+            mi_tip = grade_explanations.get(mi_rank, {}).get("tip", "")
+            
+            styled_note = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{mi_note}</i></div>"
+            styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {mi_tip}</div>"
+
+            full_message = (
+                f"MI Score: {mi_score:.2f}, Grade: {mi_rank}"
+                f"{styled_note}{styled_tip}"
+            )
+
             # Step 6: Apply quality threshold (commonly used is 65)
-            if mi_score < 65:
-                return {
-                    "status": "fail",
-                    "score": mi_score,
-                    "grade": mi_rank,
-                    "message": f"Low maintainability: MI Score = {mi_score:.2f}, Grade = {mi_rank}"
-                }
-            else:
-                return {
-                    "status": "pass",
-                    "score": mi_score,
-                    "grade": mi_rank,
-                    "message": f"MI Score: {mi_score:.2f}, Grade: {mi_rank}"
-                }
+            return {
+                "status": "pass" if mi_score >= 65 else "fail",
+                "score": mi_score,
+                "grade": mi_rank,
+                "message": full_message
+            }
 
         # Step 7: Handle the case where MI score or grade is missing
         else:

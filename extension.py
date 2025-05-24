@@ -58,7 +58,6 @@ def on_run_button_click(_b):
         display(Markdown(f"### Selected Stage: `{selected_stage}`"))
 
         metrics = get_metrics_for_stage(selected_stage)
-        # display(Markdown(f"**Running {len(metrics)} quality checks...**"))
 
         if selected_stage == "Maintenance":
             display_maintenance_metric_overview()
@@ -98,11 +97,8 @@ def on_run_button_click(_b):
                 else:
                     display(Markdown(str(result)))
             
-            # display(Markdown("**User Satisfaction (Manual Assessment)**"))
-            # display(HTML("⚠️ <b>User Satisfaction</b>: Not automatically measurable. This requires user surveys or interviews."))
-
         # STEP 2: Display file-level results (skip if Maintenance stage)
-        if selected_stage != "Maintenance":
+        if selected_stage != "Maintenance" and selected_stage != "Planning and Design":
             for file, file_metrics in results.items():
                 if file == "Project-Level Results":
                     continue

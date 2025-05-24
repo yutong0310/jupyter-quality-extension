@@ -12,6 +12,7 @@ from tools.unit_test_checker import run_unit_test_detection
 from tools.howfairis_runner import run_howfairis_license_check
 from tools.gitleaks_runner import run_gitleaks_secret_scan
 from tools.bandit_runner import run_bandit_security_scan
+from tools.modularity_checker import run_modularity_check
 
 # Maintenance metric overview section
 def get_maintenance_metrics_status():
@@ -79,14 +80,18 @@ def evaluate_metrics(metrics, path, github_url=None):
     # ---------------------------------------------
     # PART A – Project-level metric (e.g., license)
     # ---------------------------------------------
+    results["Project-Level Results"] = {}
+
     if any(m in metrics for m in ["Presence of License", "No Leaked Private Credentials", "Security Vulnerabilities"]):
-        results["Project-Level Results"] = {
-            "FAIR Assessment (howfairis)": run_howfairis_license_check(github_url),
-            "-----divider-1-----": {"status": "pass", "message": ""},
-            "Leaked Secrets Scan (Gitleaks)": run_gitleaks_secret_scan(),
-            "-----divider-2-----": {"status": "pass", "message": ""},
-            "Security Vulnerability Scan (Bandit)": run_bandit_security_scan()
-        }
+        results["Project-Level Results"]["FAIR Assessment (howfairis)"] = run_howfairis_license_check(github_url)
+        results["Project-Level Results"]["-----divider-1-----"] = {"status": "pass", "message": ""}
+        results["Project-Level Results"]["Leaked Secrets Scan (Gitleaks)"] = run_gitleaks_secret_scan()
+        results["Project-Level Results"]["-----divider-2-----"] = {"status": "pass", "message": ""}
+        results["Project-Level Results"]["Security Vulnerability Scan (Bandit)"] = run_bandit_security_scan()
+
+    
+    if "Modularity" in metrics:
+        results["Project-Level Results"]["⚠️ Modularity (Structure Overview)"] = run_modularity_check(path)
 
     # ---------------------------------------------
     # PART B – File-level metrics

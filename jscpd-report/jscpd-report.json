@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-18T21:38:35.695Z",
+    "detectionDate": "2025-05-24T05:59:16.840Z",
     "formats": {
       "python": {
         "sources": {
@@ -17,8 +17,8 @@
             "newClones": 0
           },
           "tools/radon_runner.py": {
-            "lines": 226,
-            "tokens": 1117,
+            "lines": 263,
+            "tokens": 1298,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -31,6 +31,18 @@
           "tools/pylint_runner.py": {
             "lines": 45,
             "tokens": 333,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "tools/modularity_checker.py": {
+            "lines": 63,
+            "tokens": 434,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -114,9 +126,9 @@
           }
         },
         "total": {
-          "lines": 782,
-          "tokens": 4655,
-          "sources": 9,
+          "lines": 882,
+          "tokens": 5270,
+          "sources": 10,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
@@ -128,9 +140,9 @@
       }
     },
     "total": {
-      "lines": 782,
-      "tokens": 4655,
-      "sources": 9,
+      "lines": 882,
+      "tokens": 5270,
+      "sources": 10,
       "clones": 0,
       "duplicatedLines": 0,
       "duplicatedTokens": 0,
