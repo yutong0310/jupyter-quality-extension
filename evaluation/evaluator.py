@@ -14,6 +14,8 @@ from tools.gitleaks_runner import run_gitleaks_secret_scan
 from tools.bandit_runner import run_bandit_security_scan
 from tools.modularity_checker import run_modularity_check
 
+
+
 # Maintenance metric overview section
 def get_maintenance_metrics_status():
     return [

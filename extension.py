@@ -108,7 +108,8 @@ def on_run_button_click(_b):
                     if isinstance(result, dict):
                         status = result.get("status", "")
                         message = result.get("message", "")
-                        icon = "✅" if status == "pass" else "❌"
+                        # icon = "✅" if status == "pass" else "❌"
+                        icon = "✓" if status == "pass" else "x"
                         display(Markdown(f"- {icon} **{metric}**: {message}"))
                     else:
                         display(Markdown(f"- **{metric}**: {result}"))

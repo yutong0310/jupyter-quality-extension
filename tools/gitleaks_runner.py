@@ -37,7 +37,7 @@ def run_gitleaks_secret_scan():
                 findings = json.load(f)
 
             if findings:
-                messages = ["🚨 Potential credentials found:"]
+                messages = [" Potential credentials found:"]
                 for item in findings:
                     file = item.get("file", "")
                     secret = item.get("rule", "Secret")
@@ -51,7 +51,7 @@ def run_gitleaks_secret_scan():
             else:
                 return {
                     "status": "pass",
-                    "message": "✅ No leaked credentials found."
+                    "message": "✓ No leaked credentials found."
                 }
 
         return {

@@ -86,7 +86,7 @@ def run_bandit_security_scan():
     if not filtered:
         return {
             "status": "pass",
-            "message": "✅ No medium or high-severity security vulnerabilities found."
+            "message": "✓ No medium or high-severity security vulnerabilities found."
         }
 
     # ---------------------------------------
@@ -106,5 +106,5 @@ def run_bandit_security_scan():
     return {
         "status": "fail",
         # "message": "⚠️ Medium or high-severity vulnerabilities detected:\n\n" + "\n".join(messages)
-        "message": "⚠️ Bandit found potential security issues:\n\n" + "\n".join(messages)
+        "message": "! Bandit found potential security issues:\n\n" + "\n".join(messages)
     }
