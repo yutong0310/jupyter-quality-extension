@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-24T22:00:56.519Z",
+    "detectionDate": "2025-05-25T15:17:23.695Z",
     "formats": {
       "python": {
         "sources": {
@@ -17,8 +17,8 @@
             "newClones": 0
           },
           "tools/radon_runner.py": {
-            "lines": 351,
-            "tokens": 1883,
+            "lines": 359,
+            "tokens": 1916,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -65,14 +65,14 @@
             "newClones": 0
           },
           "tools/jscpd_runner.py": {
-            "lines": 90,
-            "tokens": 498,
+            "lines": 180,
+            "tokens": 1042,
             "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
+            "clones": 1,
+            "duplicatedLines": 61,
+            "duplicatedTokens": 413,
+            "percentage": 33.89,
+            "percentageTokens": 39.64,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
@@ -92,11 +92,11 @@
             "lines": 65,
             "tokens": 426,
             "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
+            "clones": 1,
+            "duplicatedLines": 61,
+            "duplicatedTokens": 413,
+            "percentage": 93.85,
+            "percentageTokens": 96.95,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
@@ -126,31 +126,68 @@
           }
         },
         "total": {
-          "lines": 970,
-          "tokens": 5855,
+          "lines": 1068,
+          "tokens": 6432,
           "sources": 10,
-          "clones": 0,
-          "duplicatedLines": 0,
-          "duplicatedTokens": 0,
-          "percentage": 0,
-          "percentageTokens": 0,
+          "clones": 1,
+          "duplicatedLines": 61,
+          "duplicatedTokens": 413,
+          "percentage": 5.71,
+          "percentageTokens": 6.42,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 970,
-      "tokens": 5855,
+      "lines": 1068,
+      "tokens": 6432,
       "sources": 10,
-      "clones": 0,
-      "duplicatedLines": 0,
-      "duplicatedTokens": 0,
-      "percentage": 0,
-      "percentageTokens": 0,
+      "clones": 1,
+      "duplicatedLines": 61,
+      "duplicatedTokens": 413,
+      "percentage": 5.71,
+      "percentageTokens": 6.42,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
   },
-  "duplicates": []
+  "duplicates": [
+    {
+      "format": "python",
+      "lines": 62,
+      "fragment": "def run_gitleaks_secret_scan():\n    \"\"\"\n    Runs Gitleaks on the current project directory (cwd).\n    Returns a dictionary formatted for display under \"Project-Level Results\".\n    \"\"\"\n    try:\n        # Use current working directory as project root\n        root_path = os.getcwd()\n        report_dir = os.path.join(root_path, \"gitleaks-report\")\n        os.makedirs(report_dir, exist_ok=True)\n\n        report_path = os.path.join(report_dir, \"gitleaks_report.json\")\n\n        # Run Gitleaks\n        result = subprocess.run(\n            [\"gitleaks\", \"detect\", \"--source\", root_path,\n             \"--report-format\", \"json\", \"--report-path\", report_path],\n            capture_output=True,\n            text=True,\n            check=False\n        )\n\n        # If gitleaks fails (not 0 or 1), return the error\n        if result.returncode not in [0, 1]:\n            return {\n                \"status\": \"fail\",\n                \"message\": f\"Gitleaks execution error: {result.stderr.strip()}\"\n            }\n\n        # Load the report\n        if os.path.exists(report_path):\n            with open(report_path, \"r\") as f:\n                findings = json.load(f)\n\n            if findings:\n                messages = [\" Potential credentials found:\"]\n                for item in findings:\n                    file = item.get(\"file\", \"\")\n                    secret = item.get(\"rule\", \"Secret\")\n                    line = item.get(\"line\", \"?\")\n                    messages.append(f\"• `{secret}` in `{file}` (line {line})\")\n\n                return {\n                    \"status\": \"fail\",\n                    \"message\": \"\\n\".join(messages)\n                }\n            else:\n                return {\n                    \"status\": \"pass\",\n                    \"message\": \"✓ No leaked credentials found.\"\n                }\n\n        return {\n            \"status\": \"fail\",\n            \"message\": \"No Gitleaks report was generated.\"\n        }\n\n    except Exception as e:\n        return {\n            \"status\": \"fail\",\n            \"message\": f\"Exception during Gitleaks scan: {str(e)}\"\n        }",
+      "tokens": 0,
+      "firstFile": {
+        "name": "tools/gitleaks_runner.py",
+        "start": 5,
+        "end": 66,
+        "startLoc": {
+          "line": 5,
+          "column": 1,
+          "position": 13
+        },
+        "endLoc": {
+          "line": 66,
+          "column": 2,
+          "position": 426
+        }
+      },
+      "secondFile": {
+        "name": "tools/jscpd_runner.py",
+        "start": 120,
+        "end": 181,
+        "startLoc": {
+          "line": 120,
+          "column": 1,
+          "position": 629
+        },
+        "endLoc": {
+          "line": 181,
+          "column": 2,
+          "position": 1042
+        }
+      }
+    }
+  ]
 }

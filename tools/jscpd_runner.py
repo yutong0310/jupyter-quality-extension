@@ -68,14 +68,40 @@ def run_jscpd_code_duplication(path):
         # Step 7: Calculate percentage duplicated
         percentage = (duplicated / total * 100) if total > 0 else 0
 
-        # Step 8: Apply threshold logic (pass if < 15%)
-        status = "pass" if percentage < 15 else "fail"
+        # Determine severity and create styled explanation
+        if percentage < 10:
+            status = "pass"
+            note = "Low duplication – clean code."
+            tip = "Your notebook has low redundancy, which enhances maintainability and readability. Continue using helper functions and avoiding repeated code blocks."
+        elif percentage < 20:
+            status = "pass"
+            note = "Moderate duplication – could be improved."
+            tip = "Some code duplication exists. Consider refactoring shared logic into reusable functions to improve structure."
+        else:
+            status = "fail"
+            note = "High duplication – code should be refactored."
+            tip = "Significant repetition detected. Break down repeated blocks, modularize logic, and avoid copy-paste coding practices."
+
+        styled_note = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{note}</i></div>"
+        styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {tip}</div>"
+        legend = (
+            "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
+            "<i>Note: A duplication rate under 10% is considered good. Over 20% is typically problematic in maintainability.</i>"
+            "</div>"
+        )
+
+        message = (
+            f"Duplicated Lines: {duplicated} / {total} "
+            f"({percentage:.2f}%)"
+            f"{styled_note}{styled_tip}{legend}"
+        )
 
         return {
             "status": status,
             "percentage": percentage,
-            "message": f"Code Duplication: {percentage:.2f}% duplicated code detected." if status == "pass"
-                       else f"High Duplication: {percentage:.2f}% (❌ consider refactoring)"
+            "duplicated_lines": duplicated,
+            "total_lines": total,
+            "message": message
         }
     
     except subprocess.CalledProcessError as e:
@@ -88,4 +114,68 @@ def run_jscpd_code_duplication(path):
         return {
             "status": "fail",
             "message": f"Unexpected error while running jscpd: {str(e)}"
+        }
+
+# !!! This is to test clone detection 
+def run_gitleaks_secret_scan():
+    """
+    Runs Gitleaks on the current project directory (cwd).
+    Returns a dictionary formatted for display under "Project-Level Results".
+    """
+    try:
+        # Use current working directory as project root
+        root_path = os.getcwd()
+        report_dir = os.path.join(root_path, "gitleaks-report")
+        os.makedirs(report_dir, exist_ok=True)
+
+        report_path = os.path.join(report_dir, "gitleaks_report.json")
+
+        # Run Gitleaks
+        result = subprocess.run(
+            ["gitleaks", "detect", "--source", root_path,
+             "--report-format", "json", "--report-path", report_path],
+            capture_output=True,
+            text=True,
+            check=False
+        )
+
+        # If gitleaks fails (not 0 or 1), return the error
+        if result.returncode not in [0, 1]:
+            return {
+                "status": "fail",
+                "message": f"Gitleaks execution error: {result.stderr.strip()}"
+            }
+
+        # Load the report
+        if os.path.exists(report_path):
+            with open(report_path, "r") as f:
+                findings = json.load(f)
+
+            if findings:
+                messages = [" Potential credentials found:"]
+                for item in findings:
+                    file = item.get("file", "")
+                    secret = item.get("rule", "Secret")
+                    line = item.get("line", "?")
+                    messages.append(f"• `{secret}` in `{file}` (line {line})")
+
+                return {
+                    "status": "fail",
+                    "message": "\n".join(messages)
+                }
+            else:
+                return {
+                    "status": "pass",
+                    "message": "✓ No leaked credentials found."
+                }
+
+        return {
+            "status": "fail",
+            "message": "No Gitleaks report was generated."
+        }
+
+    except Exception as e:
+        return {
+            "status": "fail",
+            "message": f"Exception during Gitleaks scan: {str(e)}"
         }

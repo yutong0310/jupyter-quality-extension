@@ -206,6 +206,7 @@ def run_radon_cyclomatic_complexity(filepath):
         }
 
     try:
+        # Run Radon as a subprocess to get cyclomatic complexity in JSON format
         output = subprocess.check_output(
             ['radon', 'cc', '--json', '--no-assert', filepath],
             stderr=subprocess.STDOUT,
@@ -222,10 +223,10 @@ def run_radon_cyclomatic_complexity(filepath):
             }
 
         # Extract scores and ranks
-        scores = [item.get("complexity", 0) for item in file_results]
-        ranks = [item.get("rank", "") for item in file_results]
-        average = sum(scores) / len(scores)
-        worst_rank = max(ranks, key=lambda r: "ABCDEF".index(r))  # A < B < ... < F
+        scores = [item.get("complexity", 0) for item in file_results]  # Extract all individual complexity scores from the results
+        ranks = [item.get("rank", "") for item in file_results]  # Extract the rank (A-F) for each function or class
+        average = sum(scores) / len(scores)  # Compute average complexity score across the file 
+        worst_rank = max(ranks, key=lambda r: "ABCDEF".index(r))  # A < B < ... < F, find the worst (highest) rank in the file 
 
         # Interpret ranking based on official Radon docs
         rank_explanations = {
@@ -255,16 +256,23 @@ def run_radon_cyclomatic_complexity(filepath):
             }
         }
 
-        explanation = rank_explanations.get(worst_rank, {})
+        # Select the explanation and tip based on the worst rank found
+        explanation = rank_explanations.get(worst_rank, {})  
         note = explanation.get("note", "")
         tip = explanation.get("tip", "")
 
         styled_note = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{note}</i></div>"
         styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {tip}</div>"
 
+        rank_legend = (
+            "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
+            "<i>Note: Cyclomatic Complexity ranks range from A (low/simple) to F (very high/complex).</i>"
+            "</div>"
+        )
+
         message = (
             f"Avg. Cyclomatic Complexity: {average:.2f}, Worst Rank: {worst_rank}"
-            f"{styled_note}{styled_tip}"
+            f"{styled_note}{styled_tip}{rank_legend}"
         )
 
         return {
