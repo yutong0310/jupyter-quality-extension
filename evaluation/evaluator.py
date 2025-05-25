@@ -13,6 +13,7 @@ from tools.howfairis_runner import run_howfairis_license_check
 from tools.gitleaks_runner import run_gitleaks_secret_scan
 from tools.bandit_runner import run_bandit_security_scan
 from tools.modularity_checker import run_modularity_check
+from tools.dependency_checker import run_dependency_check
 
 # Development metric overview section
 def get_development_metrics_status():
@@ -22,8 +23,10 @@ def get_development_metrics_status():
         ("Cognitive Complexity", "manual", "Not automatically measurable. Requires human judgment to assess nested structures, logic flow, and mental overhead."),
         ("Cyclomatic Complexity", "measured", "Automatically checked via radon."),
         ("Code Duplication", "measured", "Automatically checked via jscpd."),
-        ("Technical Debt", "partial", "Partially approximated using heuristics. No established standard tool."),
-        ("Dependency Management", "partial", "Estimated based on placeholder logic. No robust tooling used."),
+        # ("Technical Debt", "partial", "Partially estimated based on related indicators like code smells, cyclomatic complexity, duplication, and maintainability index. No direct standard tool exists for Tier-1 research code."),
+        ("Technical Debt", "partial", "Estimated indirectly using indicators like code smells (pylint), cyclomatic complexity (radon), code duplication (jscpd), and maintainability index (radon). These issues often lead to technical debt. While no standard tool calculates technical debt for research notebooks, this approximation gives insight into future refactoring."),
+        # ("Dependency Management", "partial", "Estimated based on placeholder logic. No robust tooling used."),
+        ("Dependency Management", "partial", "Partially measured by checking whether required libraries are declared in requirements.txt and used in code. Helps detect missing or unused dependencies."),
         ("Comment Density", "measured", "Automatically checked via custom parser.")
     ]
 
@@ -85,7 +88,6 @@ def display_maintenance_metric_overview():
         display(HTML(f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{note}</i></div><br>"))
 
     display(HTML("</ul>"))
-# -------------------------------
 
 def evaluate_metrics(metrics, path, github_url=None):
     """
@@ -130,6 +132,9 @@ def evaluate_metrics(metrics, path, github_url=None):
     if "Modularity" in metrics:
         results["Project-Level Results"]["⚠️ Modularity (Structure Overview)"] = run_modularity_check(path)
 
+    if "Dependency Management" in metrics:
+        results["Project-Level Results"]["Dependency Management"] = run_dependency_check(path)
+    
     # ---------------------------------------------
     # PART B – File-level metrics
     # ---------------------------------------------
@@ -207,6 +212,12 @@ def evaluate_metrics(metrics, path, github_url=None):
                     # Run jscpd per folder
                     file_results[metric] = run_jscpd_code_duplication(os.path.dirname(file))
 
+                elif metric == "Technical Debt":
+                    continue
+
+                elif metric == "Dependency Management":
+                    continue
+                
                 elif metric == "Comment Density":
                     file_results[metric] = run_radon_comment_density(file)
 

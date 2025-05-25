@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-05-24T05:44:14Z",
+  "generated_at": "2025-05-25T20:01:28Z",
   "metrics": {
     "./extension.py": {
       "CONFIDENCE.HIGH": 0,
@@ -11,20 +11,20 @@
       "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 99,
+      "loc": 106,
       "nosec": 0,
       "skipped_tests": 0
     },
     "_totals": {
-      "CONFIDENCE.HIGH": 24,
+      "CONFIDENCE.HIGH": 29,
       "CONFIDENCE.LOW": 0,
       "CONFIDENCE.MEDIUM": 0,
       "CONFIDENCE.UNDEFINED": 0,
       "SEVERITY.HIGH": 0,
-      "SEVERITY.LOW": 24,
+      "SEVERITY.LOW": 29,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 913,
+      "loc": 1193,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -63,7 +63,7 @@
       "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 134,
+      "loc": 174,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -145,6 +145,19 @@
       "nosec": 0,
       "skipped_tests": 0
     },
+    "tools/dependency_checker.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 61,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
     "tools/gitleaks_runner.py": {
       "CONFIDENCE.HIGH": 3,
       "CONFIDENCE.LOW": 0,
@@ -172,15 +185,15 @@
       "skipped_tests": 0
     },
     "tools/jscpd_runner.py": {
-      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.HIGH": 5,
       "CONFIDENCE.LOW": 0,
       "CONFIDENCE.MEDIUM": 0,
       "CONFIDENCE.UNDEFINED": 0,
       "SEVERITY.HIGH": 0,
-      "SEVERITY.LOW": 3,
+      "SEVERITY.LOW": 5,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 65,
+      "loc": 139,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -224,15 +237,15 @@
       "skipped_tests": 0
     },
     "tools/radon_runner.py": {
-      "CONFIDENCE.HIGH": 7,
+      "CONFIDENCE.HIGH": 9,
       "CONFIDENCE.LOW": 0,
       "CONFIDENCE.MEDIUM": 0,
       "CONFIDENCE.UNDEFINED": 0,
       "SEVERITY.HIGH": 0,
-      "SEVERITY.LOW": 7,
+      "SEVERITY.LOW": 9,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 168,
+      "loc": 266,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -320,6 +333,27 @@
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",
       "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "27                     all_imports.update(imports)\n28                 except Exception:\n29                     continue  # skip unreadable files\n30     return all_imports\n",
+      "col_offset": 16,
+      "end_col_offset": 28,
+      "filename": "tools/dependency_checker.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Continue detected.",
+      "line_number": 28,
+      "line_range": [
+        28,
+        29
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b112_try_except_continue.html",
+      "test_id": "B112",
+      "test_name": "try_except_continue"
     },
     {
       "code": "1 import subprocess\n2 import os\n3 import json\n",
@@ -548,6 +582,58 @@
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
+      "code": "133         # Run Gitleaks\n134         result = subprocess.run(\n135             [\"gitleaks\", \"detect\", \"--source\", root_path,\n136              \"--report-format\", \"json\", \"--report-path\", report_path],\n137             capture_output=True,\n138             text=True,\n139             check=False\n140         )\n141 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "tools/jscpd_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 134,
+      "line_range": [
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "133         # Run Gitleaks\n134         result = subprocess.run(\n135             [\"gitleaks\", \"detect\", \"--source\", root_path,\n136              \"--report-format\", \"json\", \"--report-path\", report_path],\n137             capture_output=True,\n138             text=True,\n139             check=False\n140         )\n141 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "tools/jscpd_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 134,
+      "line_range": [
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
       "code": "31                         total_loc += file_loc\n32                 except Exception:\n33                     continue  # Skip unreadable files\n34 \n",
       "col_offset": 16,
       "end_col_offset": 28,
@@ -726,7 +812,7 @@
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "125         # Step 2: Run the radon complexity (cc) command in JSON mode\n126         output = subprocess.check_output(\n127             ['radon', 'cc', '--json', '--no-assert', filepath], # radon cc = complexity check\n128             stderr=subprocess.STDOUT, # Redirect any error output into the same stream\n129             text=True # Ensure the result is returned as a string (not bytes)\n130         )\n131 \n",
+      "code": "143         # Step 2: Run the radon complexity (cc) command in JSON mode\n144         output = subprocess.check_output(\n145             ['radon', 'cc', '--json', '--no-assert', filepath], # radon cc = complexity check\n146             stderr=subprocess.STDOUT, # Redirect any error output into the same stream\n147             text=True # Ensure the result is returned as a string (not bytes)\n148         )\n149 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/radon_runner.py",
@@ -737,20 +823,20 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 126,
+      "line_number": 144,
       "line_range": [
-        126,
-        127,
-        128,
-        129,
-        130
+        144,
+        145,
+        146,
+        147,
+        148
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "125         # Step 2: Run the radon complexity (cc) command in JSON mode\n126         output = subprocess.check_output(\n127             ['radon', 'cc', '--json', '--no-assert', filepath], # radon cc = complexity check\n128             stderr=subprocess.STDOUT, # Redirect any error output into the same stream\n129             text=True # Ensure the result is returned as a string (not bytes)\n130         )\n131 \n",
+      "code": "143         # Step 2: Run the radon complexity (cc) command in JSON mode\n144         output = subprocess.check_output(\n145             ['radon', 'cc', '--json', '--no-assert', filepath], # radon cc = complexity check\n146             stderr=subprocess.STDOUT, # Redirect any error output into the same stream\n147             text=True # Ensure the result is returned as a string (not bytes)\n148         )\n149 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/radon_runner.py",
@@ -761,20 +847,20 @@
       },
       "issue_severity": "LOW",
       "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 126,
+      "line_number": 144,
       "line_range": [
-        126,
-        127,
-        128,
-        129,
-        130
+        144,
+        145,
+        146,
+        147,
+        148
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "202         # Step 2: Run radon raw analysis with --json output\n203         output = subprocess.check_output(\n204             ['radon', 'raw', '--json', filepath],\n205             stderr=subprocess.STDOUT,\n206             text=True\n207         )\n208 \n",
+      "code": "209         # Run Radon as a subprocess to get cyclomatic complexity in JSON format\n210         output = subprocess.check_output(\n211             ['radon', 'cc', '--json', '--no-assert', filepath],\n212             stderr=subprocess.STDOUT,\n213             text=True\n214         )\n215         results = json.loads(output)\n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/radon_runner.py",
@@ -785,20 +871,20 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 203,
+      "line_number": 210,
       "line_range": [
-        203,
-        204,
-        205,
-        206,
-        207
+        210,
+        211,
+        212,
+        213,
+        214
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "202         # Step 2: Run radon raw analysis with --json output\n203         output = subprocess.check_output(\n204             ['radon', 'raw', '--json', filepath],\n205             stderr=subprocess.STDOUT,\n206             text=True\n207         )\n208 \n",
+      "code": "209         # Run Radon as a subprocess to get cyclomatic complexity in JSON format\n210         output = subprocess.check_output(\n211             ['radon', 'cc', '--json', '--no-assert', filepath],\n212             stderr=subprocess.STDOUT,\n213             text=True\n214         )\n215         results = json.loads(output)\n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/radon_runner.py",
@@ -809,13 +895,61 @@
       },
       "issue_severity": "LOW",
       "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 203,
+      "line_number": 210,
       "line_range": [
-        203,
-        204,
-        205,
-        206,
-        207
+        210,
+        211,
+        212,
+        213,
+        214
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "316         # Step 2: Run radon raw analysis with --json output\n317         output = subprocess.check_output(\n318             ['radon', 'raw', '--json', filepath],\n319             stderr=subprocess.STDOUT,\n320             text=True\n321         )\n322 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "tools/radon_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 317,
+      "line_range": [
+        317,
+        318,
+        319,
+        320,
+        321
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "316         # Step 2: Run radon raw analysis with --json output\n317         output = subprocess.check_output(\n318             ['radon', 'raw', '--json', filepath],\n319             stderr=subprocess.STDOUT,\n320             text=True\n321         )\n322 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "tools/radon_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 317,
+      "line_range": [
+        317,
+        318,
+        319,
+        320,
+        321
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",

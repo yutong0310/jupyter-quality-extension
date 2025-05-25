@@ -91,7 +91,12 @@ def on_run_button_click(_b):
                     display(Markdown("---"))
                     continue
 
-                display(Markdown(f"**{metric}**"))
+                if selected_stage == "Maintenance":
+                    display(Markdown(f"**{metric}**"))
+
+                if selected_stage == "Development":
+                    icon = "✓" if result.get("status") == "pass" else "x"
+                    display(Markdown(f"- {icon} **{metric}**"))
 
                 if isinstance(result, dict):
                     raw_output = result.get("message", "").strip()
