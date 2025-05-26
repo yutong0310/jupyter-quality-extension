@@ -338,11 +338,29 @@ def run_radon_comment_density(filepath):
         # Step 7: Define pass/fail threshold (e.g., pass if density >= 10%)
         status = "pass" if density >= 10 else "fail"
 
+        # Create a styled report
+        if status == "pass":
+            summary = "Adequate documentation – good commenting practice."
+            tip = "Your code has a healthy comment density. Continue writing clear comments and docstrings to ensure readability and maintainability."
+        else:
+            summary = "Low comment density – consider adding more documentation."
+            tip = "Code with few comments can be harder to understand and maintain. Add descriptive comments for functions, logic blocks, and key variables."
+
+        styled_summary = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{summary}</i></div>"
+        styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {tip}</div>"
+        styled_note = (
+            "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
+            "<i>Note: Comment Density is calculated as (comment lines / source lines) × 100. A score above 10% is generally considered good.</i>"
+            "</div>"
+        )
+
+        message = f"Comment Density: {density:.2f}%{styled_summary}{styled_tip}{styled_note}"
+
         # Step 8: Return a standardized result dictionary
         return {
             "status": status,
             "density": density,
-            "message": f"Comment Density: {density:.2f}%"
+            "message": message
         }
     
     except subprocess.CalledProcessError as e:

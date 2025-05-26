@@ -27,7 +27,7 @@ def get_development_metrics_status():
         ("Technical Debt", "partial", "Estimated indirectly using indicators like code smells (pylint), cyclomatic complexity (radon), code duplication (jscpd), and maintainability index (radon). These issues often lead to technical debt. While no standard tool calculates technical debt for research notebooks, this approximation gives insight into future refactoring."),
         # ("Dependency Management", "partial", "Estimated based on placeholder logic. No robust tooling used."),
         ("Dependency Management", "partial", "Partially measured by checking whether required libraries are declared in requirements.txt and used in code. Helps detect missing or unused dependencies."),
-        ("Comment Density", "measured", "Automatically checked via custom parser.")
+        ("Comment Density", "measured", "Automatically checked via radon (raw analysis).")
     ]
 
 def display_development_metric_overview():
