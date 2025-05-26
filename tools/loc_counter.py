@@ -31,11 +31,43 @@ def run_project_loc():
                         total_loc += file_loc
                 except Exception:
                     continue  # Skip unreadable files
+        
+    if total_loc < 1000:
+        summary = "Small project size."
+        tip = (
+            "Focus on clarity and readability. Even small projects benefit from proper docstrings, meaningful variable names, "
+            "and a simple modular structure to make future updates easier."
+        )
+    elif total_loc <= 2000:
+        summary = "Small-to-moderate project size."
+        tip = (
+            "As your project grows, organize related functions into reusable components or modules. "
+            "Modularity supports testing, easier debugging, and future collaboration."
+        )
+    else:
+        summary = "Large project – consider modularization."
+        tip = (
+            "Large codebases can quickly become hard to manage. Break logic into separate files or packages, "
+            "use consistent documentation standards, and consider writing unit tests to ensure long-term maintainability."
+        )
+
+    styled_summary = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{summary}</i></div>"
+    styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {tip}</div>"
+    styled_note = (
+        "<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>"
+        "Note: Only non-empty lines of code in .py files are counted, excluding folders like <code>venv</code> or <code>pycache</code>."
+        "</i></div>"
+    )
+
+    # message = f"{total_loc} non-empty lines of code in the project.{styled_summary}{styled_tip}{styled_note}"
+
+    styled_loc = f"<div style='margin-left: 20px; color: black; font-size: 100%;'>{total_loc} non-empty lines of code in the project.</div>"
+    message = f"{styled_loc}{styled_summary}{styled_tip}{styled_note}"
 
     return {
         "status": "pass",
         "loc": total_loc,
-        "message": f"Total non-empty lines of code in the project: {total_loc}"
+        "message": message
     }
 
 def run_loc_per_target(target_path):

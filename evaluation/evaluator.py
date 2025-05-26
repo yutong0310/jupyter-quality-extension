@@ -136,6 +136,9 @@ def evaluate_metrics(metrics, path, github_url=None):
         project_root = os.getcwd()
         results["Project-Level Results"]["Dependency Management"] = run_dependency_check(project_root)
     
+    if "Software Size (LoC)" in metrics:
+        results["Project-Level Results"]["Software Size (LoC)"] = run_project_loc()
+
     # ---------------------------------------------
     # PART B – File-level metrics
     # ---------------------------------------------
@@ -223,16 +226,17 @@ def evaluate_metrics(metrics, path, github_url=None):
                     file_results[metric] = run_radon_comment_density(file)
 
                 elif metric == "Software Size (LoC)":
+                    continue
 
-                    project_loc = run_project_loc() # Always calculate full project size
-                    file_locs = run_loc_per_target(path) # Also calculate lines of code per file under user input target_path
+                    # project_loc = run_project_loc() # Always calculate full project size
+                    # file_locs = run_loc_per_target(path) # Also calculate lines of code per file under user input target_path
 
-                    file_list_text = "  \n".join([f"    • {os.path.basename(fname)}: {loc} lines" for fname, loc in file_locs.items()])
+                    # file_list_text = "  \n".join([f"    • {os.path.basename(fname)}: {loc} lines" for fname, loc in file_locs.items()])
 
-                    file_results[metric] = {
-                        "status": "pass",
-                        "message": f"{project_loc['message']}\n\n{file_list_text}"
-                    }
+                    # file_results[metric] = {
+                    #    "status": "pass",
+                    #    "message": f"{project_loc['message']}\n\n{file_list_text}"
+                    # }
                 
                 elif metric == "Percentage of Assertions":
                     file_results[metric] = run_assertion_percentage(path)
