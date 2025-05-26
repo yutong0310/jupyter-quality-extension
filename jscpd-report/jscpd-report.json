@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-25T20:01:48.544Z",
+    "detectionDate": "2025-05-25T23:34:56.435Z",
     "formats": {
       "python": {
         "sources": {
@@ -101,8 +101,8 @@
             "newClones": 0
           },
           "tools/dependency_checker.py": {
-            "lines": 72,
-            "tokens": 647,
+            "lines": 119,
+            "tokens": 1007,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -138,28 +138,28 @@
           }
         },
         "total": {
-          "lines": 1140,
-          "tokens": 7079,
+          "lines": 1187,
+          "tokens": 7439,
           "sources": 11,
           "clones": 1,
           "duplicatedLines": 61,
           "duplicatedTokens": 413,
-          "percentage": 5.35,
-          "percentageTokens": 5.83,
+          "percentage": 5.14,
+          "percentageTokens": 5.55,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1140,
-      "tokens": 7079,
+      "lines": 1187,
+      "tokens": 7439,
       "sources": 11,
       "clones": 1,
       "duplicatedLines": 61,
       "duplicatedTokens": 413,
-      "percentage": 5.35,
-      "percentageTokens": 5.83,
+      "percentage": 5.14,
+      "percentageTokens": 5.55,
       "newDuplicatedLines": 0,
       "newClones": 0
     }

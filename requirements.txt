@@ -1,8 +1,13 @@
-# Required tools for metric analysis
+# Core metric tools
 pylint
 radon
 jscpd
+bandit
+howfairis
+
+# gitleaks must be installed manually 
 
 # UI and Jupyter support
 ipywidgets
 notebook
+IPython

@@ -133,7 +133,8 @@ def evaluate_metrics(metrics, path, github_url=None):
         results["Project-Level Results"]["⚠️ Modularity (Structure Overview)"] = run_modularity_check(path)
 
     if "Dependency Management" in metrics:
-        results["Project-Level Results"]["Dependency Management"] = run_dependency_check(path)
+        project_root = os.getcwd()
+        results["Project-Level Results"]["Dependency Management"] = run_dependency_check(project_root)
     
     # ---------------------------------------------
     # PART B – File-level metrics
