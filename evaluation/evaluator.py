@@ -139,6 +139,10 @@ def evaluate_metrics(metrics, path, github_url=None):
     if "Software Size (LoC)" in metrics:
         results["Project-Level Results"]["Software Size (LoC)"] = run_project_loc()
 
+    if "Code Duplication" in metrics:
+        project_root = os.getcwd()
+        results["Project-Level Results"]["Code Duplication"] = run_jscpd_code_duplication(project_root)
+
     if "Percentage of Assertions" in metrics:
         project_root = os.getcwd()
         results["Project-Level Results"]["Percentage of Assertions"] = run_assertion_percentage(project_root)
@@ -217,8 +221,7 @@ def evaluate_metrics(metrics, path, github_url=None):
                     file_results[metric] = run_radon_cyclomatic_complexity(file)
 
                 elif metric == "Code Duplication":
-                    # Run jscpd per folder
-                    file_results[metric] = run_jscpd_code_duplication(os.path.dirname(file))
+                    continue
 
                 elif metric == "Technical Debt":
                     continue
@@ -239,7 +242,7 @@ def evaluate_metrics(metrics, path, github_url=None):
                 #     file_results[metric] = run_unit_test_detection(path)
 
                 else:
-                    # Placeholder for future metrics (e.g., Test Success Rate, Security)
+                    # Placeholder for future metrics 
                     file_results[metric] = {
                         "status": "pass",
                         "message": "Simulated result"

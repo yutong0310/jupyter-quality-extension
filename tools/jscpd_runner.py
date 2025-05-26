@@ -2,6 +2,26 @@ import os
 import subprocess
 import json
 
+def get_filtered_python_files(root_path):
+    """
+    Recursively collects all .py files under root_path, excluding irrelevant dirs.
+    Returns a list of file paths to scan.
+    """
+    excluded_dirs = {
+        "venv", "env", "__pycache__", ".git", ".hg", ".svn",
+        ".ipynb_checkpoints", ".mypy_cache", ".pytest_cache",
+        "build", "dist", ".tox", ".nox", "site-packages",
+        ".idea", ".vscode", ".DS_Store", "__pypackages__"
+    }
+
+    py_files = []
+    for dirpath, dirnames, filenames in os.walk(root_path):
+        dirnames[:] = [d for d in dirnames if d not in excluded_dirs]
+        for file in filenames:
+            if file.endswith(".py"):
+                py_files.append(os.path.join(dirpath, file))
+    return py_files
+
 def run_jscpd_code_duplication(path):
     """
     Runs jscpd on the given path (file or folder) to detect code duplication.
@@ -33,6 +53,14 @@ def run_jscpd_code_duplication(path):
     report_file = os.path.join(output_dir, "jscpd-report.json")
 
     try:
+
+        files_to_scan = get_filtered_python_files(path)
+        if not files_to_scan:
+            return {
+                "status": "pass",
+                "message": "No Python files found for duplication analysis."
+            }
+
         # Step 3: Run jscpd using subprocess
         subprocess.run(
             [
@@ -40,7 +68,7 @@ def run_jscpd_code_duplication(path):
                 "--min-lines", "5",              # Minimum lines to consider duplication
                 "--reporters", "json",           # Output format
                 "--output", output_dir,          # Output directory
-                path                             # File or folder to scan
+                *files_to_scan                   # File or folder to scan
             ],
             check=True,
             stdout=subprocess.PIPE,
@@ -90,11 +118,13 @@ def run_jscpd_code_duplication(path):
             "</div>"
         )
 
-        message = (
-            f"Duplicated Lines: {duplicated} / {total} "
-            f"({percentage:.2f}%)"
-            f"{styled_note}{styled_tip}{legend}"
+        styled_topline = (
+            f"<div style='margin-left: 20px; font-size: 100%;'>"
+            f"Duplicated Lines: <b>{duplicated}</b> / <b>{total}</b> "
+            f"({percentage:.2f}%)</div>"
         )
+
+        message = f"{styled_topline}{styled_note}{styled_tip}{legend}"
 
         return {
             "status": status,

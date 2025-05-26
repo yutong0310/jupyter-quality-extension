@@ -61,7 +61,7 @@ def run_project_loc():
 
     # message = f"{total_loc} non-empty lines of code in the project.{styled_summary}{styled_tip}{styled_note}"
 
-    styled_loc = f"<div style='margin-left: 20px; color: black; font-size: 100%;'>{total_loc} non-empty lines of code in the project.</div>"
+    styled_loc = f"<div style='margin-left: 20px; color: black; font-size: 100%;'>{total_loc} non-empty lines of code in the project</div>"
     message = f"{styled_loc}{styled_summary}{styled_tip}{styled_note}"
 
     return {
