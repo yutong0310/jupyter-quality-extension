@@ -1,12 +1,12 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-26T22:23:46.924Z",
+    "detectionDate": "2025-05-26T23:10:41.807Z",
     "formats": {
       "python": {
         "sources": {
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/evaluation/evaluator.py": {
-            "lines": 253,
-            "tokens": 1671,
+            "lines": 251,
+            "tokens": 1646,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -65,8 +65,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/pylint_runner.py": {
-            "lines": 45,
-            "tokens": 333,
+            "lines": 68,
+            "tokens": 423,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -174,28 +174,28 @@
           }
         },
         "total": {
-          "lines": 1771,
-          "tokens": 11065,
+          "lines": 1792,
+          "tokens": 11130,
           "sources": 14,
           "clones": 1,
           "duplicatedLines": 61,
           "duplicatedTokens": 413,
-          "percentage": 3.44,
-          "percentageTokens": 3.73,
+          "percentage": 3.4,
+          "percentageTokens": 3.71,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1771,
-      "tokens": 11065,
+      "lines": 1792,
+      "tokens": 11130,
       "sources": 14,
       "clones": 1,
       "duplicatedLines": 61,
       "duplicatedTokens": 413,
-      "percentage": 3.44,
-      "percentageTokens": 3.73,
+      "percentage": 3.4,
+      "percentageTokens": 3.71,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
