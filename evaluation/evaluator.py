@@ -23,11 +23,11 @@ def get_development_metrics_status():
         ("Cognitive Complexity", "manual", "Not automatically measurable. Requires human judgment to assess nested structures, logic flow, and mental overhead."),
         ("Cyclomatic Complexity", "measured", "Automatically checked via radon."),
         ("Code Duplication", "measured", "Automatically checked via jscpd."),
-        # ("Technical Debt", "partial", "Partially estimated based on related indicators like code smells, cyclomatic complexity, duplication, and maintainability index. No direct standard tool exists for Tier-1 research code."),
         ("Technical Debt", "partial", "Estimated indirectly using indicators like code smells (pylint), cyclomatic complexity (radon), code duplication (jscpd), and maintainability index (radon). These issues often lead to technical debt. While no standard tool calculates technical debt for research notebooks, this approximation gives insight into future refactoring."),
-        # ("Dependency Management", "partial", "Estimated based on placeholder logic. No robust tooling used."),
         ("Dependency Management", "partial", "Partially measured by checking whether required libraries are declared in requirements.txt and used in code. Helps detect missing or unused dependencies."),
-        ("Comment Density", "measured", "Automatically checked via radon (raw analysis).")
+        ("Comment Density", "measured", "Automatically checked via radon (raw analysis)."),
+        ("Software Size (LoC)", "measured", "Automatically checked via custom script."),
+        ("Percentage of Assertions", "measured", "Automatically checked via custom script.")
     ]
 
 def display_development_metric_overview():
@@ -129,8 +129,8 @@ def evaluate_metrics(metrics, path, github_url=None):
         results["Project-Level Results"]["Security Vulnerability Scan (Bandit)"] = run_bandit_security_scan()
 
     
-    if "Modularity" in metrics:
-        results["Project-Level Results"]["⚠️ Modularity (Structure Overview)"] = run_modularity_check(path)
+    # if "Modularity" in metrics:
+    #    results["Project-Level Results"]["⚠️ Modularity (Structure Overview)"] = run_modularity_check(path)
 
     if "Dependency Management" in metrics:
         project_root = os.getcwd()
@@ -138,6 +138,10 @@ def evaluate_metrics(metrics, path, github_url=None):
     
     if "Software Size (LoC)" in metrics:
         results["Project-Level Results"]["Software Size (LoC)"] = run_project_loc()
+
+    if "Percentage of Assertions" in metrics:
+        project_root = os.getcwd()
+        results["Project-Level Results"]["Percentage of Assertions"] = run_assertion_percentage(project_root)
 
     # ---------------------------------------------
     # PART B – File-level metrics
@@ -227,22 +231,12 @@ def evaluate_metrics(metrics, path, github_url=None):
 
                 elif metric == "Software Size (LoC)":
                     continue
-
-                    # project_loc = run_project_loc() # Always calculate full project size
-                    # file_locs = run_loc_per_target(path) # Also calculate lines of code per file under user input target_path
-
-                    # file_list_text = "  \n".join([f"    • {os.path.basename(fname)}: {loc} lines" for fname, loc in file_locs.items()])
-
-                    # file_results[metric] = {
-                    #    "status": "pass",
-                    #    "message": f"{project_loc['message']}\n\n{file_list_text}"
-                    # }
                 
                 elif metric == "Percentage of Assertions":
-                    file_results[metric] = run_assertion_percentage(path)
+                    continue
 
-                elif metric == "Unit Tests":
-                    file_results[metric] = run_unit_test_detection(path)
+                # elif metric == "Unit Tests":
+                #     file_results[metric] = run_unit_test_detection(path)
 
                 else:
                     # Placeholder for future metrics (e.g., Test Success Rate, Security)

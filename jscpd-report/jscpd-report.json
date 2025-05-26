@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-26T18:40:32.131Z",
+    "detectionDate": "2025-05-26T21:03:43.079Z",
     "formats": {
       "python": {
         "sources": {
@@ -125,8 +125,8 @@
             "newClones": 0
           },
           "tools/assertion_counter.py": {
-            "lines": 73,
-            "tokens": 452,
+            "lines": 102,
+            "tokens": 634,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -138,28 +138,28 @@
           }
         },
         "total": {
-          "lines": 1268,
-          "tokens": 7786,
+          "lines": 1297,
+          "tokens": 7968,
           "sources": 11,
           "clones": 1,
           "duplicatedLines": 61,
           "duplicatedTokens": 413,
-          "percentage": 4.81,
-          "percentageTokens": 5.3,
+          "percentage": 4.7,
+          "percentageTokens": 5.18,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1268,
-      "tokens": 7786,
+      "lines": 1297,
+      "tokens": 7968,
       "sources": 11,
       "clones": 1,
       "duplicatedLines": 61,
       "duplicatedTokens": 413,
-      "percentage": 4.81,
-      "percentageTokens": 5.3,
+      "percentage": 4.7,
+      "percentageTokens": 5.18,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
