@@ -137,6 +137,12 @@ def run_dependency_check(project_path="."):
 
     msg_lines.append(gray_list("✗ Missing declarations (used but not listed):", missing))
 
+    # Status explanation for users
+    explanation = (
+        "<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>A checkmark <b>✓</b> is shown when all imported third-party packages are declared in <code>requirements.txt</code>. If any are missing, the project receives an <b>x</b> instead.</i></div>"
+    )
+    msg_lines.append(explanation)
+
     return {
         "status": status, # pass or fail
         "missing": list(missing), # used but undeclared
