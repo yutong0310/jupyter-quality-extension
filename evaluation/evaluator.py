@@ -108,6 +108,10 @@ def evaluate_metrics(metrics, path, github_url=None):
             }
     """
 
+    if path == ".":
+        # print("Current working directory:", os.getcwd())
+        path = os.getcwd()
+
     results = {}  # Final output dictionary containing all scanned file results
     files = []    # A list to hold all .py files we find
 
@@ -165,6 +169,16 @@ def evaluate_metrics(metrics, path, github_url=None):
             # os.walk() recursively traverses a directory tree. It yields a tuple (root, dirs, files) for every directory it visits:
             # - root: current folder path.  - dirs: list of subfolders.  - files: list of files in this folder
             for root, dirs, filenames in os.walk(path):
+
+                excluded_dirs = {
+                    "venv", "env", "__pycache__", ".git", ".hg", ".svn",
+                    ".ipynb_checkpoints", ".mypy_cache", ".pytest_cache",
+                    "build", "dist", ".tox", ".nox", "site-packages",
+                    ".idea", ".vscode", ".DS_Store", "__pypackages__",
+                    "jscpd-report", "bandit-report", "gitleaks-report"
+                }
+                dirs[:] = [d for d in dirs if d not in excluded_dirs]
+
                 for filename in filenames:
                     if filename.endswith(".py"):
                         # Construct full file path and add it to our list

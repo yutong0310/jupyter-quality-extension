@@ -28,6 +28,11 @@ target_input = widgets.Text(
     layout=widgets.Layout(width="600px")  # Wider path input
 )
 
+project_hint = widgets.HTML(
+    "<div style='color: gray; font-size: 90%; margin-top: -10px;'>"
+    "Leave blank or enter <code>.</code> to scan the entire project folder.</div>"
+)
+
 github_url_input = widgets.Text(
     value="",
     description="GitHub URL:",
@@ -67,7 +72,12 @@ def on_run_button_click(_b):
             display_maintenance_metric_overview()
 
         if selected_stage != "Maintenance":
-            display(Markdown(f"Target Path: `{target_path}`"))
+            # display(Markdown(f"Target Path: `{target_path}`"))
+            pretty_path = (
+                "(entire project)" if target_path.strip() == "." else target_path
+            )
+            display(Markdown(f"Target Path: `{pretty_path}`"))
+
 
         # Perform evaluation
         results = evaluate_metrics(metrics, target_path, github_url)
@@ -117,7 +127,6 @@ def on_run_button_click(_b):
                     if isinstance(result, dict):
                         status = result.get("status", "")
                         message = result.get("message", "")
-                        # icon = "✅" if status == "pass" else "❌"
                         icon = "✓" if status == "pass" else "x"
                         display(Markdown(f"- {icon} **{metric}**: {message}"))
                     else:
@@ -146,6 +155,7 @@ run_button.on_click(on_run_button_click)
 ui = widgets.VBox([
     stage_dropdown,
     target_input,
+    project_hint,
     github_url_input,
     run_button,
     output_area
