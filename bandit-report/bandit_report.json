@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-05-25T20:01:28Z",
+  "generated_at": "2025-05-27T19:26:47Z",
   "metrics": {
     "./extension.py": {
       "CONFIDENCE.HIGH": 0,
@@ -11,20 +11,20 @@
       "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 106,
+      "loc": 114,
       "nosec": 0,
       "skipped_tests": 0
     },
     "_totals": {
-      "CONFIDENCE.HIGH": 29,
+      "CONFIDENCE.HIGH": 30,
       "CONFIDENCE.LOW": 0,
       "CONFIDENCE.MEDIUM": 0,
       "CONFIDENCE.UNDEFINED": 0,
       "SEVERITY.HIGH": 0,
-      "SEVERITY.LOW": 29,
+      "SEVERITY.LOW": 30,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 1193,
+      "loc": 1366,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -63,7 +63,7 @@
       "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 174,
+      "loc": 183,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -120,15 +120,15 @@
       "skipped_tests": 0
     },
     "tools/assertion_counter.py": {
-      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.HIGH": 1,
       "CONFIDENCE.LOW": 0,
       "CONFIDENCE.MEDIUM": 0,
       "CONFIDENCE.UNDEFINED": 0,
       "SEVERITY.HIGH": 0,
-      "SEVERITY.LOW": 0,
+      "SEVERITY.LOW": 1,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 54,
+      "loc": 78,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -154,7 +154,7 @@
       "SEVERITY.LOW": 1,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 61,
+      "loc": 92,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -180,7 +180,7 @@
       "SEVERITY.LOW": 3,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 27,
+      "loc": 42,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -193,7 +193,7 @@
       "SEVERITY.LOW": 5,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 139,
+      "loc": 164,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -206,7 +206,7 @@
       "SEVERITY.LOW": 1,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 61,
+      "loc": 88,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -232,7 +232,7 @@
       "SEVERITY.LOW": 3,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 38,
+      "loc": 58,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -245,7 +245,7 @@
       "SEVERITY.LOW": 9,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 266,
+      "loc": 280,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -264,6 +264,28 @@
     }
   },
   "results": [
+    {
+      "code": "61         \n62         except Exception as e:\n63             # Do not block the whole analysis if one file fails \n64             continue\n65 \n",
+      "col_offset": 8,
+      "end_col_offset": 20,
+      "filename": "tools/assertion_counter.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Continue detected.",
+      "line_number": 62,
+      "line_range": [
+        62,
+        63,
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b112_try_except_continue.html",
+      "test_id": "B112",
+      "test_name": "try_except_continue"
+    },
     {
       "code": "1 import subprocess\n2 import os\n3 import json\n",
       "col_offset": 0,
@@ -335,7 +357,7 @@
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "27                     all_imports.update(imports)\n28                 except Exception:\n29                     continue  # skip unreadable files\n30     return all_imports\n",
+      "code": "44                     all_imports.update(imports)\n45                 except Exception:\n46                     continue  # Skip files that can't be read or parsed\n47     return all_imports\n",
       "col_offset": 16,
       "end_col_offset": 28,
       "filename": "tools/dependency_checker.py",
@@ -346,10 +368,10 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Try, Except, Continue detected.",
-      "line_number": 28,
+      "line_number": 45,
       "line_range": [
-        28,
-        29
+        45,
+        46
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b112_try_except_continue.html",
       "test_id": "B112",
@@ -448,7 +470,7 @@
       "test_name": "blacklist"
     },
     {
-      "code": "10         # Run howfairis as subprocess and capture all output\n11         result = subprocess.run(\n12             [\"howfairis\", github_url],\n13             capture_output=True,\n14             text=True,\n15             timeout=20\n16         )\n17 \n",
+      "code": "27         # Run howfairis\n28         result = subprocess.run(\n29             [\"howfairis\", github_url],\n30             capture_output=True,\n31             text=True,\n32             timeout=20\n33         )\n34 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/howfairis_runner.py",
@@ -459,21 +481,21 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 11,
+      "line_number": 28,
       "line_range": [
-        11,
-        12,
-        13,
-        14,
-        15,
-        16
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "10         # Run howfairis as subprocess and capture all output\n11         result = subprocess.run(\n12             [\"howfairis\", github_url],\n13             capture_output=True,\n14             text=True,\n15             timeout=20\n16         )\n17 \n",
+      "code": "27         # Run howfairis\n28         result = subprocess.run(\n29             [\"howfairis\", github_url],\n30             capture_output=True,\n31             text=True,\n32             timeout=20\n33         )\n34 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/howfairis_runner.py",
@@ -484,14 +506,14 @@
       },
       "issue_severity": "LOW",
       "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 11,
+      "line_number": 28,
       "line_range": [
-        11,
-        12,
-        13,
-        14,
-        15,
-        16
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",
@@ -518,7 +540,7 @@
       "test_name": "blacklist"
     },
     {
-      "code": "36         # Step 3: Run jscpd using subprocess\n37         subprocess.run(\n38             [\n39                 \"jscpd\",\n40                 \"--min-lines\", \"5\",              # Minimum lines to consider duplication\n41                 \"--reporters\", \"json\",           # Output format\n42                 \"--output\", output_dir,          # Output directory\n43                 path                             # File or folder to scan\n44             ],\n45             check=True,\n46             stdout=subprocess.PIPE,\n47             stderr=subprocess.PIPE,\n48             text=True\n49         )\n50 \n",
+      "code": "64         # Step 3: Run jscpd using subprocess\n65         subprocess.run(\n66             [\n67                 \"jscpd\",\n68                 \"--min-lines\", \"5\",              # Minimum lines to consider duplication\n69                 \"--reporters\", \"json\",           # Output format\n70                 \"--output\", output_dir,          # Output directory\n71                 *files_to_scan                   # File or folder to scan\n72             ],\n73             check=True,\n74             stdout=subprocess.PIPE,\n75             stderr=subprocess.PIPE,\n76             text=True\n77         )\n78 \n",
       "col_offset": 8,
       "end_col_offset": 9,
       "filename": "tools/jscpd_runner.py",
@@ -529,28 +551,28 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 37,
+      "line_number": 65,
       "line_range": [
-        37,
-        38,
-        39,
-        40,
-        41,
-        42,
-        43,
-        44,
-        45,
-        46,
-        47,
-        48,
-        49
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "36         # Step 3: Run jscpd using subprocess\n37         subprocess.run(\n38             [\n39                 \"jscpd\",\n40                 \"--min-lines\", \"5\",              # Minimum lines to consider duplication\n41                 \"--reporters\", \"json\",           # Output format\n42                 \"--output\", output_dir,          # Output directory\n43                 path                             # File or folder to scan\n44             ],\n45             check=True,\n46             stdout=subprocess.PIPE,\n47             stderr=subprocess.PIPE,\n48             text=True\n49         )\n50 \n",
+      "code": "64         # Step 3: Run jscpd using subprocess\n65         subprocess.run(\n66             [\n67                 \"jscpd\",\n68                 \"--min-lines\", \"5\",              # Minimum lines to consider duplication\n69                 \"--reporters\", \"json\",           # Output format\n70                 \"--output\", output_dir,          # Output directory\n71                 *files_to_scan                   # File or folder to scan\n72             ],\n73             check=True,\n74             stdout=subprocess.PIPE,\n75             stderr=subprocess.PIPE,\n76             text=True\n77         )\n78 \n",
       "col_offset": 8,
       "end_col_offset": 9,
       "filename": "tools/jscpd_runner.py",
@@ -561,28 +583,28 @@
       },
       "issue_severity": "LOW",
       "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 37,
+      "line_number": 65,
       "line_range": [
-        37,
-        38,
-        39,
-        40,
-        41,
-        42,
-        43,
-        44,
-        45,
-        46,
-        47,
-        48,
-        49
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "133         # Run Gitleaks\n134         result = subprocess.run(\n135             [\"gitleaks\", \"detect\", \"--source\", root_path,\n136              \"--report-format\", \"json\", \"--report-path\", report_path],\n137             capture_output=True,\n138             text=True,\n139             check=False\n140         )\n141 \n",
+      "code": "163         # Run Gitleaks\n164         result = subprocess.run(\n165             [\"gitleaks\", \"detect\", \"--source\", root_path,\n166              \"--report-format\", \"json\", \"--report-path\", report_path],\n167             capture_output=True,\n168             text=True,\n169             check=False\n170         )\n171 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/jscpd_runner.py",
@@ -593,22 +615,22 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 134,
+      "line_number": 164,
       "line_range": [
-        134,
-        135,
-        136,
-        137,
-        138,
-        139,
-        140
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "133         # Run Gitleaks\n134         result = subprocess.run(\n135             [\"gitleaks\", \"detect\", \"--source\", root_path,\n136              \"--report-format\", \"json\", \"--report-path\", report_path],\n137             capture_output=True,\n138             text=True,\n139             check=False\n140         )\n141 \n",
+      "code": "163         # Run Gitleaks\n164         result = subprocess.run(\n165             [\"gitleaks\", \"detect\", \"--source\", root_path,\n166              \"--report-format\", \"json\", \"--report-path\", report_path],\n167             capture_output=True,\n168             text=True,\n169             check=False\n170         )\n171 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/jscpd_runner.py",
@@ -619,22 +641,22 @@
       },
       "issue_severity": "LOW",
       "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 134,
+      "line_number": 164,
       "line_range": [
-        134,
-        135,
-        136,
-        137,
-        138,
-        139,
-        140
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "31                         total_loc += file_loc\n32                 except Exception:\n33                     continue  # Skip unreadable files\n34 \n",
+      "code": "31                         total_loc += file_loc\n32                 except Exception:\n33                     continue  # Skip unreadable files\n34         \n",
       "col_offset": 16,
       "end_col_offset": 28,
       "filename": "tools/loc_counter.py",
