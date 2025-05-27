@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-05-27T19:26:47Z",
+  "generated_at": "2025-05-27T22:39:13Z",
   "metrics": {
     "./extension.py": {
       "CONFIDENCE.HIGH": 0,
@@ -24,7 +24,7 @@
       "SEVERITY.LOW": 30,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 1366,
+      "loc": 1367,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -180,7 +180,7 @@
       "SEVERITY.LOW": 3,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 42,
+      "loc": 43,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -450,7 +450,7 @@
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "1 import subprocess\n2 \n3 def run_howfairis_license_check(github_url):\n",
+      "code": "1 import subprocess\n2 import re \n3 \n",
       "col_offset": 0,
       "end_col_offset": 17,
       "filename": "tools/howfairis_runner.py",
@@ -470,7 +470,7 @@
       "test_name": "blacklist"
     },
     {
-      "code": "27         # Run howfairis\n28         result = subprocess.run(\n29             [\"howfairis\", github_url],\n30             capture_output=True,\n31             text=True,\n32             timeout=20\n33         )\n34 \n",
+      "code": "28         # Run howfairis\n29         result = subprocess.run(\n30             [\"howfairis\", github_url],\n31             capture_output=True,\n32             text=True,\n33             timeout=20\n34         )\n35 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/howfairis_runner.py",
@@ -481,21 +481,21 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 28,
+      "line_number": 29,
       "line_range": [
-        28,
         29,
         30,
         31,
         32,
-        33
+        33,
+        34
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "27         # Run howfairis\n28         result = subprocess.run(\n29             [\"howfairis\", github_url],\n30             capture_output=True,\n31             text=True,\n32             timeout=20\n33         )\n34 \n",
+      "code": "28         # Run howfairis\n29         result = subprocess.run(\n30             [\"howfairis\", github_url],\n31             capture_output=True,\n32             text=True,\n33             timeout=20\n34         )\n35 \n",
       "col_offset": 17,
       "end_col_offset": 9,
       "filename": "tools/howfairis_runner.py",
@@ -506,14 +506,14 @@
       },
       "issue_severity": "LOW",
       "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 28,
+      "line_number": 29,
       "line_range": [
-        28,
         29,
         30,
         31,
         32,
-        33
+        33,
+        34
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",
