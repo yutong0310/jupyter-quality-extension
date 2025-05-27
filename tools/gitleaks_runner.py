@@ -37,21 +37,45 @@ def run_gitleaks_secret_scan():
                 findings = json.load(f)
 
             if findings:
-                messages = [" Potential credentials found:"]
+                
+                styled_summary = "<div style='margin-left: 20px; color: red;'>! Potential credentials found in the code:</div>"
+
+                styled_findings = ""
                 for item in findings:
                     file = item.get("file", "")
                     secret = item.get("rule", "Secret")
                     line = item.get("line", "?")
-                    messages.append(f"• `{secret}` in `{file}` (line {line})")
+                    styled_findings += f"<div style='margin-left: 20px; font-size: 90%; font-family: monospace;'>• {secret} in {file} (line {line})</div>"
+
+                styled_tip = (
+                    "<div style='margin-left: 20px; color: gray; font-size: 90%;'>" 
+                    "<b>Tip:</b> If any secrets were exposed, revoke and regenerate them immediately through your service provider. To prevent future leaks, avoid hardcoding credentials and store them in environment variables or separate config files excluded from version control."
+                    "</div>"
+                )
+                
+                legend = (
+                    "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
+                    "<i>Note: This scan checks for accidentally committed secrets such as API keys, tokens, and passwords. Keeping them out of code reduces risk and improves security practices.</i>"
+                    "</div>"
+                )
 
                 return {
                     "status": "fail",
-                    "message": "\n".join(messages)
+                    # "message": "\n".join(messages) + styled_tip + legend
+                    "message": styled_summary + styled_findings + styled_tip + legend
                 }
+            
             else:
+
+                styled_note = "<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>No secrets detected – your code is clean and safe.</i></div>"
+                styled_tip = "<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> Keep sensitive keys, tokens, and credentials out of your codebase. Use environment variables or secret managers for secure handling.</div>"
+                legend = "<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>Note: Gitleaks scans for hardcoded secrets like API keys, credentials, and tokens across your repository history.</i></div>"
+                styled_summary = "<div style='margin-left: 20px;'>✓ No leaked credentials found.</div>"
+
                 return {
                     "status": "pass",
-                    "message": "✓ No leaked credentials found."
+                    # "message": "✓ No leaked credentials found." + styled_note + styled_tip + legend
+                    "message": styled_summary + styled_note + styled_tip + legend
                 }
 
         return {
