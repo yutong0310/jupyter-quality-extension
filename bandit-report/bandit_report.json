@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-05-27T23:51:34Z",
+  "generated_at": "2025-05-28T00:50:35Z",
   "metrics": {
     "./extension.py": {
       "CONFIDENCE.HIGH": 0,
@@ -24,7 +24,7 @@
       "SEVERITY.LOW": 30,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 1382,
+      "loc": 1409,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -141,7 +141,7 @@
       "SEVERITY.LOW": 3,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 66,
+      "loc": 93,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -307,7 +307,7 @@
       "test_name": "blacklist"
     },
     {
-      "code": "51     try:\n52         subprocess.run(\n53             [\"bandit\", \"-r\", *targets, \"-f\", \"json\", \"-o\", report_path],\n54             check=False,\n55             capture_output=True,\n56             text=True\n57         )\n58     except subprocess.CalledProcessError as e:\n",
+      "code": "37     try:\n38         subprocess.run(\n39             [\"bandit\", \"-r\", *targets, \"-f\", \"json\", \"-o\", report_path],\n40             check=False,\n41             capture_output=True,\n42             text=True\n43         )\n44     except subprocess.CalledProcessError as e:\n",
       "col_offset": 8,
       "end_col_offset": 9,
       "filename": "tools/bandit_runner.py",
@@ -318,21 +318,21 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Starting a process with a partial executable path",
-      "line_number": 52,
+      "line_number": 38,
       "line_range": [
-        52,
-        53,
-        54,
-        55,
-        56,
-        57
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b607_start_process_with_partial_path.html",
       "test_id": "B607",
       "test_name": "start_process_with_partial_path"
     },
     {
-      "code": "51     try:\n52         subprocess.run(\n53             [\"bandit\", \"-r\", *targets, \"-f\", \"json\", \"-o\", report_path],\n54             check=False,\n55             capture_output=True,\n56             text=True\n57         )\n58     except subprocess.CalledProcessError as e:\n",
+      "code": "37     try:\n38         subprocess.run(\n39             [\"bandit\", \"-r\", *targets, \"-f\", \"json\", \"-o\", report_path],\n40             check=False,\n41             capture_output=True,\n42             text=True\n43         )\n44     except subprocess.CalledProcessError as e:\n",
       "col_offset": 8,
       "end_col_offset": 9,
       "filename": "tools/bandit_runner.py",
@@ -343,14 +343,14 @@
       },
       "issue_severity": "LOW",
       "issue_text": "subprocess call - check for execution of untrusted input.",
-      "line_number": 52,
+      "line_number": 38,
       "line_range": [
-        52,
-        53,
-        54,
-        55,
-        56,
-        57
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b603_subprocess_without_shell_equals_true.html",
       "test_id": "B603",
