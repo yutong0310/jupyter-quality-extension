@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-27T16:33:11.032Z",
+    "detectionDate": "2025-05-28T17:40:45.205Z",
     "formats": {
       "python": {
         "sources": {
@@ -41,14 +41,14 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/gitleaks_runner.py": {
-            "lines": 65,
-            "tokens": 426,
+            "lines": 89,
+            "tokens": 532,
             "sources": 1,
             "clones": 1,
-            "duplicatedLines": 61,
-            "duplicatedTokens": 413,
-            "percentage": 93.85,
-            "percentageTokens": 96.95,
+            "duplicatedLines": 35,
+            "duplicatedTokens": 236,
+            "percentage": 39.33,
+            "percentageTokens": 44.36,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
@@ -77,8 +77,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/howfairis_runner.py": {
-            "lines": 51,
-            "tokens": 238,
+            "lines": 86,
+            "tokens": 378,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -129,10 +129,10 @@
             "tokens": 1276,
             "sources": 1,
             "clones": 1,
-            "duplicatedLines": 61,
-            "duplicatedTokens": 413,
-            "percentage": 29.05,
-            "percentageTokens": 32.37,
+            "duplicatedLines": 35,
+            "duplicatedTokens": 236,
+            "percentage": 16.67,
+            "percentageTokens": 18.5,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
@@ -149,8 +149,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/bandit_runner.py": {
-            "lines": 109,
-            "tokens": 677,
+            "lines": 110,
+            "tokens": 766,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -161,8 +161,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/extension.py": {
-            "lines": 163,
-            "tokens": 1078,
+            "lines": 165,
+            "tokens": 1100,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -174,28 +174,28 @@
           }
         },
         "total": {
-          "lines": 1834,
-          "tokens": 11384,
+          "lines": 1896,
+          "tokens": 11741,
           "sources": 14,
           "clones": 1,
-          "duplicatedLines": 61,
-          "duplicatedTokens": 413,
-          "percentage": 3.33,
-          "percentageTokens": 3.63,
+          "duplicatedLines": 35,
+          "duplicatedTokens": 236,
+          "percentage": 1.85,
+          "percentageTokens": 2.01,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1834,
-      "tokens": 11384,
+      "lines": 1896,
+      "tokens": 11741,
       "sources": 14,
       "clones": 1,
-      "duplicatedLines": 61,
-      "duplicatedTokens": 413,
-      "percentage": 3.33,
-      "percentageTokens": 3.63,
+      "duplicatedLines": 35,
+      "duplicatedTokens": 236,
+      "percentage": 1.85,
+      "percentageTokens": 2.01,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
@@ -203,37 +203,37 @@
   "duplicates": [
     {
       "format": "python",
-      "lines": 62,
-      "fragment": "def run_gitleaks_secret_scan():\n    \"\"\"\n    Runs Gitleaks on the current project directory (cwd).\n    Returns a dictionary formatted for display under \"Project-Level Results\".\n    \"\"\"\n    try:\n        # Use current working directory as project root\n        root_path = os.getcwd()\n        report_dir = os.path.join(root_path, \"gitleaks-report\")\n        os.makedirs(report_dir, exist_ok=True)\n\n        report_path = os.path.join(report_dir, \"gitleaks_report.json\")\n\n        # Run Gitleaks\n        result = subprocess.run(\n            [\"gitleaks\", \"detect\", \"--source\", root_path,\n             \"--report-format\", \"json\", \"--report-path\", report_path],\n            capture_output=True,\n            text=True,\n            check=False\n        )\n\n        # If gitleaks fails (not 0 or 1), return the error\n        if result.returncode not in [0, 1]:\n            return {\n                \"status\": \"fail\",\n                \"message\": f\"Gitleaks execution error: {result.stderr.strip()}\"\n            }\n\n        # Load the report\n        if os.path.exists(report_path):\n            with open(report_path, \"r\") as f:\n                findings = json.load(f)\n\n            if findings:\n                messages = [\" Potential credentials found:\"]\n                for item in findings:\n                    file = item.get(\"file\", \"\")\n                    secret = item.get(\"rule\", \"Secret\")\n                    line = item.get(\"line\", \"?\")\n                    messages.append(f\"• `{secret}` in `{file}` (line {line})\")\n\n                return {\n                    \"status\": \"fail\",\n                    \"message\": \"\\n\".join(messages)\n                }\n            else:\n                return {\n                    \"status\": \"pass\",\n                    \"message\": \"✓ No leaked credentials found.\"\n                }\n\n        return {\n            \"status\": \"fail\",\n            \"message\": \"No Gitleaks report was generated.\"\n        }\n\n    except Exception as e:\n        return {\n            \"status\": \"fail\",\n            \"message\": f\"Exception during Gitleaks scan: {str(e)}\"\n        }",
+      "lines": 36,
+      "fragment": "def run_gitleaks_secret_scan():\n    \"\"\"\n    Runs Gitleaks on the current project directory (cwd).\n    Returns a dictionary formatted for display under \"Project-Level Results\".\n    \"\"\"\n    try:\n        # Use current working directory as project root\n        root_path = os.getcwd()\n        report_dir = os.path.join(root_path, \"gitleaks-report\")\n        os.makedirs(report_dir, exist_ok=True)\n\n        report_path = os.path.join(report_dir, \"gitleaks_report.json\")\n\n        # Run Gitleaks\n        result = subprocess.run(\n            [\"gitleaks\", \"detect\", \"--source\", root_path,\n             \"--report-format\", \"json\", \"--report-path\", report_path],\n            capture_output=True,\n            text=True,\n            check=False\n        )\n\n        # If gitleaks fails (not 0 or 1), return the error\n        if result.returncode not in [0, 1]:\n            return {\n                \"status\": \"fail\",\n                \"message\": f\"Gitleaks execution error: {result.stderr.strip()}\"\n            }\n\n        # Load the report\n        if os.path.exists(report_path):\n            with open(report_path, \"r\") as f:\n                findings = json.load(f)\n\n            if findings:\n                messages",
       "tokens": 0,
       "firstFile": {
         "name": "tools/jscpd_runner.py",
         "start": 150,
-        "end": 211,
+        "end": 185,
         "startLoc": {
           "line": 150,
           "column": 1,
           "position": 863
         },
         "endLoc": {
-          "line": 211,
-          "column": 2,
-          "position": 1276
+          "line": 185,
+          "column": 9,
+          "position": 1099
         }
       },
       "secondFile": {
         "name": "tools/gitleaks_runner.py",
         "start": 5,
-        "end": 66,
+        "end": 41,
         "startLoc": {
           "line": 5,
           "column": 1,
           "position": 13
         },
         "endLoc": {
-          "line": 66,
-          "column": 2,
-          "position": 426
+          "line": 41,
+          "column": 15,
+          "position": 251
         }
       }
     }
