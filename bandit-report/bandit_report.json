@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-05-28T00:50:35Z",
+  "generated_at": "2025-05-28T18:40:27Z",
   "metrics": {
     "./extension.py": {
       "CONFIDENCE.HIGH": 0,
@@ -11,7 +11,7 @@
       "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 114,
+      "loc": 116,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -24,7 +24,7 @@
       "SEVERITY.LOW": 30,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 1409,
+      "loc": 1411,
       "nosec": 0,
       "skipped_tests": 0
     },

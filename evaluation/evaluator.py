@@ -90,23 +90,6 @@ def display_maintenance_metric_overview():
     display(HTML("</ul>"))
 
 def evaluate_metrics(metrics, path, github_url=None):
-    """
-    Evaluates selected software quality metrics on a given Python file or folder.
-
-    Args:
-        metrics (list): List of metric names selected by the user (e.g., ["Code Smells", "Maintainability Index"])
-        path (str): Path to a file or folder provided by the user.
-
-    Returns:
-        dict: A nested dictionary with the structure:
-            {
-                "file1.py": {
-                    "Metric A": {status: ..., message: ...},
-                    "Metric B": {...}
-                },
-                "file2.py": { ... }
-            }
-    """
 
     if path == ".":
         # print("Current working directory:", os.getcwd())
