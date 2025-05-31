@@ -72,7 +72,6 @@ def on_run_button_click(_b):
             display_maintenance_metric_overview()
 
         if selected_stage != "Maintenance":
-            # display(Markdown(f"Target Path: `{target_path}`"))
             pretty_path = (
                 "(entire project)" if target_path.strip() == "." else target_path
             )

@@ -14,6 +14,7 @@ from tools.gitleaks_runner import run_gitleaks_secret_scan
 from tools.bandit_runner import run_bandit_security_scan
 from tools.modularity_checker import run_modularity_check
 from tools.dependency_checker import run_dependency_check
+from evaluation.notebook_converter import convert_notebooks_in_dir
 
 # Development metric overview section
 def get_development_metrics_status():
@@ -138,6 +139,9 @@ def evaluate_metrics(metrics, path, github_url=None):
     # PART B – File-level metrics
     # ---------------------------------------------
     if scanning_files:
+
+        # Convert any .ipynb notebooks into .py before continuing
+        convert_notebooks_in_dir(path)
 
         # ------------------------------------------------------------
         # STEP 1: Determine whether path is a file or folder

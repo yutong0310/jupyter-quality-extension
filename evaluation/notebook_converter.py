@@ -1,6 +1,7 @@
 import os
 import nbformat
 from nbconvert import PythonExporter
+from IPython.display import display, HTML
 
 def convert_notebooks_in_dir(root_dir):
     """
@@ -13,6 +14,10 @@ def convert_notebooks_in_dir(root_dir):
         root_dir (str): Path to the directory to recursively scan.
     """
     for dirpath, _, filenames in os.walk(root_dir):
+        # Skip .ipynb_checkpoints directories
+        if ".ipynb_checkpoints" in dirpath:
+            continue
+
         for file in filenames:
             if file.endswith(".ipynb") and not file.startswith("."):
                 notebook_path = os.path.join(dirpath, file)
@@ -31,7 +36,17 @@ def convert_notebooks_in_dir(root_dir):
                     with open(py_path, "w", encoding="utf-8") as f:
                         f.write(source_code)
 
-                    print(f"Converted notebook to .py: {py_path}")
+                    #print(f"Detected Jupyter notebook: {notebook_path}")
+                    #print(f"Converting to Python file: {py_path}\n")
+                    styled_log(notebook_path, py_path)
 
                 except Exception as e:
                     print(f"[ERROR] Failed to convert {notebook_path}: {e}")
+
+def styled_log(notebook_path, py_path):
+    display(HTML(f"""
+        <div style="margin: 10px 0; padding: 10px; background-color: #f8f9fa; font-size: 11px;">
+            <div><strong>Detected Jupyter notebook:</strong> <code>{notebook_path}</code></div>
+            <div><strong>Converting to Python file:</strong> <code>{py_path}</code></div>
+        </div>
+    """))
