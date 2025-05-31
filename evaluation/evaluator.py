@@ -167,7 +167,7 @@ def evaluate_metrics(metrics, path, github_url=None):
                 dirs[:] = [d for d in dirs if d not in excluded_dirs]
 
                 for filename in filenames:
-                    if filename.endswith(".py"):
+                    if filename.endswith(".py") and filename != "__init__.py":
                         # Construct full file path and add it to our list
                         full_path = os.path.join(root, filename)
                         files.append(full_path)

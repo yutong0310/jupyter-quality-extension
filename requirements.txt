@@ -11,3 +11,5 @@ howfairis
 ipywidgets
 notebook
 IPython
+nbconvert
+nbformat

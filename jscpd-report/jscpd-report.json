@@ -1,12 +1,12 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-31T00:05:13.258Z",
+    "detectionDate": "2025-05-31T00:29:31.579Z",
     "formats": {
       "python": {
         "sources": {
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/evaluation/evaluator.py": {
             "lines": 252,
-            "tokens": 1797,
+            "tokens": 1805,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -211,7 +211,7 @@
         },
         "total": {
           "lines": 1995,
-          "tokens": 12312,
+          "tokens": 12320,
           "sources": 17,
           "clones": 1,
           "duplicatedLines": 35,
@@ -225,7 +225,7 @@
     },
     "total": {
       "lines": 1995,
-      "tokens": 12312,
+      "tokens": 12320,
       "sources": 17,
       "clones": 1,
       "duplicatedLines": 35,
