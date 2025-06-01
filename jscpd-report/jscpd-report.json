@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-05-31T00:29:31.579Z",
+    "detectionDate": "2025-06-01T20:36:02.135Z",
     "formats": {
       "python": {
         "sources": {
@@ -113,8 +113,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/radon_runner.py": {
-            "lines": 377,
-            "tokens": 2006,
+            "lines": 389,
+            "tokens": 2042,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -210,28 +210,28 @@
           }
         },
         "total": {
-          "lines": 1995,
-          "tokens": 12320,
+          "lines": 2007,
+          "tokens": 12356,
           "sources": 17,
           "clones": 1,
           "duplicatedLines": 35,
           "duplicatedTokens": 236,
-          "percentage": 1.75,
-          "percentageTokens": 1.92,
+          "percentage": 1.74,
+          "percentageTokens": 1.91,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1995,
-      "tokens": 12320,
+      "lines": 2007,
+      "tokens": 12356,
       "sources": 17,
       "clones": 1,
       "duplicatedLines": 35,
       "duplicatedTokens": 236,
-      "percentage": 1.75,
-      "percentageTokens": 1.92,
+      "percentage": 1.74,
+      "percentageTokens": 1.91,
       "newDuplicatedLines": 0,
       "newClones": 0
     }

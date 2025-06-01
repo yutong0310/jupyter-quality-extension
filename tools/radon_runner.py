@@ -88,9 +88,21 @@ def run_radon_maintainability_index(filepath):
             styled_note = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{mi_note}</i></div>"
             styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {mi_tip}</div>"
 
+            # full_message = (
+            #     f"MI Score: {mi_score:.2f}, Grade: {mi_rank}"
+            #     f"{styled_note}{styled_tip}"
+            # )
+
+            styled_rank_note = (
+                "<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>"
+                "Note: Maintainability Index (MI) is scored from 0 to 100. "
+                "Grade A: 100–20 (very high), B: 19–10 (moderate), C: 9–0 (very low)."
+                "</i></div>"
+            )
+
             full_message = (
                 f"MI Score: {mi_score:.2f}, Grade: {mi_rank}"
-                f"{styled_note}{styled_tip}"
+                f"{styled_note}{styled_tip}{styled_rank_note}"
             )
 
             # Step 6: Apply quality threshold (commonly used is 65)
