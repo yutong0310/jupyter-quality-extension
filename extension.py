@@ -30,7 +30,7 @@ target_input = widgets.Text(
 
 project_hint = widgets.HTML(
     "<div style='color: gray; font-size: 90%; margin-top: -10px;'>"
-    "Leave blank or enter <code>.</code> to scan the entire project folder.</div>"
+    "Enter <code>.</code> to scan the entire project folder.</div>"
 )
 
 github_url_input = widgets.Text(
