@@ -105,9 +105,9 @@ def run_radon_maintainability_index(filepath):
                 f"{styled_note}{styled_tip}{styled_rank_note}"
             )
 
-            # Step 6: Apply quality threshold (commonly used is 65)
+            # Step 6: Apply quality threshold 
             return {
-                "status": "pass" if mi_score >= 65 else "fail",
+                "status": "pass" if mi_score >= 20 else "fail",
                 "score": mi_score,
                 "grade": mi_rank,
                 "message": full_message
@@ -122,83 +122,6 @@ def run_radon_maintainability_index(filepath):
 
     except subprocess.CalledProcessError as e:
         # If radon crashes or returns a non-zero exit code, capture the error
-        return {
-            "status": "fail",
-            "message": f"Radon error: {e.output.strip()}"
-        }
-
-def run_radon_cyclomatic_complexity_old(filepath):
-    """
-    Computes the average Cyclomatic Complexity for a given Python file
-    using Radon's command-line interface.
-
-    Cyclomatic Complexity is a code metric that counts the number of independent
-    paths through the code (e.g., due to loops, conditionals, etc.).
-    Lower complexity means easier-to-understand and testable code.
-
-    Returns:
-        dict: {
-            'status': 'pass' or 'fail',
-            'score': float (average complexity),
-            'message': str (summary for display)
-        }
-    """
-
-    # Step 1: Make sure the file exists
-    if not os.path.isfile(filepath):
-        return {
-            "status": "fail",
-            "message": f"File not found: {filepath}" 
-        }
-    
-    try:
-        # Step 2: Run the radon complexity (cc) command in JSON mode
-        output = subprocess.check_output(
-            ['radon', 'cc', '--json', '--no-assert', filepath], # radon cc = complexity check
-            stderr=subprocess.STDOUT, # Redirect any error output into the same stream
-            text=True # Ensure the result is returned as a string (not bytes)
-        )
-
-        # Step 3: Parse the JSON output into a Python dictionary
-        results = json.loads(output)
-
-        # Step 4: Get the result list for the specific file
-        # This will contain one dictionary per function/method
-
-        # For example:
-        # {"pylint_runner.py": 
-        #   [{"type": "function", "rank": "A", "lineno": 4, "col_offset": 0, "name": "run_pylint_code_smell", "endline": 51, "complexity": 4, "closures": []}, 
-        #    {"type": "function", "rank": "A", "lineno": 54, "col_offset": 0, "name": "run_pylint_code_smell2", "endline": 55, "complexity": 1, "closures": []}]
-        # }
-        file_results = results.get(filepath, [])
-
-        # Step 5: Extract the cyclomatic complexity score for each function
-        scores = [ item.get("complexity", 0) for item in file_results ]
-
-        # Step 6: If there are no functions/methods found, return a default passing result
-        if not scores:
-            return {
-                "status": "pass",
-                "score": 0,
-                "message": "No functions or classes found for cyclomatic complexity analysis."
-            }
-        
-        # Step 7: Calculate the average complexity score
-        average = sum(scores) / len(scores)
-
-        # Step 8: Determine whether it passes based on a threshold (10 is common)
-        status = "pass" if average < 10 else "fail"
-
-        # Step 9: Return a summary of the result
-        return {
-            "status": status,
-            "score": average,
-            "message": f"Avg. Cyclomatic Complexity: {average:.2f}" if status == "pass"
-                       else f"High Cyclomatic Complexity: {average:.2f} (❌ consider reducing complexity)"
-        }
-    
-    except subprocess.CalledProcessError as e:
-        # Step 10: If radon crashes (e.g., due to syntax error), catch and return error message
         return {
             "status": "fail",
             "message": f"Radon error: {e.output.strip()}"

@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-06-05T17:16:24.828Z",
+    "detectionDate": "2025-06-05T19:18:59.305Z",
     "formats": {
       "python": {
         "sources": {
@@ -29,8 +29,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/test_notebooks/test_example.py": {
-            "lines": 53,
-            "tokens": 224,
+            "lines": 47,
+            "tokens": 212,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -210,8 +210,8 @@
           }
         },
         "total": {
-          "lines": 2035,
-          "tokens": 12642,
+          "lines": 2029,
+          "tokens": 12630,
           "sources": 17,
           "clones": 1,
           "duplicatedLines": 35,
@@ -224,8 +224,8 @@
       }
     },
     "total": {
-      "lines": 2035,
-      "tokens": 12642,
+      "lines": 2029,
+      "tokens": 12630,
       "sources": 17,
       "clones": 1,
       "duplicatedLines": 35,
