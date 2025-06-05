@@ -151,7 +151,21 @@ def evaluate_metrics(metrics, path, github_url=None):
         if os.path.isfile(path) and path.endswith(".py"):
             files.append(path)
 
-        # Case 2: User entered a folder → walk recursively through subfolders
+        # (NEW) Case 2: User entered a single .ipynb notebook
+        elif os.path.isfile(path) and path.endswith(".ipynb") and ".ipynb_checkpoints" not in path:
+            py_path = path.replace(".ipynb", ".py")
+            if os.path.exists(py_path):
+                files.append(py_path)
+            else:
+                results["ERROR"] = {
+                    "Notebook Conversion Failed": {
+                        "status": "fail",
+                        "message": f"Notebook has not converted to Python file: {path}"
+                    }
+                }
+                return results
+
+        # Case 3: User entered a folder → walk recursively through subfolders
         elif os.path.isdir(path):
             # os.walk() recursively traverses a directory tree. It yields a tuple (root, dirs, files) for every directory it visits:
             # - root: current folder path.  - dirs: list of subfolders.  - files: list of files in this folder

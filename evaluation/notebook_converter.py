@@ -13,35 +13,45 @@ def convert_notebooks_in_dir(root_dir):
     Args:
         root_dir (str): Path to the directory to recursively scan.
     """
-    for dirpath, _, filenames in os.walk(root_dir):
-        # Skip .ipynb_checkpoints directories
-        if ".ipynb_checkpoints" in dirpath:
-            continue
+    if os.path.isfile(root_dir) and root_dir.endswith(".ipynb"):
+        # Single file case
+        _convert_notebook_file(root_dir)
+    elif os.path.isdir(root_dir):
+        # Directory case
+        for dirpath, _, filenames in os.walk(root_dir):
+            # Skip .ipynb_checkpoints directories
+            if ".ipynb_checkpoints" in dirpath:
+                continue
 
-        for file in filenames:
-            if file.endswith(".ipynb") and not file.startswith("."):
-                notebook_path = os.path.join(dirpath, file)
-                py_path = os.path.splitext(notebook_path)[0] + ".py"
+            for file in filenames:
+                if file.endswith(".ipynb") and not file.startswith("."):
+                    notebook_path = os.path.join(dirpath, file)
+                    _convert_notebook_file(notebook_path)
+    else:
+        print(f"[WARNING] Path not found or not valid: {root_dir}")
 
-                try:
-                    # Load notebook
-                    with open(notebook_path, "r", encoding="utf-8") as f:
-                        nb = nbformat.read(f, as_version=4)
+def _convert_notebook_file(notebook_path):
+    """Helper to convert a single .ipynb notebook to a .py file"""
+    py_path = os.path.splitext(notebook_path)[0] + ".py"
+    try:
+        # Load notebook
+        with open(notebook_path, "r", encoding="utf-8") as f:
+            nb = nbformat.read(f, as_version=4)
 
-                    # Convert to Python code
-                    exporter = PythonExporter()
-                    source_code, _ = exporter.from_notebook_node(nb)
+        # Convert to Python code
+        exporter = PythonExporter()
+        source_code, _ = exporter.from_notebook_node(nb)
 
-                    # Write converted Python code to .py file
-                    with open(py_path, "w", encoding="utf-8") as f:
-                        f.write(source_code)
+        # Write converted Python code to .py file
+        with open(py_path, "w", encoding="utf-8") as f:
+            f.write(source_code)
 
-                    #print(f"Detected Jupyter notebook: {notebook_path}")
-                    #print(f"Converting to Python file: {py_path}\n")
-                    styled_log(notebook_path, py_path)
+        #print(f"Detected Jupyter notebook: {notebook_path}")
+        #print(f"Converting to Python file: {py_path}\n")
+        styled_log(notebook_path, py_path)
 
-                except Exception as e:
-                    print(f"[ERROR] Failed to convert {notebook_path}: {e}")
+    except Exception as e:
+        print(f"[ERROR] Failed to convert {notebook_path}: {e}")
 
 def styled_log(notebook_path, py_path):
     display(HTML(f"""
