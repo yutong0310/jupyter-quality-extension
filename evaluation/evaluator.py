@@ -115,7 +115,6 @@ def evaluate_metrics(metrics, path, github_url=None):
         results["Project-Level Results"]["Leaked Secrets Scan (Gitleaks)"] = run_gitleaks_secret_scan()
         results["Project-Level Results"]["-----divider-2-----"] = {"status": "pass", "message": ""}
         results["Project-Level Results"]["Security Vulnerability Scan (Bandit)"] = run_bandit_security_scan()
-
     
     # if "Modularity" in metrics:
     #    results["Project-Level Results"]["⚠️ Modularity (Structure Overview)"] = run_modularity_check(path)

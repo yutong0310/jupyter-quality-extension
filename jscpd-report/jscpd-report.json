@@ -1,12 +1,12 @@
 {
   "statistics": {
-    "detectionDate": "2025-06-05T16:05:08.121Z",
+    "detectionDate": "2025-06-05T17:16:24.828Z",
     "formats": {
       "python": {
         "sources": {
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/evaluation/evaluator.py": {
-            "lines": 266,
-            "tokens": 1922,
+            "lines": 265,
+            "tokens": 1921,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -17,8 +17,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/evaluation/notebook_converter.py": {
-            "lines": 61,
-            "tokens": 385,
+            "lines": 70,
+            "tokens": 486,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -184,6 +184,18 @@
             "newDuplicatedLines": 0,
             "newClones": 0
           },
+          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/run_quality_scan.py": {
+            "lines": 5,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/extension.py": {
             "lines": 164,
             "tokens": 1097,
@@ -198,28 +210,28 @@
           }
         },
         "total": {
-          "lines": 2022,
-          "tokens": 12525,
-          "sources": 16,
+          "lines": 2035,
+          "tokens": 12642,
+          "sources": 17,
           "clones": 1,
           "duplicatedLines": 35,
           "duplicatedTokens": 236,
-          "percentage": 1.73,
-          "percentageTokens": 1.88,
+          "percentage": 1.72,
+          "percentageTokens": 1.87,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 2022,
-      "tokens": 12525,
-      "sources": 16,
+      "lines": 2035,
+      "tokens": 12642,
+      "sources": 17,
       "clones": 1,
       "duplicatedLines": 35,
       "duplicatedTokens": 236,
-      "percentage": 1.73,
-      "percentageTokens": 1.88,
+      "percentage": 1.72,
+      "percentageTokens": 1.87,
       "newDuplicatedLines": 0,
       "newClones": 0
     }

@@ -46,9 +46,10 @@ def _convert_notebook_file(notebook_path):
         with open(py_path, "w", encoding="utf-8") as f:
             f.write(source_code)
 
-        #print(f"Detected Jupyter notebook: {notebook_path}")
-        #print(f"Converting to Python file: {py_path}\n")
         styled_log(notebook_path, py_path)
+
+        # Remove cell markers like "# In[2]:"
+        remove_cell_markers(py_path)
 
     except Exception as e:
         print(f"[ERROR] Failed to convert {notebook_path}: {e}")
@@ -60,3 +61,11 @@ def styled_log(notebook_path, py_path):
             <div><strong>Converting to Python file:</strong> <code>{py_path}</code></div>
         </div>
     """))
+
+def remove_cell_markers(py_file_path):
+    with open(py_file_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    with open(py_file_path, "w", encoding="utf-8") as f:
+        for line in lines:
+            if not line.strip().startswith("# In["):
+                f.write(line)
