@@ -262,18 +262,16 @@ def run_radon_comment_density(filepath):
         stats = results.get(filepath, {})
         sloc = stats.get("sloc", 0) # Source lines of code (non-empty, non-comment)
         comments = stats.get("comments", 0) # Single-line comments (#)
-        multi = stats.get("multi", 0) # Multi-line docstrings or block comments
 
-        # Step 5: Calculate the total number of comment lines
-        comment_lines = comments + multi
+        # Step 5: Calculate the total lines: sloc + actual comment lines
+        total_lines = sloc + comments
 
         # Step 6: Compute the comment density percentage
-        density = (comment_lines / sloc * 100) if sloc > 0 else 0
+        density = (comments / total_lines * 100) if total_lines > 0 else 0
 
         # Step 7: Define pass/fail threshold (e.g., pass if density >= 10%)
         status = "pass" if density >= 10 else "fail"
 
-        # Create a styled report
         if status == "pass":
             summary = "Adequate documentation – good commenting practice."
             tip = "Your code has a healthy comment density. Continue writing clear comments and docstrings to ensure readability and maintainability."
