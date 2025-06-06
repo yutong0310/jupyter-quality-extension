@@ -270,7 +270,7 @@ def run_radon_comment_density(filepath):
         density = (comments / total_lines * 100) if total_lines > 0 else 0
 
         # Step 7: Define pass/fail threshold (e.g., pass if density >= 10%)
-        status = "pass" if density >= 10 else "fail"
+        status = "pass" if density >= 20 else "fail"
 
         if status == "pass":
             summary = "Adequate documentation – good commenting practice."
@@ -283,7 +283,14 @@ def run_radon_comment_density(filepath):
         styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {tip}</div>"
         styled_note = (
             "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
-            "<i>Note: Comment Density is calculated as (comment lines / source lines) × 100. A score above 10% is generally considered good.</i>"
+            "<i>Note: Comment Density is calculated as (comment lines / source lines) × 100. A score above 20% is generally considered good.</i>"
+            "</div>"
+        )
+
+        styled_note = (
+            "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
+            "<i>Note: Comment Density is calculated as (comment lines / (source lines + comment lines)) × 100. "
+            "A score above 20% is generally considered good.</i>"
             "</div>"
         )
 
