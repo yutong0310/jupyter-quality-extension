@@ -13,7 +13,7 @@ def run_howfairis_license_check(github_url):
             "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
             "<br><i>This FAIR assessment checks your repository against 5 best practices from "
             "<a href='https://fair-software.eu/recommendations/checklist' target='_blank'>fair-software.eu</a>: "
-            "open repository, license file, registry presence (e.g., PyPI or Zenodo), citation metadata, and a FAIR checklist badge in the README.</i>"
+            "open repository, license file, registry presence (e.g., PyPI), citation metadata, and a FAIR checklist badge in the README.</i>"
             "</div>"
         )
 
