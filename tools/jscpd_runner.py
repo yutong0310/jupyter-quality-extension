@@ -120,7 +120,7 @@ def run_jscpd_code_duplication(path):
 
         styled_topline = (
             f"<div style='margin-left: 20px; font-size: 100%;'>"
-            f"Duplicated Lines: <b>{duplicated}</b> / <b>{total}</b> "
+            f"Code Duplication Percentage: <b>{duplicated}</b> / <b>{total}</b> "
             f"({percentage:.2f}%)</div>"
         )
 
