@@ -97,11 +97,11 @@ def run_jscpd_code_duplication(path):
         percentage = (duplicated / total * 100) if total > 0 else 0
 
         # Determine severity and create styled explanation
-        if percentage < 10:
+        if percentage < 5:
             status = "pass"
             note = "Low duplication – clean code."
             tip = "Your notebook has low redundancy, which enhances maintainability and readability. Continue using helper functions and avoiding repeated code blocks."
-        elif percentage < 20:
+        elif percentage < 15:
             status = "pass"
             note = "Moderate duplication – could be improved."
             tip = "Some code duplication exists. Consider refactoring shared logic into reusable functions to improve structure."
