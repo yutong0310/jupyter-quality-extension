@@ -114,7 +114,7 @@ def run_jscpd_code_duplication(path):
         styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {tip}</div>"
         legend = (
             "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
-            "<i>Note: A duplication rate under 10% is considered good. Over 20% is typically problematic in maintainability.</i>"
+            "<i>Note: A duplication rate under 5% is considered good. Over 15% is typically problematic in maintainability.</i>"
             "</div>"
         )
 
