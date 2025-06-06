@@ -58,9 +58,11 @@ def run_bandit_security_scan():
         data = json.load(f)
 
     all_results = data.get("results", [])
-    severity_to_show = {"MEDIUM", "HIGH"}
+    severity_to_show = {"LOW", "MEDIUM", "HIGH"}
     filtered = [r for r in all_results if r.get("issue_severity") in severity_to_show]
-    filtered = sorted(filtered, key=lambda r: {"HIGH": 0, "MEDIUM": 1}.get(r.get("issue_severity"), 2))
+    filtered = sorted(filtered, key=lambda r: {"HIGH": 0, "MEDIUM": 1, "LOW": 2}.get(r.get("issue_severity"), 3))
+
+    has_medium_or_high = any(r["issue_severity"] in {"MEDIUM", "HIGH"} for r in filtered)
 
     # STEP 4: Generate styled UI output
     styled_note = (
@@ -75,20 +77,28 @@ def run_bandit_security_scan():
         "Even LOW severity findings may require attention in sensitive applications.</div>"
     )
 
-    if not filtered:
+    if not has_medium_or_high:
         styled_summary = (
-            "<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>No medium or high-severity risks detected - your code passed the scan. "
-            "(Low-severity issues, if present, are not included in this result.)</i>"
-            "</div>"
+            "<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>No medium or high-severity risks detected, only low-severity suggestions shown below.</i></div>"
         )
         styled_header = (
             "<div style='margin-left: 20px;'>✓ No medium or high-severity security vulnerabilities found.</div>"
         )
+        styled_results = "<div style='margin-left: 20px; color: gray; font-size: 90%;'>"
+        for issue in filtered:
+            file = issue.get("filename")
+            line = issue.get("line_number")
+            severity = issue.get("issue_severity")
+            msg = issue.get("issue_text")
+            rule = issue.get("test_id")
+            styled_results += f"• [{severity}] {msg} (File: <code>{file}</code>, Line: {line}, Rule: {rule})<br>"
+        styled_results += "</div>"
         return {
             "status": "pass",
-            "message": styled_header + styled_summary  + styled_tip + styled_note
+            "message": styled_header + styled_summary + styled_results + styled_tip + styled_note
         }
 
+    # At least one MEDIUM or HIGH issue → fail
     styled_header = (
         "<div style='margin-left: 20px; color: red;'>✗ Bandit found potential security issues:</div>"
     )
