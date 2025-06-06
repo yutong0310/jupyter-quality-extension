@@ -42,9 +42,9 @@ def run_gitleaks_secret_scan():
 
                 styled_findings = ""
                 for item in findings:
-                    file = item.get("file", "")
-                    secret = item.get("rule", "Secret")
-                    line = item.get("line", "?")
+                    file = item.get("File", "")
+                    secret = item.get("RuleID", "Secret")
+                    line = item.get("Line", "?")
                     styled_findings += f"<div style='margin-left: 20px; font-size: 90%; font-family: monospace;'>• {secret} in {file} (line {line})</div>"
 
                 styled_tip = (
