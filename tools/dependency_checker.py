@@ -1,12 +1,6 @@
 import os
 import ast
-import sys
 import importlib.util
-from stdlib_list import stdlib_list
-
-# Get standard library modules for current Python version
-version = f"{sys.version_info.major}.{sys.version_info.minor}"
-STANDARD_LIBS = set(stdlib_list(version))
 
 # Extract imports from a single python file
 def extract_imports_from_file(filepath):
@@ -91,8 +85,6 @@ def run_dependency_check(project_path="."):
     # Keep only the imports taht are third-party (i.e., installed via pip)
     used_imports = {name for name in project_imports if is_importable_third_party(name)}
     # used_imports = {name.lower() for name in project_imports if is_importable_third_party(name)}
-    
-    used_imports = {pkg for pkg in used_imports if pkg not in STANDARD_LIBS}
 
     # Read declared dependencies from requirements.txt
     declared_deps = parse_requirements(requirements_path)
@@ -110,10 +102,6 @@ def run_dependency_check(project_path="."):
 
     # Pass only if no missing packages
     status = "pass" if not missing else "fail"
-
-    # Format helpers
-    # def gray_block(label, content):
-    #    return f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>{label}</b></div><div style='margin-left: 40px; color: gray; font-size: 90%;'>{content}</div>"
 
     def gray_block(label, content):
         return f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>{label}</b> {content}</div>"

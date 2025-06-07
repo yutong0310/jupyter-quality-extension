@@ -4,7 +4,6 @@ radon
 jscpd
 bandit
 howfairis
-stdlib-list
 
 # gitleaks must be installed manually 
 

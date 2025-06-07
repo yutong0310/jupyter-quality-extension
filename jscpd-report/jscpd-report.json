@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-06-07T14:09:38.049Z",
+    "detectionDate": "2025-06-07T14:20:23.242Z",
     "formats": {
       "python": {
         "sources": {
@@ -137,8 +137,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/dependency_checker.py": {
-            "lines": 158,
-            "tokens": 1135,
+            "lines": 145,
+            "tokens": 1098,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -210,28 +210,28 @@
           }
         },
         "total": {
-          "lines": 1975,
-          "tokens": 12418,
+          "lines": 1962,
+          "tokens": 12381,
           "sources": 17,
           "clones": 2,
           "duplicatedLines": 47,
           "duplicatedTokens": 340,
-          "percentage": 2.38,
-          "percentageTokens": 2.74,
+          "percentage": 2.4,
+          "percentageTokens": 2.75,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1975,
-      "tokens": 12418,
+      "lines": 1962,
+      "tokens": 12381,
       "sources": 17,
       "clones": 2,
       "duplicatedLines": 47,
       "duplicatedTokens": 340,
-      "percentage": 2.38,
-      "percentageTokens": 2.74,
+      "percentage": 2.4,
+      "percentageTokens": 2.75,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
