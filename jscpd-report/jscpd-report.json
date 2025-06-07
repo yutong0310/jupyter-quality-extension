@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-06-07T17:39:37.812Z",
+    "detectionDate": "2025-06-07T19:56:21.268Z",
     "formats": {
       "python": {
         "sources": {
@@ -53,8 +53,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/loc_counter.py": {
-            "lines": 81,
-            "tokens": 615,
+            "lines": 118,
+            "tokens": 919,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -210,28 +210,28 @@
           }
         },
         "total": {
-          "lines": 1935,
-          "tokens": 12265,
+          "lines": 1972,
+          "tokens": 12569,
           "sources": 17,
           "clones": 2,
           "duplicatedLines": 47,
           "duplicatedTokens": 340,
-          "percentage": 2.43,
-          "percentageTokens": 2.77,
+          "percentage": 2.38,
+          "percentageTokens": 2.71,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1935,
-      "tokens": 12265,
+      "lines": 1972,
+      "tokens": 12569,
       "sources": 17,
       "clones": 2,
       "duplicatedLines": 47,
       "duplicatedTokens": 340,
-      "percentage": 2.43,
-      "percentageTokens": 2.77,
+      "percentage": 2.38,
+      "percentageTokens": 2.71,
       "newDuplicatedLines": 0,
       "newClones": 0
     }

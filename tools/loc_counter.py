@@ -51,8 +51,8 @@ def run_project_loc():
             "Focus on clarity and readability. Even small projects benefit from proper docstrings, meaningful variable names, "
             "and a simple modular structure to make future updates easier."
         )
-    elif total_loc <= 2000:
-        summary = "Small-to-moderate project size."
+    elif total_loc <= 5000:
+        summary = "Medium project size."
         tip = (
             "As your project grows, organize related functions into reusable components or modules. "
             "Modularity supports testing, easier debugging, and future collaboration."
