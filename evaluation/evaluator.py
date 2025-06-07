@@ -6,7 +6,6 @@ from tools.radon_runner import run_radon_cyclomatic_complexity
 from tools.radon_runner import run_radon_comment_density
 from tools.jscpd_runner import run_jscpd_code_duplication
 from tools.loc_counter import run_project_loc
-from tools.loc_counter import run_loc_per_target
 from tools.assertion_counter import run_assertion_percentage
 from tools.unit_test_checker import run_unit_test_detection
 from tools.howfairis_runner import run_howfairis_license_check

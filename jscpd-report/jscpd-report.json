@@ -1,12 +1,12 @@
 {
   "statistics": {
-    "detectionDate": "2025-06-07T14:20:23.242Z",
+    "detectionDate": "2025-06-07T17:39:37.812Z",
     "formats": {
       "python": {
         "sources": {
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/evaluation/evaluator.py": {
-            "lines": 265,
-            "tokens": 1921,
+            "lines": 264,
+            "tokens": 1911,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -53,8 +53,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/loc_counter.py": {
-            "lines": 107,
-            "tokens": 721,
+            "lines": 81,
+            "tokens": 615,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -210,28 +210,28 @@
           }
         },
         "total": {
-          "lines": 1962,
-          "tokens": 12381,
+          "lines": 1935,
+          "tokens": 12265,
           "sources": 17,
           "clones": 2,
           "duplicatedLines": 47,
           "duplicatedTokens": 340,
-          "percentage": 2.4,
-          "percentageTokens": 2.75,
+          "percentage": 2.43,
+          "percentageTokens": 2.77,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1962,
-      "tokens": 12381,
+      "lines": 1935,
+      "tokens": 12265,
       "sources": 17,
       "clones": 2,
       "duplicatedLines": 47,
       "duplicatedTokens": 340,
-      "percentage": 2.4,
-      "percentageTokens": 2.75,
+      "percentage": 2.43,
+      "percentageTokens": 2.77,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
