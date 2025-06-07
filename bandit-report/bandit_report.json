@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-06-06T21:25:34Z",
+  "generated_at": "2025-06-07T14:09:34Z",
   "metrics": {
     "./extension.py": {
       "CONFIDENCE.HIGH": 0,
@@ -37,7 +37,7 @@
       "SEVERITY.LOW": 39,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 1690,
+      "loc": 1692,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -193,7 +193,7 @@
       "SEVERITY.LOW": 1,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 92,
+      "loc": 94,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -664,7 +664,7 @@
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "44                     all_imports.update(imports)\n45                 except Exception:\n46                     continue  # Skip files that can't be read or parsed\n47     return all_imports\n",
+      "code": "50                     all_imports.update(imports)\n51                 except Exception:\n52                     continue  # Skip files that can't be read or parsed\n53     return all_imports\n",
       "col_offset": 16,
       "end_col_offset": 28,
       "filename": "tools/dependency_checker.py",
@@ -675,10 +675,10 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Try, Except, Continue detected.",
-      "line_number": 45,
+      "line_number": 51,
       "line_range": [
-        45,
-        46
+        51,
+        52
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b112_try_except_continue.html",
       "test_id": "B112",

@@ -2,6 +2,11 @@ import os
 import ast
 import sys
 import importlib.util
+from stdlib_list import stdlib_list
+
+# Get standard library modules for current Python version
+version = f"{sys.version_info.major}.{sys.version_info.minor}"
+STANDARD_LIBS = set(stdlib_list(version))
 
 # Extract imports from a single python file
 def extract_imports_from_file(filepath):
@@ -87,6 +92,8 @@ def run_dependency_check(project_path="."):
     used_imports = {name for name in project_imports if is_importable_third_party(name)}
     # used_imports = {name.lower() for name in project_imports if is_importable_third_party(name)}
     
+    used_imports = {pkg for pkg in used_imports if pkg not in STANDARD_LIBS}
+
     # Read declared dependencies from requirements.txt
     declared_deps = parse_requirements(requirements_path)
 

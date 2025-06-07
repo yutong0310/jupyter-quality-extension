@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-06-06T11:43:55.367Z",
+    "detectionDate": "2025-06-07T14:09:38.049Z",
     "formats": {
       "python": {
         "sources": {
@@ -137,8 +137,8 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/dependency_checker.py": {
-            "lines": 150,
-            "tokens": 1113,
+            "lines": 158,
+            "tokens": 1135,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -173,14 +173,14 @@
             "newClones": 0
           },
           "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/bandit_runner.py": {
-            "lines": 110,
-            "tokens": 766,
+            "lines": 120,
+            "tokens": 899,
             "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
+            "clones": 2,
+            "duplicatedLines": 24,
+            "duplicatedTokens": 208,
+            "percentage": 20,
+            "percentageTokens": 23.14,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
@@ -210,28 +210,28 @@
           }
         },
         "total": {
-          "lines": 1957,
-          "tokens": 12263,
+          "lines": 1975,
+          "tokens": 12418,
           "sources": 17,
-          "clones": 1,
-          "duplicatedLines": 35,
-          "duplicatedTokens": 236,
-          "percentage": 1.79,
-          "percentageTokens": 1.92,
+          "clones": 2,
+          "duplicatedLines": 47,
+          "duplicatedTokens": 340,
+          "percentage": 2.38,
+          "percentageTokens": 2.74,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1957,
-      "tokens": 12263,
+      "lines": 1975,
+      "tokens": 12418,
       "sources": 17,
-      "clones": 1,
-      "duplicatedLines": 35,
-      "duplicatedTokens": 236,
-      "percentage": 1.79,
-      "percentageTokens": 1.92,
+      "clones": 2,
+      "duplicatedLines": 47,
+      "duplicatedTokens": 340,
+      "percentage": 2.38,
+      "percentageTokens": 2.74,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
@@ -270,6 +270,42 @@
           "line": 41,
           "column": 15,
           "position": 251
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 13,
+      "fragment": ")\n    styled_results = \"<div style='margin-left: 20px; color: gray; font-size: 90%;'>\"\n    for issue in filtered:\n        file = issue.get(\"filename\")\n        line = issue.get(\"line_number\")\n        severity = issue.get(\"issue_severity\")\n        msg = issue.get(\"issue_text\")\n        rule = issue.get(\"test_id\")\n        styled_results += f\"• [{severity}] {msg} (File: <code>{file}</code>, Line: {line}, Rule: {rule})<br>\"\n    styled_results += \"</div>\"\n\n    return {\n        \"status\": \"fail\"",
+      "tokens": 0,
+      "firstFile": {
+        "name": "tools/bandit_runner.py",
+        "start": 107,
+        "end": 119,
+        "startLoc": {
+          "line": 107,
+          "column": 5,
+          "position": 769
+        },
+        "endLoc": {
+          "line": 119,
+          "column": 7,
+          "position": 873
+        }
+      },
+      "secondFile": {
+        "name": "tools/bandit_runner.py",
+        "start": 86,
+        "end": 97,
+        "startLoc": {
+          "line": 86,
+          "column": 9,
+          "position": 610
+        },
+        "endLoc": {
+          "line": 97,
+          "column": 7,
+          "position": 713
         }
       }
     }
