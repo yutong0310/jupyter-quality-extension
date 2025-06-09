@@ -92,8 +92,8 @@ def display_maintenance_metric_overview():
 def evaluate_metrics(metrics, path, github_url=None):
 
     if path == ".":
-        # print("Current working directory:", os.getcwd())
-        path = os.getcwd()
+        # path = os.getcwd()
+        project_root = path
 
     results = {}  # Final output dictionary containing all scanned file results
     files = []    # A list to hold all .py files we find
@@ -119,18 +119,22 @@ def evaluate_metrics(metrics, path, github_url=None):
     #    results["Project-Level Results"]["⚠️ Modularity (Structure Overview)"] = run_modularity_check(path)
 
     if "Dependency Management" in metrics:
-        project_root = os.getcwd()
+        # project_root = os.getcwd()
+        project_root = path 
         results["Project-Level Results"]["Dependency Management"] = run_dependency_check(project_root)
     
     if "Software Size (LoC)" in metrics:
-        results["Project-Level Results"]["Software Size (LoC)"] = run_project_loc()
+        project_root = path 
+        results["Project-Level Results"]["Software Size (LoC)"] = run_project_loc(project_root)
 
     if "Code Duplication" in metrics:
-        project_root = os.getcwd()
+        # project_root = os.getcwd()
+        project_root = path 
         results["Project-Level Results"]["Code Duplication"] = run_jscpd_code_duplication(project_root)
 
     if "Percentage of Assertions" in metrics:
-        project_root = os.getcwd()
+        # project_root = os.getcwd()
+        project_root = path 
         results["Project-Level Results"]["Percentage of Assertions"] = run_assertion_percentage(project_root)
 
     # ---------------------------------------------

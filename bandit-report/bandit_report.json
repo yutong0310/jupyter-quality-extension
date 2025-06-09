@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-06-07T14:09:34Z",
+  "generated_at": "2025-06-08T22:14:22Z",
   "metrics": {
     "./extension.py": {
       "CONFIDENCE.HIGH": 0,
@@ -37,7 +37,7 @@
       "SEVERITY.LOW": 39,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 1692,
+      "loc": 1705,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -63,7 +63,7 @@
       "SEVERITY.LOW": 0,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 182,
+      "loc": 181,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -193,7 +193,7 @@
       "SEVERITY.LOW": 1,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 94,
+      "loc": 91,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -245,7 +245,7 @@
       "SEVERITY.LOW": 1,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 88,
+      "loc": 105,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -664,7 +664,7 @@
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "50                     all_imports.update(imports)\n51                 except Exception:\n52                     continue  # Skip files that can't be read or parsed\n53     return all_imports\n",
+      "code": "43                     all_imports.update(imports)\n44                 except Exception:\n45                     continue  # Skip files that can't be read or parsed\n46     return all_imports\n",
       "col_offset": 16,
       "end_col_offset": 28,
       "filename": "tools/dependency_checker.py",
@@ -675,10 +675,10 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Try, Except, Continue detected.",
-      "line_number": 51,
+      "line_number": 44,
       "line_range": [
-        51,
-        52
+        44,
+        45
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b112_try_except_continue.html",
       "test_id": "B112",
@@ -963,9 +963,9 @@
       "test_name": "subprocess_without_shell_equals_true"
     },
     {
-      "code": "31                         total_loc += file_loc\n32                 except Exception:\n33                     continue  # Skip unreadable files\n34         \n",
-      "col_offset": 16,
-      "end_col_offset": 28,
+      "code": "44                     total_loc += count_notebook_loc(file_path)\n45             except Exception:\n46                 continue\n47 \n",
+      "col_offset": 12,
+      "end_col_offset": 24,
       "filename": "tools/loc_counter.py",
       "issue_confidence": "HIGH",
       "issue_cwe": {
@@ -974,10 +974,10 @@
       },
       "issue_severity": "LOW",
       "issue_text": "Try, Except, Continue detected.",
-      "line_number": 32,
+      "line_number": 45,
       "line_range": [
-        32,
-        33
+        45,
+        46
       ],
       "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b112_try_except_continue.html",
       "test_id": "B112",

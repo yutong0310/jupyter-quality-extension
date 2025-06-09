@@ -25,8 +25,9 @@ def count_notebook_loc(filepath):
                         count += 1
     return count
 
-def run_project_loc():
-    root_dir = os.getcwd()
+def run_project_loc(path):
+    #root_dir = os.getcwd()
+    root_dir = path 
     total_loc = 0
     excluded_dirs = {
         "venv", "__pycache__", ".ipynb_checkpoints", ".git",
@@ -80,40 +81,3 @@ def run_project_loc():
         "loc": total_loc,
         "message": message
     }
-
-def run_loc_per_target(target_path):
-    """
-    Calculates non-empty lines of code for each .py file under the user-specified target path.
-
-    Args:
-        target_path (str): Path to file or folder.
-
-    Returns:
-        dict: { filepath: lines_of_code }
-    """
-    loc_per_file = {}
-
-    if os.path.isfile(target_path) and target_path.endswith(".py"):
-        try:
-            with open(target_path, "r", encoding="utf-8", errors="ignore") as f:
-                loc = sum(1 for line in f if line.strip())
-                loc_per_file[target_path] = loc
-        except Exception:
-            loc_per_file[target_path] = "Unreadable file."
-    
-    elif os.path.isdir(target_path):
-        for dirpath, dirnames, filenames in os.walk(target_path):
-            for filename in filenames:
-                if filename.endswith(".py"):
-                    file_path = os.path.join(dirpath, filename)
-                    try:
-                        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-                            loc = sum(1 for line in f if line.strip())
-                            loc_per_file[file_path] = loc 
-                    except Exception:
-                        loc_per_file[file_path] = "Unreadable file."
-    
-    else:
-        loc_per_file[target_path] = "Invalid file or folder."
-
-    return loc_per_file
