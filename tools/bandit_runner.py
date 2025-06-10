@@ -2,7 +2,7 @@ import subprocess
 import os
 import json
 
-def run_bandit_security_scan():
+def run_bandit_security_scan(path):
     """
     Run Bandit on all user-written source files (excluding venv, __pycache__, etc)
     and summarize HIGH/MEDIUM severity issues.
@@ -13,7 +13,8 @@ def run_bandit_security_scan():
 
     # STEP 1: Identify valid target folders/files
     ignored_dirs = {"venv", ".git", "__pycache__", ".ipynb_checkpoints", "bandit-report", ".mypy_cache"}
-    current_dir = os.getcwd()
+    # current_dir = os.getcwd()
+    current_dir = path 
     targets = []
 
     for item in os.listdir(current_dir):

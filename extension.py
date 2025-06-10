@@ -138,7 +138,7 @@ def on_run_button_click(_b):
 def on_stage_change(change):
     if change['new'] == "Maintenance":
         github_url_input.layout.visibility = 'visible'
-        target_input.layout.visibility = 'hidden'
+        # target_input.layout.visibility = 'hidden'
         project_hint.layout.display = 'none'
     else:
         github_url_input.layout.visibility = 'hidden'

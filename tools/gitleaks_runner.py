@@ -2,14 +2,15 @@ import subprocess
 import os
 import json
 
-def run_gitleaks_secret_scan():
+def run_gitleaks_secret_scan(path):
     """
     Runs Gitleaks on the current project directory (cwd).
     Returns a dictionary formatted for display under "Project-Level Results".
     """
-    try:
+    try: 
         # Use current working directory as project root
-        root_path = os.getcwd()
+        # root_path = os.getcwd()
+        root_path = path
         report_dir = os.path.join(root_path, "gitleaks-report")
         os.makedirs(report_dir, exist_ok=True)
 

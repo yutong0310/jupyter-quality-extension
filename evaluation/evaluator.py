@@ -7,11 +7,9 @@ from tools.radon_runner import run_radon_comment_density
 from tools.jscpd_runner import run_jscpd_code_duplication
 from tools.loc_counter import run_project_loc
 from tools.assertion_counter import run_assertion_percentage
-from tools.unit_test_checker import run_unit_test_detection
 from tools.howfairis_runner import run_howfairis_license_check
 from tools.gitleaks_runner import run_gitleaks_secret_scan
 from tools.bandit_runner import run_bandit_security_scan
-from tools.modularity_checker import run_modularity_check
 from tools.dependency_checker import run_dependency_check
 from evaluation.notebook_converter import convert_notebooks_in_dir
 
@@ -89,181 +87,228 @@ def display_maintenance_metric_overview():
 
     display(HTML("</ul>"))
 
+
 def evaluate_metrics(metrics, path, github_url=None):
+    results = {}
 
-    if path == ".":
-        # path = os.getcwd()
-        project_root = path
-
-    results = {}  # Final output dictionary containing all scanned file results
-    files = []    # A list to hold all .py files we find
-
-    # Determine whether to scan files or not
-    scanning_files = any(
-        metric not in ["Presence of License"] for metric in metrics
-    )
-
-    # ---------------------------------------------
-    # PART A – Project-level metric (e.g., license)
-    # ---------------------------------------------
-    results["Project-Level Results"] = {}
-
-    if any(m in metrics for m in ["Presence of License", "No Leaked Private Credentials", "Security Vulnerabilities"]):
-        results["Project-Level Results"]["FAIR Assessment (howfairis)"] = run_howfairis_license_check(github_url)
-        results["Project-Level Results"]["-----divider-1-----"] = {"status": "pass", "message": ""}
-        results["Project-Level Results"]["Leaked Secrets Scan (Gitleaks)"] = run_gitleaks_secret_scan()
-        results["Project-Level Results"]["-----divider-2-----"] = {"status": "pass", "message": ""}
-        results["Project-Level Results"]["Security Vulnerability Scan (Bandit)"] = run_bandit_security_scan()
-    
-    # if "Modularity" in metrics:
-    #    results["Project-Level Results"]["⚠️ Modularity (Structure Overview)"] = run_modularity_check(path)
-
-    if "Dependency Management" in metrics:
-        # project_root = os.getcwd()
-        project_root = path 
-        results["Project-Level Results"]["Dependency Management"] = run_dependency_check(project_root)
-    
-    if "Software Size (LoC)" in metrics:
-        project_root = path 
-        results["Project-Level Results"]["Software Size (LoC)"] = run_project_loc(project_root)
-
-    if "Code Duplication" in metrics:
-        # project_root = os.getcwd()
-        project_root = path 
-        results["Project-Level Results"]["Code Duplication"] = run_jscpd_code_duplication(project_root)
-
-    if "Percentage of Assertions" in metrics:
-        # project_root = os.getcwd()
-        project_root = path 
-        results["Project-Level Results"]["Percentage of Assertions"] = run_assertion_percentage(project_root)
-
-    # ---------------------------------------------
-    # PART B – File-level metrics
-    # ---------------------------------------------
-    if scanning_files:
-
-        # Convert any .ipynb notebooks into .py before continuing
+    # Convert notebooks if the target is a directory or an .ipynb file
+    if os.path.isdir(path):
         convert_notebooks_in_dir(path)
+        # Collect all Python files (converted or original)
+        python_files = []
+        for root, dirs, files in os.walk(path):
 
-        # ------------------------------------------------------------
-        # STEP 1: Determine whether path is a file or folder
-        # ------------------------------------------------------------
-
-        # Case 1: User entered a single .py file
-        if os.path.isfile(path) and path.endswith(".py"):
-            files.append(path)
-
-        # (NEW) Case 2: User entered a single .ipynb notebook
-        elif os.path.isfile(path) and path.endswith(".ipynb") and ".ipynb_checkpoints" not in path:
-            py_path = path.replace(".ipynb", ".py")
-            if os.path.exists(py_path):
-                files.append(py_path)
-            else:
-                results["ERROR"] = {
-                    "Notebook Conversion Failed": {
-                        "status": "fail",
-                        "message": f"Notebook has not converted to Python file: {path}"
-                    }
-                }
-                return results
-
-        # Case 3: User entered a folder → walk recursively through subfolders
-        elif os.path.isdir(path):
-            # os.walk() recursively traverses a directory tree. It yields a tuple (root, dirs, files) for every directory it visits:
-            # - root: current folder path.  - dirs: list of subfolders.  - files: list of files in this folder
-            for root, dirs, filenames in os.walk(path):
-
-                excluded_dirs = {
+            excluded_dirs = {
                     "venv", "env", "__pycache__", ".git", ".hg", ".svn",
                     ".ipynb_checkpoints", ".mypy_cache", ".pytest_cache",
                     "build", "dist", ".tox", ".nox", "site-packages",
                     ".idea", ".vscode", ".DS_Store", "__pypackages__",
                     "jscpd-report", "bandit-report", "gitleaks-report"
-                }
-                dirs[:] = [d for d in dirs if d not in excluded_dirs]
-
-                for filename in filenames:
-                    if filename.endswith(".py") and filename != "__init__.py":
-                        # Construct full file path and add it to our list
-                        full_path = os.path.join(root, filename)
-                        files.append(full_path)
-
-        # Case 3: Input path is invalid (not a file or folder)
-        else:
-            results["ERROR"] = {
-                "Input Path": {
-                    "status": "fail",
-                    "message": "Path is not a valid Python file or folder."
-                }
             }
-            return results
+            dirs[:] = [d for d in dirs if d not in excluded_dirs]
+            
+            for file in files:
+                if file.endswith(".py"):
+                    python_files.append(os.path.join(root, file))
 
-        # ------------------------------------------------------------
-        # STEP 2: If no .py files were found, return a failure message
-        # ------------------------------------------------------------
-        if not files:
-            results["ERROR"] = {
-                "No Python Files Found": {
-                    "status": "fail",
-                    "message": f"No .py files found under path: {path}"
-                }
-            }
-            return results
+    elif path.endswith(".ipynb"):
+        # Convert this single notebook to Python
+        converted_path = convert_notebooks_in_dir(path)
+        python_files = [converted_path] if converted_path else []
+    
+    elif path.endswith(".py"):
+        python_files = [path]
+    
+    else:
+        raise ValueError("Invalid target path. Must be a Python file, notebook, or directory.")
+    
+    results["Project-Level Results"] = {}
 
-        # ------------------------------------------------------------
-        # STEP 3: Evaluate all selected metrics for each .py file found
-        # ------------------------------------------------------------
+    if any(m in metrics for m in ["Presence of License", "No Leaked Private Credentials", "Security Vulnerabilities"]):
+        results["Project-Level Results"]["FAIR Assessment (howfairis)"] = run_howfairis_license_check(github_url)
+        results["Project-Level Results"]["-----divider-1-----"] = {"status": "pass", "message": ""}
+        results["Project-Level Results"]["Leaked Secrets Scan (Gitleaks)"] = run_gitleaks_secret_scan(path)
+        results["Project-Level Results"]["-----divider-2-----"] = {"status": "pass", "message": ""}
+        results["Project-Level Results"]["Security Vulnerability Scan (Bandit)"] = run_bandit_security_scan(path)
 
-        for file in files:
-            file_results = {}  # Dictionary to hold results for one file
+    if "Dependency Management" in metrics:
+        results["Project-Level Results"]["Dependency Management"] = run_dependency_check(path)
+    
+    if "Software Size (LoC)" in metrics:
+        results["Project-Level Results"]["Software Size (LoC)"] = run_project_loc(path)
 
-            for metric in metrics:
+    if "Code Duplication" in metrics:
+        results["Project-Level Results"]["Code Duplication"] = run_jscpd_code_duplication(path)
 
-                if metric == "Presence of License":
-                    continue  
+    if "Percentage of Assertions" in metrics: 
+        results["Project-Level Results"]["Percentage of Assertions"] = run_assertion_percentage(path)
 
-                # Match the metric to its corresponding analysis tool
+    # === File-level metrics ===
+    for file in python_files:
+        file_results = {}
+        for metric in metrics:
+            if metric in [
+                "Code Smells", "Maintainability Index", "Cyclomatic Complexity",
+                "Comment Density"
+            ]:
                 if metric == "Code Smells":
                     file_results[metric] = run_pylint_code_smell(file)
 
                 elif metric == "Maintainability Index":
                     file_results[metric] = run_radon_maintainability_index(file)
-                
-                elif metric == "Cognitive Complexity":
-                    continue
 
                 elif metric == "Cyclomatic Complexity":
                     file_results[metric] = run_radon_cyclomatic_complexity(file)
 
-                elif metric == "Code Duplication":
-                    continue
-
-                elif metric == "Technical Debt":
-                    continue
-
-                elif metric == "Dependency Management":
-                    continue
-                
                 elif metric == "Comment Density":
                     file_results[metric] = run_radon_comment_density(file)
-
-                elif metric == "Software Size (LoC)":
-                    continue
                 
-                elif metric == "Percentage of Assertions":
-                    continue
-
-                # elif metric == "Unit Tests":
-                #     file_results[metric] = run_unit_test_detection(path)
-
-                else:
-                    # Placeholder for future metrics 
-                    file_results[metric] = {
-                        "status": "pass",
-                        "message": "Simulated result"
-                    }
-
-            # Store the results for this file in the overall result dictionary
             results[file] = file_results
 
     return results
+    
+# def evaluate_metrics(metrics, path, github_url=None):
+
+#     results = {}  # Final output dictionary containing all scanned file results
+#     files = []    # A list to hold all .py files we find
+
+#     # Determine whether to scan files or not
+#     scanning_files = any(
+#         metric not in ["Presence of License"] for metric in metrics
+#     )
+
+#     # PART A – Project-level metric (e.g., license)
+#     results["Project-Level Results"] = {}
+
+#     if any(m in metrics for m in ["Presence of License", "No Leaked Private Credentials", "Security Vulnerabilities"]):
+#         results["Project-Level Results"]["FAIR Assessment (howfairis)"] = run_howfairis_license_check(github_url)
+#         results["Project-Level Results"]["-----divider-1-----"] = {"status": "pass", "message": ""}
+#         results["Project-Level Results"]["Leaked Secrets Scan (Gitleaks)"] = run_gitleaks_secret_scan()
+#         results["Project-Level Results"]["-----divider-2-----"] = {"status": "pass", "message": ""}
+#         results["Project-Level Results"]["Security Vulnerability Scan (Bandit)"] = run_bandit_security_scan()
+    
+#     if "Dependency Management" in metrics:
+#         results["Project-Level Results"]["Dependency Management"] = run_dependency_check(path)
+    
+#     if "Software Size (LoC)" in metrics:
+#         results["Project-Level Results"]["Software Size (LoC)"] = run_project_loc(path)
+
+#     if "Code Duplication" in metrics:
+#         results["Project-Level Results"]["Code Duplication"] = run_jscpd_code_duplication(path)
+
+#     if "Percentage of Assertions" in metrics: 
+#         results["Project-Level Results"]["Percentage of Assertions"] = run_assertion_percentage(path)
+
+#     # PART B – File-level metrics
+#     if scanning_files:
+
+#         # Convert any .ipynb notebooks into .py before continuing
+#         convert_notebooks_in_dir(path)
+
+#         # STEP 1: Determine whether path is a file or folder
+#         # Case 1: User entered a single .py file
+#         if os.path.isfile(path) and path.endswith(".py"):
+#             files.append(path)
+
+#         # (NEW) Case 2: User entered a single .ipynb notebook
+#         elif os.path.isfile(path) and path.endswith(".ipynb") and ".ipynb_checkpoints" not in path:
+#             py_path = path.replace(".ipynb", ".py")
+#             if os.path.exists(py_path):
+#                 files.append(py_path)
+#             else:
+#                 results["ERROR"] = {
+#                     "Notebook Conversion Failed": {
+#                         "status": "fail",
+#                         "message": f"Notebook has not converted to Python file: {path}"
+#                     }
+#                 }
+#                 return results
+
+#         # Case 3: User entered a folder → walk recursively through subfolders
+#         elif os.path.isdir(path):
+#             # os.walk() recursively traverses a directory tree. It yields a tuple (root, dirs, files):
+#             # - root: current folder path.  - dirs: list of subfolders.  - files: list of files in this folder
+#             for root, dirs, filenames in os.walk(path):
+
+#                 excluded_dirs = {
+#                     "venv", "env", "__pycache__", ".git", ".hg", ".svn",
+#                     ".ipynb_checkpoints", ".mypy_cache", ".pytest_cache",
+#                     "build", "dist", ".tox", ".nox", "site-packages",
+#                     ".idea", ".vscode", ".DS_Store", "__pypackages__",
+#                     "jscpd-report", "bandit-report", "gitleaks-report"
+#                 }
+#                 dirs[:] = [d for d in dirs if d not in excluded_dirs]
+
+#                 for filename in filenames:
+#                     if filename.endswith(".py") and filename != "__init__.py":
+#                         full_path = os.path.join(root, filename)
+#                         files.append(full_path)
+
+#         # Case 3: Input path is invalid (not a file or folder)
+#         else:
+#             results["ERROR"] = {
+#                 "Input Path": {
+#                     "status": "fail",
+#                     "message": "Path is not a valid Python file or folder."
+#                 }
+#             }
+#             return results
+
+#         # STEP 2: If no .py files were found, return a failure message
+#         if not files:
+#             results["ERROR"] = {
+#                 "No Python Files Found": {
+#                     "status": "fail",
+#                     "message": f"No .py files found under path: {path}"
+#                 }
+#             }
+#             return results
+
+#         # STEP 3: Evaluate all selected metrics for each .py file found
+#         for file in files:
+#             file_results = {}  # Dictionary to hold results for one file
+
+#             for metric in metrics:
+
+#                 if metric == "Presence of License":
+#                     continue  
+
+#                 if metric == "Cognitive Complexity":
+#                     continue
+
+#                 if metric == "Dependency Management":
+#                     continue
+
+#                 if metric == "Code Smells":
+#                     file_results[metric] = run_pylint_code_smell(file)
+
+#                 elif metric == "Maintainability Index":
+#                     file_results[metric] = run_radon_maintainability_index(file)
+
+#                 elif metric == "Cyclomatic Complexity":
+#                     file_results[metric] = run_radon_cyclomatic_complexity(file)
+
+#                 elif metric == "Comment Density":
+#                     file_results[metric] = run_radon_comment_density(file)
+
+#                 elif metric == "Code Duplication":
+#                     continue
+
+#                 elif metric == "Technical Debt":
+#                     continue
+            
+#                 elif metric == "Software Size (LoC)":
+#                     continue
+                
+#                 elif metric == "Percentage of Assertions":
+#                     continue
+
+#                 else:
+#                     file_results[metric] = {
+#                         "status": "pass",
+#                         "message": "Simulated result"
+#                     }
+
+#             results[file] = file_results
+
+#     return results
