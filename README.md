@@ -61,8 +61,6 @@ jupyter-quality-extension/
 
 ## Metric Overview
 
-## 📊 Metric Overview
-
 | Quality Dimension       | Metric                        | Tool or Script     | Stage        |
 |-------------------------|-------------------------------|--------------------|--------------|
 | Maintainability         | Code Smells                   | Pylint             | Development  |
