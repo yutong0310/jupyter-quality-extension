@@ -1,13 +1,15 @@
 # Jupyter Quality Extension
 
-This is an interactive quality assessment tool designed for Jupyter Notebook users developing Tier-1 research software. The extension integrates a set of quality metrics mapped to various software lifecycle stages, combining external tools and custom scripts.
+An interactive, lifecycle-aware quality assessment tool for research software developed in Jupyter Notebooks.  
+This tool is designed for research software and helps researchers evaluate notebook quality using relevant metrics based on the software's development stage.
 
 ## Features
 
-- Evaluate the quality of code in Jupyter Notebooks
-- Metrics tailored to different development stages (e.g., planning, development, testing, maintenance)
-- Visual feedback and actionable results
-- Integrated tools: Pylint, Radon, JSCPD, and self-written scripts
+- Assess the quality of Jupyter-based research software projects
+- Metrics tailored to different lifecycle stages (e.g., Development, Maintenance)
+- Interactive notebook-based interface with pass/fail icons and improvement suggestions
+- Automatically converts `.ipynb` notebooks into `.py` scripts for metric compatibility
+- Modular design for easy extension and maintenance
 
 ## Installation
 
@@ -18,14 +20,7 @@ git clone https://github.com/yutong0310/jupyter-quality-extension.git
 cd jupyter-quality-extension
 ```
 
-### 2. (Optional) Set up a virtual environment
-
-```
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-### 3. Install dependencies
+### 2. Install dependencies
 
 ```
 pip install -r requirements.txt
@@ -39,7 +34,7 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-2. Open any notebook you want to analyze (or create a new one)
+2. Open any notebook you want to analyze 
 
 3. In a code cell, run:
 
@@ -49,7 +44,6 @@ jupyter notebook
 
 4. A user interface will appear with:
    - Dropdown for lifecycle stage selection
-   - Metric selection checkboxes
    - Input for target path or GitHub repository URL
    - Quality scan results displayed in notebook
 
@@ -59,27 +53,33 @@ jupyter notebook
 jupyter-quality-extension/
 ├── extension.py              # Main interface script
 ├── requirements.txt          # Required dependencies
-├── README.md
-├── tools/                    # Analysis modules
+├── tools/                    # Individual tool integrations
 ├── evaluation/               # Metric evaluation logic
 ├── lifecycle/                # Stage-metric mappings
-├── ui/                       # UI components (if needed)
+├── README.md
 ```
 
 ## Metric Overview
 
-| Metric                   | Tool or Script     |
-|--------------------------|--------------------|
-| Code Smells              | Pylint             |
-| Maintainability Index    | Radon              |
-| Cyclomatic Complexity    | Radon              |
-| Code Duplication         | JSCPD              |
-| Comment Density          | Radon              |
-| Software Size (LoC)      | Self-written       |
-| Percentage of Assertions | Self-written       |
-| Unit Tests               | Self-written       |
+## 📊 Metric Overview
 
-Additional metrics related to FAIRness, documentation, licensing, and openness are planned for integration.
+| Quality Dimension       | Metric                        | Tool or Script     | Stage        |
+|-------------------------|-------------------------------|--------------------|--------------|
+| Maintainability         | Code Smells                   | Pylint             | Development  |
+| Maintainability         | Maintainability Index         | Radon              | Development  |
+| Maintainability         | Cyclomatic Complexity         | Radon              | Development  |
+| Maintainability         | Code Duplication              | JSCPD              | Development  |
+| Maintainability         | Comment Density               | Radon              | Development  |
+| Maintainability         | Software Size (LoC)           | Custom Script      | Development  |
+| Security                | Security Vulnerabilities      | Bandit             | Maintenance  |
+| Security                | Leaked Credentials            | Gitleaks           | Maintenance  |
+| FAIRness                | License Presence              | howfairis          | Maintenance  |
+| FAIRness                | Public Repository             | howfairis          | Maintenance  |
+| FAIRness                | Rich Metadata                 | howfairis          | Maintenance  |
+| FAIRness                | Documentation Quality         | howfairis          | Maintenance  |
+| Functional Suitability  | Percentage of Assertions      | Custom Script      | Testing      |
+| Sustainability          | Dependency Management         | Custom Script      | Development  |
+
 
 ## License
 
