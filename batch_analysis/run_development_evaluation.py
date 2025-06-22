@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup # For stripping HTML
 from pathlib import Path 
 
 # --- Configuration ---
-base_dir = "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set_test"  
+base_dir = "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set"  
 selected_stage = "Development"  
 
 parent_dir = os.path.dirname(base_dir) # Get parent directory of base_dir

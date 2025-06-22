@@ -1,12 +1,36 @@
 {
   "statistics": {
-    "detectionDate": "2025-06-22T16:25:45.108Z",
+    "detectionDate": "2025-06-22T17:27:06.510Z",
     "formats": {
       "python": {
         "sources": {
-          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set_test/-Predicting-Survival-in-Titanic-Disaster/titanic_prediction_model.py": {
-            "lines": 691,
-            "tokens": 5086,
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/inspect_training_sample_timeseries.py": {
+            "lines": 103,
+            "tokens": 801,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 59,
+            "duplicatedTokens": 248,
+            "percentage": 57.28,
+            "percentageTokens": 30.96,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/sanity_check_1.00s_vs_0.75s.py": {
+            "lines": 215,
+            "tokens": 1826,
+            "sources": 1,
+            "clones": 4,
+            "duplicatedLines": 106,
+            "duplicatedTokens": 992,
+            "percentage": 49.3,
+            "percentageTokens": 54.33,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/make_tensorboard_plots.py": {
+            "lines": 98,
+            "tokens": 870,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -15,34 +39,2315 @@
             "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py": {
+            "lines": 171,
+            "tokens": 1355,
+            "sources": 1,
+            "clones": 8,
+            "duplicatedLines": 212,
+            "duplicatedTokens": 1440,
+            "percentage": 123.98,
+            "percentageTokens": 106.27,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/get_snr_distributions_from_training.py": {
+            "lines": 73,
+            "tokens": 724,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/inspect_training_sample_spectrogram.py": {
+            "lines": 111,
+            "tokens": 979,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 52,
+            "duplicatedTokens": 283,
+            "percentage": 46.85,
+            "percentageTokens": 28.91,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py": {
+            "lines": 187,
+            "tokens": 1257,
+            "sources": 1,
+            "clones": 8,
+            "duplicatedLines": 129,
+            "duplicatedTokens": 871,
+            "percentage": 68.98,
+            "percentageTokens": 69.29,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/get_snr_distributions_from_testing.py": {
+            "lines": 216,
+            "tokens": 1735,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 127,
+            "duplicatedTokens": 629,
+            "percentage": 58.8,
+            "percentageTokens": 36.25,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/apply_psd_test.py": {
+            "lines": 266,
+            "tokens": 1979,
+            "sources": 1,
+            "clones": 4,
+            "duplicatedLines": 39,
+            "duplicatedTokens": 340,
+            "percentage": 14.66,
+            "percentageTokens": 17.18,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/evaluate_predictions_timeseries.py": {
+            "lines": 71,
+            "tokens": 468,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 11,
+            "duplicatedTokens": 127,
+            "percentage": 15.49,
+            "percentageTokens": 27.14,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/make_0100_1200_waveforms_sample.py": {
+            "lines": 61,
+            "tokens": 430,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 7,
+            "duplicatedTokens": 80,
+            "percentage": 11.48,
+            "percentageTokens": 18.6,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/get_waveform_maxima_percentiles.py": {
+            "lines": 68,
+            "tokens": 498,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/signal_envelope.py": {
+            "lines": 378,
+            "tokens": 3223,
+            "sources": 1,
+            "clones": 4,
+            "duplicatedLines": 41,
+            "duplicatedTokens": 388,
+            "percentage": 10.85,
+            "percentageTokens": 12.04,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/real_signal_in_detector_recording.py": {
+            "lines": 163,
+            "tokens": 1036,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 29,
+            "duplicatedTokens": 216,
+            "percentage": 17.79,
+            "percentageTokens": 20.85,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/make_label_illustration_plot.py": {
+            "lines": 177,
+            "tokens": 1814,
+            "sources": 1,
+            "clones": 4,
+            "duplicatedLines": 146,
+            "duplicatedTokens": 1078,
+            "percentage": 82.49,
+            "percentageTokens": 59.43,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/plottools.py": {
+            "lines": 122,
+            "tokens": 844,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 63,
+            "duplicatedTokens": 466,
+            "percentage": 51.64,
+            "percentageTokens": 55.21,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries.py": {
+            "lines": 166,
+            "tokens": 1411,
+            "sources": 1,
+            "clones": 7,
+            "duplicatedLines": 102,
+            "duplicatedTokens": 743,
+            "percentage": 61.45,
+            "percentageTokens": 52.66,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/snr_experiments.py": {
+            "lines": 125,
+            "tokens": 834,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 8,
+            "duplicatedTokens": 84,
+            "percentage": 6.4,
+            "percentageTokens": 10.07,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/inspect_predictions_spectrogram.py": {
+            "lines": 96,
+            "tokens": 762,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/inspect_predictions_timeseries.py": {
+            "lines": 97,
+            "tokens": 915,
+            "sources": 1,
+            "clones": 4,
+            "duplicatedLines": 47,
+            "duplicatedTokens": 519,
+            "percentage": 48.45,
+            "percentageTokens": 56.72,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/jupyter/inspect_predictions_from_weights_timeseries.py": {
+            "lines": 197,
+            "tokens": 1476,
+            "sources": 1,
+            "clones": 7,
+            "duplicatedLines": 113,
+            "duplicatedTokens": 801,
+            "percentage": 57.36,
+            "percentageTokens": 54.27,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py": {
+            "lines": 212,
+            "tokens": 1357,
+            "sources": 1,
+            "clones": 11,
+            "duplicatedLines": 444,
+            "duplicatedTokens": 2979,
+            "percentage": 209.43,
+            "percentageTokens": 219.53,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_findcoa.py": {
+            "lines": 295,
+            "tokens": 2291,
+            "sources": 1,
+            "clones": 5,
+            "duplicatedLines": 177,
+            "duplicatedTokens": 1173,
+            "percentage": 60,
+            "percentageTokens": 51.2,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_curriculum.py": {
+            "lines": 212,
+            "tokens": 1357,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 212,
+            "duplicatedTokens": 1356,
+            "percentage": 100,
+            "percentageTokens": 99.93,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/train/test_network_on_full_strain.py": {
+            "lines": 214,
+            "tokens": 1360,
+            "sources": 1,
+            "clones": 3,
+            "duplicatedLines": 78,
+            "duplicatedTokens": 449,
+            "percentage": 36.45,
+            "percentageTokens": 33.01,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/train/keras_train.py": {
+            "lines": 216,
+            "tokens": 1532,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/train/pytorch_train_spectrograms.py": {
+            "lines": 505,
+            "tokens": 3475,
+            "sources": 1,
+            "clones": 7,
+            "duplicatedLines": 137,
+            "duplicatedTokens": 1273,
+            "percentage": 27.13,
+            "percentageTokens": 36.63,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/train/pytorch_train_timeseries.py": {
+            "lines": 445,
+            "tokens": 2852,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/train/training_tools.py": {
+            "lines": 358,
+            "tokens": 2080,
+            "sources": 1,
+            "clones": 7,
+            "duplicatedLines": 157,
+            "duplicatedTokens": 1342,
+            "percentage": 43.85,
+            "percentageTokens": 64.52,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/train/models.py": {
+            "lines": 236,
+            "tokens": 2225,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 65,
+            "duplicatedTokens": 741,
+            "percentage": 27.54,
+            "percentageTokens": 33.3,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/sample_generation/waveform_generator.py": {
+            "lines": 366,
+            "tokens": 2437,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/sample_generation/sample_generators.py": {
+            "lines": 646,
+            "tokens": 5422,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 40,
+            "duplicatedTokens": 290,
+            "percentage": 6.19,
+            "percentageTokens": 5.35,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/sample_generation/generate_samples.py": {
+            "lines": 180,
+            "tokens": 1286,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 13,
+            "duplicatedTokens": 100,
+            "percentage": 7.22,
+            "percentageTokens": 7.78,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set/convwave/src/sample_generation/sample_generation_tools.py": {
+            "lines": 279,
+            "tokens": 1437,
+            "sources": 1,
+            "clones": 3,
+            "duplicatedLines": 104,
+            "duplicatedTokens": 582,
+            "percentage": 37.28,
+            "percentageTokens": 40.5,
+            "newDuplicatedLines": 0,
+            "newClones": 0
           }
         },
         "total": {
-          "lines": 691,
-          "tokens": 5086,
-          "sources": 1,
-          "clones": 0,
-          "duplicatedLines": 0,
-          "duplicatedTokens": 0,
-          "percentage": 0,
-          "percentageTokens": 0,
+          "lines": 7325,
+          "tokens": 54348,
+          "sources": 34,
+          "clones": 53,
+          "duplicatedLines": 1359,
+          "duplicatedTokens": 9795,
+          "percentage": 18.55,
+          "percentageTokens": 18.02,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 691,
-      "tokens": 5086,
-      "sources": 1,
-      "clones": 0,
-      "duplicatedLines": 0,
-      "duplicatedTokens": 0,
-      "percentage": 0,
-      "percentageTokens": 0,
+      "lines": 7325,
+      "tokens": 54348,
+      "sources": 34,
+      "clones": 53,
+      "duplicatedLines": 1359,
+      "duplicatedTokens": 9795,
+      "percentage": 18.55,
+      "percentageTokens": 18.02,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
   },
-  "duplicates": []
+  "duplicates": [
+    {
+      "format": "python",
+      "lines": 25,
+      "fragment": "# ## Preliminaries\n\n\n\nget_ipython().run_line_magic('matplotlib', 'inline')\nget_ipython().run_line_magic('config', \"InlineBackend.figure_format='retina'\")\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport os\nimport sys\nimport time\n\nimport numpy as np\nimport h5py\nimport librosa\n\nfrom matplotlib import mlab\nfrom matplotlib import gridspec\nfrom scipy.interpolate import interp1d\n\nimport",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/sanity_check_1.00s_vs_0.75s.py",
+        "start": 6,
+        "end": 30,
+        "startLoc": {
+          "line": 6,
+          "column": 1,
+          "position": 8
+        },
+        "endLoc": {
+          "line": 30,
+          "column": 7,
+          "position": 116
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_training_sample_timeseries.py",
+        "start": 6,
+        "end": 30,
+        "startLoc": {
+          "line": 6,
+          "column": 1,
+          "position": 8
+        },
+        "endLoc": {
+          "line": 30,
+          "column": 5,
+          "position": 116
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 36,
+      "fragment": "# ## Preliminaries\n\n\n\nget_ipython().run_line_magic('matplotlib', 'inline')\nget_ipython().run_line_magic('config', \"InlineBackend.figure_format='retina'\")\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport os\nimport sys\nimport time\n\nimport numpy as np\nimport h5py\nimport librosa\n\nfrom matplotlib import mlab\nfrom matplotlib import gridspec\nfrom scipy.interpolate import interp1d\n\nfrom plottools import force_aspect, plot_spectrogram_label, create_weights\n\n\n# ## Read in the training sample\n\n\n\n# Path to the directory where all data is stored\ndata_path = '../data'\n\n# Read in the HDF file\nwith",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_training_sample_spectrogram.py",
+        "start": 6,
+        "end": 41,
+        "startLoc": {
+          "line": 6,
+          "column": 1,
+          "position": 8
+        },
+        "endLoc": {
+          "line": 41,
+          "column": 5,
+          "position": 148
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_training_sample_timeseries.py",
+        "start": 6,
+        "end": 41,
+        "startLoc": {
+          "line": 6,
+          "column": 1,
+          "position": 8
+        },
+        "endLoc": {
+          "line": 41,
+          "column": 6,
+          "position": 148
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 18,
+      "fragment": ")\n\n    # Plot the fuzzy zones\n    start = None\n    in_zone = False\n    fuzzy_zones = create_weights(label, start_size=20, end_size=5)\n    for i in range(len(fuzzy_zones)):\n        if not in_zone:\n            if fuzzy_zones[i] == 0:\n                start = i\n                in_zone = True\n        if in_zone:\n            if fuzzy_zones[i] == 1:\n                plt.axvspan(start, i, alpha=0.5, color='Orange')\n                in_zone = False\n\n\n    plt.figure",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_training_sample_spectrogram.py",
+        "start": 79,
+        "end": 96,
+        "startLoc": {
+          "line": 79,
+          "column": 5,
+          "position": 639
+        },
+        "endLoc": {
+          "line": 96,
+          "column": 7,
+          "position": 782
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/sanity_check_1.00s_vs_0.75s.py",
+        "start": 199,
+        "end": 214,
+        "startLoc": {
+          "line": 199,
+          "column": 6,
+          "position": 1673
+        },
+        "endLoc": {
+          "line": 214,
+          "column": 5,
+          "position": 1815
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 16,
+      "fragment": "#!/usr/bin/env python\n# coding: utf-8\n\n\n\nget_ipython().run_line_magic('matplotlib', 'inline')\nget_ipython().run_line_magic('config', \"InlineBackend.figure_format='retina'\")\nget_ipython().run_line_magic('load_ext', 'autoreload')\nget_ipython().run_line_magic('autoreload', '2')\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport os",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py",
+        "start": 1,
+        "end": 16,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 16,
+          "column": 3,
+          "position": 79
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py",
+        "start": 1,
+        "end": 16,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 16,
+          "column": 5,
+          "position": 79
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 6,
+      "fragment": ", color='red', ls='--')\nplt.axvline(x=10, color='red', ls='--')\nplt.gcf().set_size_inches(18, 4, forward=True)\n\nplt.figure(3)\nplt.title('Spectrogram of Whitened Strain (without Butterworth)'",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/apply_psd_test.py",
+        "start": 171,
+        "end": 176,
+        "startLoc": {
+          "line": 171,
+          "column": 4,
+          "position": 1136
+        },
+        "endLoc": {
+          "line": 176,
+          "column": 55,
+          "position": 1198
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/apply_psd_test.py",
+        "start": 143,
+        "end": 148,
+        "startLoc": {
+          "line": 143,
+          "column": 4,
+          "position": 838
+        },
+        "endLoc": {
+          "line": 148,
+          "column": 52,
+          "position": 900
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 8,
+      "fragment": ")\nplt.show()\n\n\nenvelope = get_envelope(waveform[start:end])\nfig = plt.figure()\nax = fig.add_axes([0, 0, 1, 1])\nax.plot(envelope/np.max(envelope), lw=3.5, color='C2'",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/signal_envelope.py",
+        "start": 262,
+        "end": 269,
+        "startLoc": {
+          "line": 262,
+          "column": 15,
+          "position": 1949
+        },
+        "endLoc": {
+          "line": 269,
+          "column": 5,
+          "position": 2026
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/signal_envelope.py",
+        "start": 250,
+        "end": 257,
+        "startLoc": {
+          "line": 250,
+          "column": 15,
+          "position": 1820
+        },
+        "endLoc": {
+          "line": 257,
+          "column": 5,
+          "position": 1897
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 15,
+      "fragment": "def get_psd(real_strain, sampling_rate=4096):\n\n    # Define some constants\n    nfft = 2 * sampling_rate  # Bigger values yield better resolution?\n\n    # Use matplotlib.mlab to calculate the PSD from the real strain\n    P_xx, freqs = mlab.psd(real_strain, NFFT=nfft, Fs=sampling_rate)\n\n    # Interpolate it linearly, so we can re-sample the spectrum arbitrarily\n    psd = interp1d(freqs, P_xx)\n\n    return psd\n\n\ndef apply_psd(signal_t, psd, sampling_rate=4096)",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/real_signal_in_detector_recording.py",
+        "start": 35,
+        "end": 49,
+        "startLoc": {
+          "line": 35,
+          "column": 1,
+          "position": 154
+        },
+        "endLoc": {
+          "line": 49,
+          "column": 2,
+          "position": 251
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/apply_psd_test.py",
+        "start": 48,
+        "end": 64,
+        "startLoc": {
+          "line": 48,
+          "column": 1,
+          "position": 214
+        },
+        "endLoc": {
+          "line": 64,
+          "column": 2,
+          "position": 313
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 16,
+      "fragment": "# First set some parameters for computing power spectra\n    n = len(signal_t)\n    dt = 1./sampling_rate\n\n    # Go into Fourier (frequency) space: signal_t -> signal_f\n    frequencies = np.fft.rfftfreq(n, dt)\n    signal_f = np.fft.rfft(signal_t)\n\n    # Divide by the given Power Spectral Density (PSD)\n    # This is the 'whitening' = actually adding color\n    color_signal_f = signal_f / (np.sqrt(psd(frequencies) / dt / 2.))\n\n    # Go back into time space: color_signal_f -> color_signal_t\n    color_signal_t = np.fft.irfft(color_signal_f, n=n)\n\n    return",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/real_signal_in_detector_recording.py",
+        "start": 63,
+        "end": 78,
+        "startLoc": {
+          "line": 63,
+          "column": 5,
+          "position": 259
+        },
+        "endLoc": {
+          "line": 78,
+          "column": 7,
+          "position": 378
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/apply_psd_test.py",
+        "start": 79,
+        "end": 94,
+        "startLoc": {
+          "line": 79,
+          "column": 5,
+          "position": 326
+        },
+        "endLoc": {
+          "line": 94,
+          "column": 68,
+          "position": 445
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 122,
+      "fragment": "#!/usr/bin/env python\n# coding: utf-8\n\n\n\nget_ipython().run_line_magic('matplotlib', 'inline')\nget_ipython().run_line_magic('config', \"InlineBackend.figure_format='retina'\")\nget_ipython().run_line_magic('load_ext', 'autoreload')\nget_ipython().run_line_magic('autoreload', '2')\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport h5py\nimport os\n\nfrom sample_generators import CustomArgumentParser, TimeSeries\nfrom sample_generation_tools import get_psd, get_waveforms_as_dataframe, apply_psd\n\n\n# ## Read in the raw strain data\n\n\n\n# -------------------------------------------------------------------------\n# Read in the real strain data from the LIGO website\n# -------------------------------------------------------------------------\n\nevent = 'GW150914'\ndata_path = '../data/'\n\n# Names of the files containing the real strains, i.e. detector recordings\nreal_strain_file = {'H1': '{}_H1_STRAIN_4096.h5'.format(event),\n                    'L1': '{}_L1_STRAIN_4096.h5'.format(event)}\n\n# Read the HDF files into numpy arrays and store them in a dict\nreal_strains = dict()\nfor ifo in ['H1', 'L1']:\n\n    # Make the full path for the strain file\n    strain_path = os.path.join(data_path, 'strain', real_strain_file[ifo])\n\n    # Read the HDF file into a numpy array\n    with h5py.File(strain_path, 'r') as file:\n        real_strains[ifo] = np.array(file['strain/Strain'])\n\n\n# ## Calculate the Power Spectral Densities\n\n\n\n# -------------------------------------------------------------------------\n# Pre-calculate the Power Spectral Density from the real strain data\n# -------------------------------------------------------------------------\n\npsds = dict()\npsds['H1'] = get_psd(real_strains['H1'])\npsds['L1'] = get_psd(real_strains['L1'])\n\n\n# ## Calculate the Standard Deviation of the Whitened Strain\n\n\n\nwhite_strain = dict()\nwhite_strain['H1'] = apply_psd(real_strains['H1'], psds['H1'])\nwhite_strain['L1'] = apply_psd(real_strains['L1'], psds['L1'])\n\nwhite_strain_std = {'H1':np.std(white_strain['H1']), 'L1':np.std(white_strain['L1'])}\n\n\n# ## Load Pre-Computed Waveforms\n\n\n\n# -------------------------------------------------------------------------\n# Load the pre-calculated waveforms from an HDF file into a DataFrame\n# -------------------------------------------------------------------------\n\nwaveforms_file = 'waveforms_3s_0700_1200_training.h5'\nwaveforms_path = os.path.join(data_path, 'waveforms', waveforms_file)\nwaveforms = get_waveforms_as_dataframe(waveforms_path)\n\n\n# ## Create a sample timeseries\n\n\n\nnp.random.seed(423)\nsample = TimeSeries(sample_length=12,\n                    sampling_rate=4096,\n                    max_n_injections=2,\n                    loudness=1.0,\n                    noise_type='real',\n                    pad=3.0,\n                    waveforms=waveforms,\n                    psds=psds,\n                    real_strains=real_strains,\n                    white_strain_std=white_strain_std,\n                    max_delta_t=0.01,\n                    event_position=2048)\n\n\n\n\ntimeseries_H1 = sample.get_timeseries()[0, :, 0]\ntimeseries_L1 = sample.get_timeseries()[0, :, 1]\nsignals_H1 = sample.signals['H1']\nsignals_L1 = sample.signals['L1']\nlabels = sample.get_label()\nchirpmasses = sample.get_chirpmass()\ndistances = sample.get_distance()\nsnrs = sample.get_snr()\n\nprint(sample.delta_t)\nprint(snrs)\n\ngrid = np.linspace(0, 12, 12*2048)\n\n# For poster",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_label_illustration_plot.py",
+        "start": 1,
+        "end": 122,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 122,
+          "column": 13,
+          "position": 680
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py",
+        "start": 1,
+        "end": 121,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 121,
+          "column": 4,
+          "position": 679
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 7,
+      "fragment": "))\n\naxes[0].plot(grid, timeseries_H1, color='C0')\naxes[0].plot(grid, signals_H1, color='C1')\naxes[0].plot(grid, [0 for _ in grid], color='Black', lw=0.75, ls=':')\naxes[0].set_ylim(-6, 6)\naxes[0].set_yticklabels",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_label_illustration_plot.py",
+        "start": 130,
+        "end": 136,
+        "startLoc": {
+          "line": 130,
+          "column": 12,
+          "position": 752
+        },
+        "endLoc": {
+          "line": 136,
+          "column": 16,
+          "position": 849
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py",
+        "start": 123,
+        "end": 129,
+        "startLoc": {
+          "line": 123,
+          "column": 2,
+          "position": 736
+        },
+        "endLoc": {
+          "line": 129,
+          "column": 11,
+          "position": 833
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 7,
+      "fragment": ")\n\naxes[1].plot(grid, timeseries_L1, color='C0')\naxes[1].plot(grid, signals_L1, color='C1')\naxes[1].set_ylim(-6, 6)\naxes[1].plot(grid, [0 for _ in grid], color='Black', lw=0.75, ls=':')\naxes[1].set_yticklabels",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_label_illustration_plot.py",
+        "start": 140,
+        "end": 146,
+        "startLoc": {
+          "line": 140,
+          "column": 2,
+          "position": 1073
+        },
+        "endLoc": {
+          "line": 146,
+          "column": 16,
+          "position": 1169
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py",
+        "start": 129,
+        "end": 135,
+        "startLoc": {
+          "line": 129,
+          "column": 2,
+          "position": 841
+        },
+        "endLoc": {
+          "line": 135,
+          "column": 11,
+          "position": 937
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 14,
+      "fragment": ")\n\n# Calculate and plot the fuzzy-zones\nTHRESHOLD = 0.5\nfuzzy_zones = -1 * np.ones(len(labels))\nfor j in range(len(labels)):\n    if 0.5 < labels[j] < 0.6:\n        fuzzy_zones[j] = 1\naxes[2].fill_between(grid, -10, 10*fuzzy_zones, color='Gray', alpha=0.25, lw=0)\n\naxes[2].plot(grid, labels, color='C2', lw=2)\naxes[2].plot(grid, [THRESHOLD for _ in grid], color='Gray', lw=1, ls='--', )\naxes[2].set_ylim(-0.3*np.max(labels), 1.3*np.max(labels))\naxes[2].set_ylabel('Normed\\nSignal\\nEnvelope'",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_label_illustration_plot.py",
+        "start": 147,
+        "end": 160,
+        "startLoc": {
+          "line": 147,
+          "column": 3,
+          "position": 1209
+        },
+        "endLoc": {
+          "line": 160,
+          "column": 27,
+          "position": 1414
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py",
+        "start": 135,
+        "end": 148,
+        "startLoc": {
+          "line": 135,
+          "column": 2,
+          "position": 945
+        },
+        "endLoc": {
+          "line": 148,
+          "column": 19,
+          "position": 1150
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 21,
+      "fragment": "#!/usr/bin/env python\n# coding: utf-8\n\n\n\nget_ipython().run_line_magic('matplotlib', 'inline')\nget_ipython().run_line_magic('config', \"InlineBackend.figure_format='retina'\")\nget_ipython().run_line_magic('load_ext', 'autoreload')\nget_ipython().run_line_magic('autoreload', '2')\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport os\nimport sys\nimport h5py\nimport torch\n\nfrom",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries.py",
+        "start": 1,
+        "end": 21,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 21,
+          "column": 5,
+          "position": 94
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py",
+        "start": 1,
+        "end": 20,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 20,
+          "column": 7,
+          "position": 93
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 14,
+      "fragment": "state_dict = torch.load(weights_file, map_location=lambda storage, loc: storage)\nnew_state_dict = OrderedDict()\nfor k, v in state_dict.items():\n    name = k[7:] # remove `module.`\n    new_state_dict[name] = v\n\nmodel.load_state_dict(new_state_dict)\n\n\n# ## Run the model on the test data\n\n\n\n# Convert test data to numpy arrays that can be stored in an HDF file",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries.py",
+        "start": 73,
+        "end": 86,
+        "startLoc": {
+          "line": 73,
+          "column": 1,
+          "position": 367
+        },
+        "endLoc": {
+          "line": 86,
+          "column": 70,
+          "position": 453
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py",
+        "start": 127,
+        "end": 140,
+        "startLoc": {
+          "line": 127,
+          "column": 1,
+          "position": 793
+        },
+        "endLoc": {
+          "line": 140,
+          "column": 22,
+          "position": 879
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 9,
+      "fragment": "for j in range(len(waveform)):\n            if waveform[j] != 0:\n                start = j\n                break\n        for j in range(len(waveform))[::-1]:\n            if waveform[j] != 0:\n                end = j\n                break\n        waveforms",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/snr_experiments.py",
+        "start": 69,
+        "end": 77,
+        "startLoc": {
+          "line": 69,
+          "column": 9,
+          "position": 371
+        },
+        "endLoc": {
+          "line": 77,
+          "column": 10,
+          "position": 455
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/signal_envelope.py",
+        "start": 190,
+        "end": 199,
+        "startLoc": {
+          "line": 190,
+          "column": 5,
+          "position": 1296
+        },
+        "endLoc": {
+          "line": 199,
+          "column": 7,
+          "position": 1381
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 12,
+      "fragment": "file_path = os.path.join(data_path, 'predictions', 'timeseries', file_name)\n\n# Open the HDF file and read in the spectrogram, predictions and true labels\nwith h5py.File(file_path, 'r') as file:\n    timeseries = np.array(file['x'])\n    pred_labels = np.array(file['y_pred'])\n    true_labels = np.array(file['y_true'])\n\n    loss = float(np.array(file['avg_loss']))\n    hamming = float(np.array(file['avg_hamming_distance']))\n\nprint('Loss: {:.3f}'",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_timeseries.py",
+        "start": 34,
+        "end": 45,
+        "startLoc": {
+          "line": 34,
+          "column": 1,
+          "position": 99
+        },
+        "endLoc": {
+          "line": 45,
+          "column": 15,
+          "position": 226
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/evaluate_predictions_timeseries.py",
+        "start": 34,
+        "end": 45,
+        "startLoc": {
+          "line": 34,
+          "column": 1,
+          "position": 107
+        },
+        "endLoc": {
+          "line": 45,
+          "column": 36,
+          "position": 234
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 14,
+      "fragment": "))\n\n    axes[0].plot(grid, timeseries_H1, color='C0')\n    axes[0].plot(grid, [0 for _ in grid], color='Black', lw=1, ls=':')\n    axes[0].set_ylim(-6, 6)\n    axes[0].set_ylabel('Amplitude')\n\n    axes[1].plot(grid, timeseries_L1, color='C3')\n    axes[1].set_ylim(-6, 6)\n    axes[1].plot(grid, [0 for _ in grid], color='Black', lw=1, ls=':')\n    axes[1].set_ylabel('Amplitude')\n\n    # Calculate and plot the fuzzy-zones\n    THRESHOLD = 1.4141823e-22",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_timeseries.py",
+        "start": 57,
+        "end": 70,
+        "startLoc": {
+          "line": 57,
+          "column": 2,
+          "position": 371
+        },
+        "endLoc": {
+          "line": 70,
+          "column": 14,
+          "position": 553
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries.py",
+        "start": 128,
+        "end": 141,
+        "startLoc": {
+          "line": 128,
+          "column": 2,
+          "position": 790
+        },
+        "endLoc": {
+          "line": 141,
+          "column": 2,
+          "position": 972
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 21,
+      "fragment": ")\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport os\nimport sys\nimport h5py\nimport torch\n\nfrom collections import OrderedDict\nfrom torch.utils.data import TensorDataset, DataLoader\nfrom torch.autograd import Variable\n\nsys.path.insert(0, '../train/')\nfrom models import TimeSeriesFCN\n\n\n# ## Define functions that we will need later on",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_from_weights_timeseries.py",
+        "start": 11,
+        "end": 31,
+        "startLoc": {
+          "line": 11,
+          "column": 41,
+          "position": 35
+        },
+        "endLoc": {
+          "line": 31,
+          "column": 49,
+          "position": 132
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries.py",
+        "start": 9,
+        "end": 29,
+        "startLoc": {
+          "line": 9,
+          "column": 4,
+          "position": 53
+        },
+        "endLoc": {
+          "line": 29,
+          "column": 44,
+          "position": 150
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 12,
+      "fragment": "]\n\n    # Swap axes around to get to NCHW format\n    x = np.swapaxes(x, 1, 3)\n    x = np.swapaxes(x, 2, 3)\n    x = np.squeeze(x)\n\n    # Convert to torch Tensors\n    x = torch.from_numpy(x).float()\n    y = torch.from_numpy(y).float()\n\n    # Create TensorDatasets for training, test and validation",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_from_weights_timeseries.py",
+        "start": 44,
+        "end": 55,
+        "startLoc": {
+          "line": 44,
+          "column": 3,
+          "position": 228
+        },
+        "endLoc": {
+          "line": 55,
+          "column": 58,
+          "position": 320
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries.py",
+        "start": 40,
+        "end": 57,
+        "startLoc": {
+          "line": 40,
+          "column": 3,
+          "position": 220
+        },
+        "endLoc": {
+          "line": 57,
+          "column": 25,
+          "position": 310
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 20,
+      "fragment": "# Convert to torch Tensors\n    x = torch.from_numpy(x).float()\n    y = torch.from_numpy(y).float()\n\n    # Create TensorDatasets for training, test and validation\n    tensor_dataset = TensorDataset(x, y)\n\n    return tensor_dataset\n\n\n\ndef apply_model(model, data_loader, as_numpy=False):\n\n    # Initialize an empty array for our predictions\n    y_pred = []\n\n    # Loop over the test set (in mini-batches) to get the predictions\n    for mb_idx, mb_data in enumerate(data_loader):\n\n        print(mb_idx,",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_from_weights_timeseries.py",
+        "start": 51,
+        "end": 70,
+        "startLoc": {
+          "line": 51,
+          "column": 5,
+          "position": 284
+        },
+        "endLoc": {
+          "line": 70,
+          "column": 2,
+          "position": 397
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py",
+        "start": 45,
+        "end": 64,
+        "startLoc": {
+          "line": 45,
+          "column": 5,
+          "position": 260
+        },
+        "endLoc": {
+          "line": 64,
+          "column": 2,
+          "position": 373
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 30,
+      "fragment": ")\n\n        # Get the inputs and wrap them in a PyTorch variable\n        inputs, labels = mb_data\n        inputs = Variable(inputs, volatile=True)\n        labels = Variable(labels, volatile=True)\n\n        # If CUDA is available, run everything on the GPU\n        if torch.cuda.is_available():\n            inputs, labels = inputs.cuda(), labels.cuda()\n\n        # Make predictions for the given mini-batch\n        outputs = model.forward(inputs)\n        outputs = outputs.view((outputs.size()[0], outputs.size()[-1]))\n\n        # Stack that onto the previous predictions\n        y_pred.append(outputs)\n\n    # Concatenate the list of Variables to one Variable (this is faster than\n    # concatenating all intermediate results) and make sure results are float\n    y_pred = torch.cat(y_pred, dim=0).float()\n\n    # If necessary, convert model outputs to numpy array\n    if as_numpy:\n        y_pred = y_pred.data.cpu().numpy()\n\n    return y_pred\n\n\n# ## Read in the predictions and make plots",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_from_weights_timeseries.py",
+        "start": 70,
+        "end": 99,
+        "startLoc": {
+          "line": 70,
+          "column": 4,
+          "position": 402
+        },
+        "endLoc": {
+          "line": 99,
+          "column": 44,
+          "position": 608
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py",
+        "start": 64,
+        "end": 93,
+        "startLoc": {
+          "line": 64,
+          "column": 7,
+          "position": 373
+        },
+        "endLoc": {
+          "line": 93,
+          "column": 32,
+          "position": 579
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 12,
+      "fragment": "state_dict = torch.load(weights_file, map_location=lambda storage, loc: storage)\nnew_state_dict = OrderedDict()\nfor k, v in state_dict.items():\n    name = k[7:] # remove `module.`\n    new_state_dict[name] = v\n\nmodel.load_state_dict(new_state_dict)\n\n\n\n\n# Path to the directory where all data is stored",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_from_weights_timeseries.py",
+        "start": 108,
+        "end": 119,
+        "startLoc": {
+          "line": 108,
+          "column": 1,
+          "position": 632
+        },
+        "endLoc": {
+          "line": 119,
+          "column": 49,
+          "position": 715
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py",
+        "start": 127,
+        "end": 136,
+        "startLoc": {
+          "line": 127,
+          "column": 1,
+          "position": 793
+        },
+        "endLoc": {
+          "line": 136,
+          "column": 36,
+          "position": 874
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 7,
+      "fragment": "timeseries_H1 = timeseries[i, 0, :]\n    timeseries_L1 = timeseries[i, 1, :]\n\n    grid = np.linspace(0, 12, 12*2048)\n    fig, axes = plt.subplots(nrows=3, ncols=1, sharex='col',\n                             gridspec_kw={'height_ratios': [5, 5, 2]}, \n                             figsize=(4",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_from_weights_timeseries.py",
+        "start": 145,
+        "end": 151,
+        "startLoc": {
+          "line": 145,
+          "column": 5,
+          "position": 855
+        },
+        "endLoc": {
+          "line": 151,
+          "column": 2,
+          "position": 958
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_timeseries.py",
+        "start": 51,
+        "end": 57,
+        "startLoc": {
+          "line": 51,
+          "column": 5,
+          "position": 264
+        },
+        "endLoc": {
+          "line": 57,
+          "column": 3,
+          "position": 367
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 18,
+      "fragment": "])\n\n\n    \"\"\"\n    smooth_pred = np.convolve(pred_labels[i], np.ones(50), mode='same')/50\n\n    axes[2].plot(grid, smooth_pred, color='Orange')\n    axes[2].plot(grid, np.round(smooth_pred), color='Yellow')\n    \"\"\"\n\n    axes[2].set_ylim(-0.3, 1.3)\n    axes[2].set_xlabel('Time (seconds)')\n    axes[2].set_ylabel('Label')\n    fig.subplots_adjust(hspace=0)\n    plt.setp([a.get_xticklabels() for a in fig.axes[:-1]], visible=False)\n    plt.xlim(0, 12)\n    # plt.suptitle('Time Series (H1/L1), True Label and Predicted Label', y=0.95)\n    plt.savefig",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_from_weights_timeseries.py",
+        "start": 180,
+        "end": 197,
+        "startLoc": {
+          "line": 180,
+          "column": 2,
+          "position": 1349
+        },
+        "endLoc": {
+          "line": 197,
+          "column": 8,
+          "position": 1456
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/inspect_predictions_timeseries.py",
+        "start": 81,
+        "end": 98,
+        "startLoc": {
+          "line": 81,
+          "column": 2,
+          "position": 806
+        },
+        "endLoc": {
+          "line": 98,
+          "column": 5,
+          "position": 913
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 16,
+      "fragment": "# Swap axes around to get to NCHW format\n    x = np.swapaxes(x, 1, 3)\n    x = np.swapaxes(x, 2, 3)\n    x = np.squeeze(x)\n\n    # Convert to torch Tensors\n    x = torch.from_numpy(x).float()\n    y = torch.from_numpy(y).float()\n\n    # Create TensorDatasets for training, test and validation\n    tensor_dataset = TensorDataset(x, y)\n\n    return tensor_dataset\n\n\n# -----------------------------------------------------------------------------",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 37,
+        "end": 52,
+        "startLoc": {
+          "line": 37,
+          "column": 5,
+          "position": 196
+        },
+        "endLoc": {
+          "line": 52,
+          "column": 80,
+          "position": 307
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries.py",
+        "start": 45,
+        "end": 62,
+        "startLoc": {
+          "line": 45,
+          "column": 1,
+          "position": 226
+        },
+        "endLoc": {
+          "line": 62,
+          "column": 4,
+          "position": 344
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 12,
+      "fragment": "(y_true, y_pred):\n\n    # Make sure y_pred is rounded to 0/1\n    y_pred = torch.round(y_pred)\n\n    result = torch.mean(torch.abs(y_true - y_pred), dim=1)\n    result = torch.mean(result, dim=0)\n\n    return 1 - float(result.data.cpu().numpy())\n\n\n# -----------------------------------------------------------------------------",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 120,
+        "end": 131,
+        "startLoc": {
+          "line": 120,
+          "column": 14,
+          "position": 693
+        },
+        "endLoc": {
+          "line": 131,
+          "column": 80,
+          "position": 786
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py",
+        "start": 163,
+        "end": 176,
+        "startLoc": {
+          "line": 163,
+          "column": 9,
+          "position": 1061
+        },
+        "endLoc": {
+          "line": 176,
+          "column": 8,
+          "position": 1156
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 109,
+      "fragment": "def load_data_as_tensor_datasets(file_path, random_seed=42):\n\n    # Set the seed for the random number generator\n    np.random.seed(random_seed)\n\n    # Read in the time series from the HDF file\n    with h5py.File(file_path, 'r') as file:\n\n        x = np.array(file['timeseries'])\n        y = np.array(file['labels'])\n\n    # Swap axes around to get to NCHW format\n    x = np.swapaxes(x, 1, 3)\n    x = np.swapaxes(x, 2, 3)\n    x = np.squeeze(x)\n\n    # Convert to torch Tensors\n    x = torch.from_numpy(x).float()\n    y = torch.from_numpy(y).float()\n\n    # Create TensorDatasets for training, test and validation\n    tensor_dataset = TensorDataset(x, y)\n\n    return tensor_dataset\n\n\n# -----------------------------------------------------------------------------\n\n\ndef apply_model(model, data_loader, as_numpy=False):\n\n    # Initialize an empty array for our predictions\n    y_pred = []\n\n    # Loop over the test set (in mini-batches) to get the predictions\n    for mb_idx, mb_data in enumerate(data_loader):\n\n        # Get the inputs and wrap them in a PyTorch variable\n        inputs, _ = mb_data\n        inputs = Variable(inputs, volatile=True)\n\n        # If CUDA is available, run everything on the GPU\n        if torch.cuda.is_available():\n            inputs = inputs.cuda()\n\n        # Make predictions for the given mini-batch\n        outputs = model.forward(inputs)\n        outputs = outputs.view((outputs.size()[0], outputs.size()[-1]))\n\n        # Stack that onto the previous predictions\n        y_pred.append(outputs.cpu())\n\n    # Concatenate the list of Variables to one Variable (this is faster than\n    # concatenating all intermediate results) and make sure results are float\n    y_pred = torch.cat(y_pred, dim=0).float().cuda()\n\n    # If necessary, convert model outputs to numpy array\n    if as_numpy:\n        y_pred = y_pred.data.cpu().numpy()\n\n    return y_pred\n\n\n# -----------------------------------------------------------------------------\n\n\ndef get_labels(raw_labels, threshold):\n\n    labels = torch.gt(raw_labels, threshold)\n    return labels.float()\n\n\n# -----------------------------------------------------------------------------\n\n\ndef loss_func(y_pred, y_true):\n\n    # Set up the Binary Cross-Entropy term of the loss\n    bce_loss = nn.BCELoss()\n\n    # Check if CUDA is available to speed up computations\n    if torch.cuda.is_available():\n        bce_loss = bce_loss.cuda()\n\n    # Calculate the loss\n    loss = bce_loss(y_pred, y_true)\n\n    # Return the result as a simple float number\n    return float(loss.data.cpu().numpy())\n\n\n# -----------------------------------------------------------------------------\n\n\ndef accuracy_func(y_true, y_pred):\n\n    # Make sure y_pred is rounded to 0/1\n    y_pred = torch.round(y_pred)\n\n    result = torch.mean(torch.abs(y_true - y_pred), dim=1)\n    result = torch.mean(result, dim=0)\n\n    return 1 - float(result.data.cpu().numpy())\n\n\n# -----------------------------------------------------------------------------\n\n\ndef",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_findcoa.py",
+        "start": 41,
+        "end": 149,
+        "startLoc": {
+          "line": 41,
+          "column": 1,
+          "position": 233
+        },
+        "endLoc": {
+          "line": 149,
+          "column": 4,
+          "position": 909
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 26,
+        "end": 132,
+        "startLoc": {
+          "line": 26,
+          "column": 1,
+          "position": 114
+        },
+        "endLoc": {
+          "line": 132,
+          "column": 15,
+          "position": 788
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 19,
+      "fragment": "sample_size = '4k'\n\n    # -------------------------------------------------------------------------\n    # LOOP OVER THE DIFFERENT EVENT / DISTANCE RANGE COMBINATIONS\n    # -------------------------------------------------------------------------\n\n    for event in ['GW150914', 'GW151226', 'GW170104']:\n        for dist in ['0100_0300', '0250_0500', '0400_0800', '0700_1200',\n                     '1000_1700']:\n\n            # -----------------------------------------------------------------\n            # LOAD THE MODEL AND THE CORRECT WEIGHTS FILE\n            # -----------------------------------------------------------------\n\n            # Initialize the model\n            model = TimeSeriesFCN()\n\n            # Define the weights file we want to use for evaluation\n            _ = ['..', 'train', 'weights', 'fwhm_findcoa'",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_findcoa.py",
+        "start": 177,
+        "end": 195,
+        "startLoc": {
+          "line": 177,
+          "column": 5,
+          "position": 1335
+        },
+        "endLoc": {
+          "line": 195,
+          "column": 15,
+          "position": 1437
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 138,
+        "end": 156,
+        "startLoc": {
+          "line": 138,
+          "column": 5,
+          "position": 811
+        },
+        "endLoc": {
+          "line": 156,
+          "column": 16,
+          "position": 913
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 25,
+      "fragment": ",\n                 'timeseries_weights_{}_{}_{}_{:.1f}_FWHM.net'.\n                 format(event, dist, sample_size, threshold)]\n            weights_file = os.path.join(*_)\n\n            # Check if CUDA is available. If not, loading the weights is a bit\n            # more cumbersome and we have to use some tricks\n            if torch.cuda.is_available():\n                model.float().cuda()\n                model = torch.nn.DataParallel(model)\n                model.load_state_dict(torch.load(weights_file))\n            else:\n                state_dict = torch.load(weights_file,\n                                        map_location=lambda strge, loc: strge)\n                new_state_dict = OrderedDict()\n                for k, v in state_dict.items():\n                    name = k[7:]  # remove `module.`\n                    new_state_dict[name] = v\n                model.load_state_dict(new_state_dict)\n\n            # -----------------------------------------------------------------\n            # ACTUALLY PERFORM THE EVALUATION\n            # -----------------------------------------------------------------\n\n            print('EVALUATING FWHM (FINDCOA) FOR: {}, {}'",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_findcoa.py",
+        "start": 195,
+        "end": 219,
+        "startLoc": {
+          "line": 195,
+          "column": 15,
+          "position": 1438
+        },
+        "endLoc": {
+          "line": 219,
+          "column": 40,
+          "position": 1633
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 156,
+        "end": 180,
+        "startLoc": {
+          "line": 156,
+          "column": 16,
+          "position": 914
+        },
+        "endLoc": {
+          "line": 180,
+          "column": 43,
+          "position": 1109
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 9,
+      "fragment": ".\n                  format(event, dist))\n\n            # Load data into data tensor and data loader\n            file_path = os.path.join('..', 'data', 'testing', 'timeseries',\n                                     'testing_{}_{}_{}_FWHM.h5'.\n                                     format(event, dist, sample_size))\n            datatensor = load_data_as_tensor_datasets(file_path)\n            dataloader = DataLoader(datatensor, batch_size=32",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_findcoa.py",
+        "start": 219,
+        "end": 227,
+        "startLoc": {
+          "line": 219,
+          "column": 40,
+          "position": 1634
+        },
+        "endLoc": {
+          "line": 227,
+          "column": 3,
+          "position": 1712
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 180,
+        "end": 188,
+        "startLoc": {
+          "line": 180,
+          "column": 43,
+          "position": 1110
+        },
+        "endLoc": {
+          "line": 188,
+          "column": 3,
+          "position": 1187
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 20,
+      "fragment": ")\n\n            # Get the true labels we need for the comparison\n            raw_labels = Variable(datatensor.target_tensor, volatile=True)\n            if torch.cuda.is_available():\n                raw_labels = raw_labels.cuda()\n            labels = get_labels(raw_labels, threshold)\n\n            # Get the predictions by applying the pre-trained net\n            predictions = apply_model(model, dataloader)\n\n            # Calculate the loss (averaged over the entire data set)\n            loss = loss_func(y_pred=predictions,\n                             y_true=labels)\n\n            # Calculate the accuracy (averaged over the entire data set)\n            accuracy = accuracy_func(y_pred=predictions,\n                                     y_true=labels)\n\n            # Convert predictions and labels to numpy to compute other metrics",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_findcoa.py",
+        "start": 227,
+        "end": 246,
+        "startLoc": {
+          "line": 227,
+          "column": 3,
+          "position": 1713
+        },
+        "endLoc": {
+          "line": 246,
+          "column": 67,
+          "position": 1835
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 188,
+        "end": 207,
+        "startLoc": {
+          "line": 188,
+          "column": 3,
+          "position": 1188
+        },
+        "endLoc": {
+          "line": 207,
+          "column": 20,
+          "position": 1310
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 156,
+      "fragment": "# -----------------------------------------------------------------------------\n# IMPORTS\n# -----------------------------------------------------------------------------\n\nimport numpy as np\nimport os\nimport sys\nimport h5py\nimport torch\nimport torch.nn as nn\n\nfrom collections import OrderedDict\nfrom torch.utils.data import TensorDataset, DataLoader\nfrom torch.autograd import Variable\n\nsys.path.insert(0, '../train/')\nfrom models import TimeSeriesFCN\n\nfrom IPython import embed\n\n\n# -----------------------------------------------------------------------------\n# FUNCTION DEFINITIONS\n# -----------------------------------------------------------------------------\n\ndef load_data_as_tensor_datasets(file_path, random_seed=42):\n\n    # Set the seed for the random number generator\n    np.random.seed(random_seed)\n\n    # Read in the time series from the HDF file\n    with h5py.File(file_path, 'r') as file:\n\n        x = np.array(file['timeseries'])\n        y = np.array(file['labels'])\n\n    # Swap axes around to get to NCHW format\n    x = np.swapaxes(x, 1, 3)\n    x = np.swapaxes(x, 2, 3)\n    x = np.squeeze(x)\n\n    # Convert to torch Tensors\n    x = torch.from_numpy(x).float()\n    y = torch.from_numpy(y).float()\n\n    # Create TensorDatasets for training, test and validation\n    tensor_dataset = TensorDataset(x, y)\n\n    return tensor_dataset\n\n\n# -----------------------------------------------------------------------------\n\n\ndef apply_model(model, data_loader, as_numpy=False):\n\n    # Initialize an empty array for our predictions\n    y_pred = []\n\n    # Loop over the test set (in mini-batches) to get the predictions\n    for mb_idx, mb_data in enumerate(data_loader):\n\n        # Get the inputs and wrap them in a PyTorch variable\n        inputs, _ = mb_data\n        inputs = Variable(inputs, volatile=True)\n\n        # If CUDA is available, run everything on the GPU\n        if torch.cuda.is_available():\n            inputs = inputs.cuda()\n\n        # Make predictions for the given mini-batch\n        outputs = model.forward(inputs)\n        outputs = outputs.view((outputs.size()[0], outputs.size()[-1]))\n\n        # Stack that onto the previous predictions\n        y_pred.append(outputs.cpu())\n\n    # Concatenate the list of Variables to one Variable (this is faster than\n    # concatenating all intermediate results) and make sure results are float\n    y_pred = torch.cat(y_pred, dim=0).float().cuda()\n\n    # If necessary, convert model outputs to numpy array\n    if as_numpy:\n        y_pred = y_pred.data.cpu().numpy()\n\n    return y_pred\n\n\n# -----------------------------------------------------------------------------\n\n\ndef get_labels(raw_labels, threshold):\n\n    labels = torch.gt(raw_labels, threshold)\n    return labels.float()\n\n\n# -----------------------------------------------------------------------------\n\n\ndef loss_func(y_pred, y_true):\n\n    # Set up the Binary Cross-Entropy term of the loss\n    bce_loss = nn.BCELoss()\n\n    # Check if CUDA is available to speed up computations\n    if torch.cuda.is_available():\n        bce_loss = bce_loss.cuda()\n\n    # Calculate the loss\n    loss = bce_loss(y_pred, y_true)\n\n    # Return the result as a simple float number\n    return float(loss.data.cpu().numpy())\n\n\n# -----------------------------------------------------------------------------\n\n\ndef accuracy_func(y_true, y_pred):\n\n    # Make sure y_pred is rounded to 0/1\n    y_pred = torch.round(y_pred)\n\n    result = torch.mean(torch.abs(y_true - y_pred), dim=1)\n    result = torch.mean(result, dim=0)\n\n    return 1 - float(result.data.cpu().numpy())\n\n\n# -----------------------------------------------------------------------------\n# MAIN PROGRAM\n# -----------------------------------------------------------------------------\n\nif __name__ == '__main__':\n\n    threshold = 0.0\n    sample_size = '4k'\n\n    # -------------------------------------------------------------------------\n    # LOOP OVER THE DIFFERENT EVENT / DISTANCE RANGE COMBINATIONS\n    # -------------------------------------------------------------------------\n\n    for event in ['GW150914', 'GW151226', 'GW170104']:\n        for dist in ['0100_0300', '0250_0500', '0400_0800', '0700_1200',\n                     '1000_1700']:\n\n            # -----------------------------------------------------------------\n            # LOAD THE MODEL AND THE CORRECT WEIGHTS FILE\n            # -----------------------------------------------------------------\n\n            # Initialize the model\n            model = TimeSeriesFCN()\n\n            # Define the weights file we want to use for evaluation\n            _ = ['..', 'train', 'weights', 'fwhm_curriculum'",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_curriculum.py",
+        "start": 1,
+        "end": 156,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 156,
+          "column": 18,
+          "position": 913
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 1,
+        "end": 156,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 156,
+          "column": 16,
+          "position": 913
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 58,
+      "fragment": ",\n                 'timeseries_weights_{}_{}_{}_{:.1f}_FWHM.net'.\n                 format(event, dist, sample_size, threshold)]\n            weights_file = os.path.join(*_)\n\n            # Check if CUDA is available. If not, loading the weights is a bit\n            # more cumbersome and we have to use some tricks\n            if torch.cuda.is_available():\n                model.float().cuda()\n                model = torch.nn.DataParallel(model)\n                model.load_state_dict(torch.load(weights_file))\n            else:\n                state_dict = torch.load(weights_file,\n                                        map_location=lambda strge, loc: strge)\n                new_state_dict = OrderedDict()\n                for k, v in state_dict.items():\n                    name = k[7:]  # remove `module.`\n                    new_state_dict[name] = v\n                model.load_state_dict(new_state_dict)\n\n            # -----------------------------------------------------------------\n            # ACTUALLY PERFORM THE EVALUATION\n            # -----------------------------------------------------------------\n\n            print('NOW EVALUATING FWHM BASELINE FOR: {}, {}'.format(event,\n                                                                    dist))\n\n            # Load data into data tensor and data loader\n            file_path = os.path.join('..', 'data', 'testing', 'timeseries',\n                                     'testing_{}_{}_{}_FWHM.h5'.\n                                     format(event, dist, sample_size))\n            datatensor = load_data_as_tensor_datasets(file_path)\n            dataloader = DataLoader(datatensor, batch_size=16)\n\n            # Get the true labels we need for the comparison\n            raw_labels = Variable(datatensor.target_tensor, volatile=True)\n            if torch.cuda.is_available():\n                raw_labels = raw_labels.cuda()\n            labels = get_labels(raw_labels, threshold)\n\n            # Get the predictions by applying the pre-trained net\n            predictions = apply_model(model, dataloader)\n\n            # Calculate the loss (averaged over the entire data set)\n            loss = loss_func(y_pred=predictions,\n                             y_true=labels)\n\n            # Calculate the accuracy (averaged over the entire data set)\n            accuracy = accuracy_func(y_pred=predictions,\n                                     y_true=labels)\n\n            # Print the results\n            print('Loss: ... {:.3f}'.format(loss))\n            print('Accuracy: {:.1f}%'.format(100 * accuracy))\n            print()\n\n        print(53 * '-')\n        print()",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_curriculum.py",
+        "start": 156,
+        "end": 213,
+        "startLoc": {
+          "line": 156,
+          "column": 18,
+          "position": 914
+        },
+        "endLoc": {
+          "line": 213,
+          "column": 2,
+          "position": 1357
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 156,
+        "end": 213,
+        "startLoc": {
+          "line": 156,
+          "column": 16,
+          "position": 914
+        },
+        "endLoc": {
+          "line": 213,
+          "column": 2,
+          "position": 1357
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 19,
+      "fragment": "#!/usr/bin/env python\n# coding: utf-8\n\n\n\nget_ipython().run_line_magic('matplotlib', 'inline')\nget_ipython().run_line_magic('config', \"InlineBackend.figure_format='retina'\")\nget_ipython().run_line_magic('load_ext', 'autoreload')\nget_ipython().run_line_magic('autoreload', '2')\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport os\nimport sys\nimport h5py\nfrom",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/test_network_on_full_strain.py",
+        "start": 1,
+        "end": 19,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 19,
+          "column": 5,
+          "position": 89
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py",
+        "start": 1,
+        "end": 19,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 19,
+          "column": 7,
+          "position": 89
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 50,
+      "fragment": "def apply_psd(signal_t, psd, sampling_rate=4096, apply_butter=False):\n    \"\"\"\n    Take a signal in the time domain, and a precalculated Power Spectral\n    Density, and color the signal according to the given PSD.\n\n    Args:\n        signal_t: A signal in time domain (i.e. a 1D numpy array)\n        psd: A Power Spectral Density, e.g. calculated from the detector noise.\n            Should be a function: psd(frequency)\n        sampling_rate: Sampling rate of signal_t\n        apply_butter: Whether or not to apply a Butterworth filter to the data.\n\n    Returns: color_signal_t, the colored signal in the time domain.\n    \"\"\"\n\n    # First set some parameters for computing power spectra\n    signal_size = len(signal_t)\n    delta_t = 1 / sampling_rate\n\n    # Go into Fourier (frequency) space: signal_t -> signal_f\n    frequencies = np.fft.rfftfreq(signal_size, delta_t)\n    signal_f = np.fft.rfft(signal_t)\n\n    # Divide by the given Power Spectral Density (PSD)\n    # This is the 'whitening' = actually adding color\n    color_signal_f = signal_f / (np.sqrt(psd(frequencies) / delta_t / 2))\n\n    # Go back into time space: color_signal_f -> color_signal_t\n    color_signal_t = np.fft.irfft(color_signal_f, n=signal_size)\n\n    # In case we want to use a Butterworth-filter, here's how to do it:\n    if apply_butter:\n\n        # Define cut-off frequencies for the filter\n        f_low = 42\n        f_high = 800\n\n        # Calculate Butterworth-filter and normalization\n        numerator, denominator = butter(4, [f_low*2/4096, f_high*2/4096],\n                                        btype=\"bandpass\")\n        normalization = np.sqrt((f_high - f_low) / (sampling_rate / 2))\n\n        # Apply filter and normalize\n        color_signal_t = filtfilt(numerator, denominator, color_signal_t)\n        color_signal_t = color_signal_t / normalization\n\n    return color_signal_t\n\n\ndef",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/test_network_on_full_strain.py",
+        "start": 35,
+        "end": 84,
+        "startLoc": {
+          "line": 35,
+          "column": 1,
+          "position": 168
+        },
+        "endLoc": {
+          "line": 84,
+          "column": 4,
+          "position": 445
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/get_snr_distributions_from_testing.py",
+        "start": 28,
+        "end": 77,
+        "startLoc": {
+          "line": 28,
+          "column": 1,
+          "position": 116
+        },
+        "endLoc": {
+          "line": 77,
+          "column": 80,
+          "position": 393
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 12,
+      "fragment": "state_dict = torch.load(weights_file, map_location=lambda storage, loc: storage)\nnew_state_dict = OrderedDict()\nfor k, v in state_dict.items():\n    name = k[7:] # remove `module.`\n    new_state_dict[name] = v\n\nmodel.load_state_dict(new_state_dict)\n\n\n\n\n# %%timeit",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/test_network_on_full_strain.py",
+        "start": 165,
+        "end": 176,
+        "startLoc": {
+          "line": 165,
+          "column": 1,
+          "position": 863
+        },
+        "endLoc": {
+          "line": 176,
+          "column": 11,
+          "position": 946
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py",
+        "start": 127,
+        "end": 136,
+        "startLoc": {
+          "line": 127,
+          "column": 1,
+          "position": 793
+        },
+        "endLoc": {
+          "line": 136,
+          "column": 36,
+          "position": 874
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 31,
+      "fragment": "):\n    \"\"\"\n    Create the weights ('grayzones') for a given label.\n\n    Args:\n        label: A vector labeling the pixels that contain an injection\n        start_size: Number of pixels to ignore at the start of an injection\n        end_size: Number of pixels to ignore at the end of an injections\n\n    Returns: A vector that is 0 for the pixels that should be ignored and 1\n        for all other pixels.\n    \"\"\"\n\n    a = np.logical_xor(label, np.roll(label, 1))\n    b = np.cumsum(a) % 2\n\n    if start_size == 0:\n        c = np.zeros(label.shape)\n    else:\n        c = np.convolve(a * b, np.hstack((np.zeros(start_size - 1),\n                                          np.ones(start_size))),\n                        mode=\"same\")\n\n    if end_size == 0:\n        d = np.zeros(label.shape)\n    else:\n        d = np.convolve(a * np.logical_not(b),\n                        np.hstack((np.ones(end_size), np.zeros(end_size - 1))),\n                        mode=\"same\")\n\n    return np.logical_not(np.logical_or(c, d)).astype('int')",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/pytorch_train_spectrograms.py",
+        "start": 31,
+        "end": 61,
+        "startLoc": {
+          "line": 31,
+          "column": 2,
+          "position": 150
+        },
+        "endLoc": {
+          "line": 61,
+          "column": 2,
+          "position": 381
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/plottools.py",
+        "start": 93,
+        "end": 123,
+        "startLoc": {
+          "line": 93,
+          "column": 2,
+          "position": 613
+        },
+        "endLoc": {
+          "line": 123,
+          "column": 2,
+          "position": 844
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 12,
+      "fragment": ")\n\n            # Calculate weights and set up the loss function\n            weights = torch.eq(torch.gt(labels, 0) *\n                               torch.lt(labels, threshold), 0).float().cuda()\n\n            loss_function = nn.BCELoss(weight=weights.float().cuda(),\n                                       size_average=True).cuda()\n\n            # Calculate the loss\n            loss = loss_function(outputs.cuda(), torch.ceil(labels).cuda())\n            val_loss",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/pytorch_train_spectrograms.py",
+        "start": 372,
+        "end": 383,
+        "startLoc": {
+          "line": 372,
+          "column": 7,
+          "position": 2485
+        },
+        "endLoc": {
+          "line": 383,
+          "column": 9,
+          "position": 2599
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/pytorch_train_spectrograms.py",
+        "start": 320,
+        "end": 331,
+        "startLoc": {
+          "line": 320,
+          "column": 2,
+          "position": 2036
+        },
+        "endLoc": {
+          "line": 331,
+          "column": 13,
+          "position": 2150
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 11,
+      "fragment": ")\n\n        # Make predictions for the given mini-batch\n        outputs = model.forward(inputs)\n        outputs = outputs.view((outputs.size()[0], outputs.size()[-1]))\n        outputs = outputs.data.cpu().numpy()\n\n        # Stack that onto the previous predictions\n        y_pred.append(outputs)\n\n    y_pred",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/pytorch_train_spectrograms.py",
+        "start": 481,
+        "end": 491,
+        "startLoc": {
+          "line": 481,
+          "column": 2,
+          "position": 3282
+        },
+        "endLoc": {
+          "line": 491,
+          "column": 7,
+          "position": 3363
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries.py",
+        "start": 101,
+        "end": 111,
+        "startLoc": {
+          "line": 101,
+          "column": 5,
+          "position": 564
+        },
+        "endLoc": {
+          "line": 111,
+          "column": 70,
+          "position": 644
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 34,
+      "fragment": "):\n    \"\"\"\n    Create the weights ('grayzones') for a given label.\n\n    Args:\n        label: A vector labeling the pixels that contain an injection\n        start_size: Number of pixels to ignore at the start of an injection\n        end_size: Number of pixels to ignore at the end of an injections\n\n    Returns: A vector that is 0 for the pixels that should be ignored and 1\n        for all other pixels.\n    \"\"\"\n\n    a = np.logical_xor(label, np.roll(label, 1))\n    b = np.cumsum(a) % 2\n\n    if start_size == 0:\n        c = np.zeros(label.shape)\n    else:\n        c = np.convolve(a * b, np.hstack((np.zeros(start_size - 1),\n                                          np.ones(start_size))),\n                        mode=\"same\")\n\n    if end_size == 0:\n        d = np.zeros(label.shape)\n    else:\n        d = np.convolve(a * np.logical_not(b),\n                        np.hstack((np.ones(end_size), np.zeros(end_size - 1))),\n                        mode=\"same\")\n\n    return np.logical_not(np.logical_or(c, d)).astype('int')\n\n\n# -----------------------------------------------------------------------------",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/training_tools.py",
+        "start": 20,
+        "end": 53,
+        "startLoc": {
+          "line": 20,
+          "column": 4,
+          "position": 82
+        },
+        "endLoc": {
+          "line": 53,
+          "column": 80,
+          "position": 317
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/plottools.py",
+        "start": 93,
+        "end": 64,
+        "startLoc": {
+          "line": 93,
+          "column": 2,
+          "position": 613
+        },
+        "endLoc": {
+          "line": 64,
+          "column": 4,
+          "position": 385
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 25,
+      "fragment": "# Some preliminary definitions\n    bar_length = 20\n    elapsed_time = time.time() - start_time\n\n    # Construct the actual progress bar\n    percent = float(current_value) / max_value\n    bar = '=' * int(round(percent * bar_length))\n    spaces = '-' * (bar_length - len(bar))\n\n    # Calculate the estimated time remaining\n    eta = elapsed_time / percent - elapsed_time\n\n    # Start with the default info: Progress Bar, number of processed\n    # mini-batches, time elapsed, and estimated time remaining (the '\\r' at\n    # the start moves the carriage back the start of the line, meaning that\n    # the progress bar will be overwritten / updated!)\n    out = (\"\\r[{0}] {1:>3}% ({2:>2}/{3}) | {4:.1f}s elapsed | \"\n           \"ETA: {5:.1f}s | \".format(bar + spaces, int(round(percent * 100)),\n                                     int(current_value), int(max_value),\n                                     elapsed_time, eta))\n\n    # Add all provided metrics, e.g. loss and Hamming distance\n    metrics = []\n    for metric, value in sorted(kwargs.items()):\n        if type",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/training_tools.py",
+        "start": 95,
+        "end": 119,
+        "startLoc": {
+          "line": 95,
+          "column": 5,
+          "position": 448
+        },
+        "endLoc": {
+          "line": 119,
+          "column": 5,
+          "position": 652
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/pytorch_train_spectrograms.py",
+        "start": 92,
+        "end": 116,
+        "startLoc": {
+          "line": 92,
+          "column": 5,
+          "position": 454
+        },
+        "endLoc": {
+          "line": 116,
+          "column": 7,
+          "position": 658
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 9,
+      "fragment": ":\n            if metric != 'lr':\n                metrics.append(\"{}: {:.3f}\".format(metric, value))\n            else:\n                metrics.append(\"{}: {:.8f}\".format(metric, value))\n    out += ' - '.join(metrics) + ' '\n\n    # Actually write the finished progress bar to the command line\n    sys.stdout.write(out +",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/training_tools.py",
+        "start": 121,
+        "end": 129,
+        "startLoc": {
+          "line": 121,
+          "column": 5,
+          "position": 680
+        },
+        "endLoc": {
+          "line": 129,
+          "column": 2,
+          "position": 757
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/pytorch_train_spectrograms.py",
+        "start": 115,
+        "end": 123,
+        "startLoc": {
+          "line": 115,
+          "column": 2,
+          "position": 653
+        },
+        "endLoc": {
+          "line": 123,
+          "column": 2,
+          "position": 729
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 11,
+      "fragment": "with h5py.File(file_path, 'r') as file:\n\n        x = np.array(file['timeseries'])\n        y = np.array(file['labels'])\n\n    # Swap axes around to get to NCHW format\n    x = np.swapaxes(x, 1, 3)\n    x = np.swapaxes(x, 2, 3)\n    x = np.squeeze(x)\n\n    # Generate the indices for training, test and validation",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/training_tools.py",
+        "start": 158,
+        "end": 168,
+        "startLoc": {
+          "line": 158,
+          "column": 5,
+          "position": 831
+        },
+        "endLoc": {
+          "line": 168,
+          "column": 57,
+          "position": 933
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 32,
+        "end": 42,
+        "startLoc": {
+          "line": 32,
+          "column": 5,
+          "position": 146
+        },
+        "endLoc": {
+          "line": 42,
+          "column": 27,
+          "position": 248
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 44,
+      "fragment": "])\n        y = np.array(file['labels'])\n\n    # Swap axes around to get to NCHW format\n    x = np.swapaxes(x, 1, 3)\n    x = np.swapaxes(x, 2, 3)\n    x = np.squeeze(x)\n\n    # Generate the indices for training, test and validation\n    idx = np.arange(len(x))\n\n    # Shuffle the indices (data) if requested\n    if shuffle_data:\n        idx = np.random.permutation(idx)\n\n    # Get the indices for training, test and validation\n    splits = np.cumsum(split_ratios)\n    idx_train = idx[:int(splits[0]*len(x))]\n    idx_test = idx[int(splits[0]*len(x)):int(splits[1]*len(x))]\n    idx_validation = idx[int(splits[1]*len(x)):]\n\n    # Select the actual data using these indices\n    x_train, y_train = x[idx_train], y[idx_train]\n    x_test, y_test = x[idx_test], y[idx_test]\n    x_validation, y_validation = x[idx_validation], y[idx_validation]\n\n    # Convert the training and test data to PyTorch / CUDA tensors\n    x_train = torch.from_numpy(x_train).float().cuda()\n    y_train = torch.from_numpy(y_train).float().cuda()\n    x_test = torch.from_numpy(x_test).float().cuda()\n    y_test = torch.from_numpy(y_test).float().cuda()\n    x_validation = torch.from_numpy(x_validation).float().cuda()\n    y_validation = torch.from_numpy(y_validation).float().cuda()\n\n    # Create TensorDatasets for training, test and validation\n    tensor_dataset_train = TensorDataset(x_train, y_train)\n    tensor_dataset_test = TensorDataset(x_test, y_test)\n    tensor_dataset_validation = TensorDataset(x_validation, y_validation)\n\n    # Return the resulting TensorDatasets\n    return tensor_dataset_train, tensor_dataset_test, tensor_dataset_validation\n\n\ndef",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/training_tools.py",
+        "start": 160,
+        "end": 203,
+        "startLoc": {
+          "line": 160,
+          "column": 13,
+          "position": 861
+        },
+        "endLoc": {
+          "line": 203,
+          "column": 4,
+          "position": 1313
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/pytorch_train_spectrograms.py",
+        "start": 154,
+        "end": 197,
+        "startLoc": {
+          "line": 154,
+          "column": 15,
+          "position": 830
+        },
+        "endLoc": {
+          "line": 197,
+          "column": 80,
+          "position": 1282
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 20,
+      "fragment": "# Initialize an empty array for our predictions\n    y_pred = []\n\n    # Loop over the test set (in mini-batches) to get the predictions\n    for mb_idx, mb_data in enumerate(data_loader):\n\n        # Get the inputs and wrap them in a PyTorch variable\n        inputs, _ = mb_data\n        inputs = Variable(inputs, volatile=True)\n\n        # If CUDA is available, run everything on the GPU\n        if torch.cuda.is_available():\n            inputs = inputs.cuda()\n\n        # Make predictions for the given mini-batch\n        outputs = model.forward(inputs)\n        outputs = outputs.view((outputs.size()[0], outputs.size()[-1]))\n\n        # Stack that onto the previous predictions\n        y_pred.append(outputs)",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/training_tools.py",
+        "start": 217,
+        "end": 236,
+        "startLoc": {
+          "line": 217,
+          "column": 5,
+          "position": 1334
+        },
+        "endLoc": {
+          "line": 236,
+          "column": 2,
+          "position": 1478
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/evaluation/evaluate_FWHM_baseline.py",
+        "start": 57,
+        "end": 76,
+        "startLoc": {
+          "line": 57,
+          "column": 5,
+          "position": 329
+        },
+        "endLoc": {
+          "line": 76,
+          "column": 2,
+          "position": 473
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 21,
+      "fragment": ".cuda()\n\n        # Make predictions for the given mini-batch\n        outputs = model.forward(inputs)\n        outputs = outputs.view((outputs.size()[0], outputs.size()[-1]))\n\n        # Stack that onto the previous predictions\n        y_pred.append(outputs)\n\n    # Concatenate the list of Variables to one Variable (this is faster than\n    # concatenating all intermediate results) and make sure results are float\n    y_pred = torch.cat(y_pred, dim=0).float()\n\n    # If necessary, convert model outputs to numpy array\n    if as_numpy:\n        y_pred = y_pred.data.cpu().numpy()\n\n    return y_pred\n\n\ndef",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/training_tools.py",
+        "start": 229,
+        "end": 249,
+        "startLoc": {
+          "line": 229,
+          "column": 7,
+          "position": 1415
+        },
+        "endLoc": {
+          "line": 249,
+          "column": 4,
+          "position": 1543
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_predictions_timeseries-Copy1.py",
+        "start": 73,
+        "end": 93,
+        "startLoc": {
+          "line": 73,
+          "column": 7,
+          "position": 451
+        },
+        "endLoc": {
+          "line": 93,
+          "column": 32,
+          "position": 579
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 17,
+      "fragment": ", out_channels=128,\n                               kernel_size=(3, 7), padding=(1, 6),\n                               stride=1, dilation=(1, 2))\n        self.conv3 = nn.Conv2d(in_channels=128, out_channels=128,\n                               kernel_size=(3, 7), padding=(1, 6),\n                               stride=1, dilation=(1, 2))\n        self.conv4 = nn.Conv2d(in_channels=128, out_channels=128,\n                               kernel_size=(3, 7), padding=(1, 6),\n                               stride=1, dilation=(1, 2))\n        self.conv5 = nn.Conv2d(in_channels=128, out_channels=128,\n                               kernel_size=(3, 7), padding=(1, 6),\n                               stride=1, dilation=(1, 2))\n        self.conv6 = nn.Conv2d(in_channels=128, out_channels=128,\n                               kernel_size=(3, 7), padding=(1, 6),\n                               stride=1, dilation=(1, 2))\n        self.conv7 = nn.Conv2d(in_channels=128, out_channels=128,\n                               kernel_size=(3, 7), padding=(1, 9",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/models.py",
+        "start": 28,
+        "end": 44,
+        "startLoc": {
+          "line": 28,
+          "column": 3,
+          "position": 154
+        },
+        "endLoc": {
+          "line": 44,
+          "column": 2,
+          "position": 468
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/sanity_check_1.00s_vs_0.75s.py",
+        "start": 58,
+        "end": 74,
+        "startLoc": {
+          "line": 58,
+          "column": 4,
+          "position": 319
+        },
+        "endLoc": {
+          "line": 74,
+          "column": 2,
+          "position": 633
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 50,
+      "fragment": "))\n        self.conv8 = nn.Conv2d(in_channels=128, out_channels=1,\n                               kernel_size=(1, 1), padding=(0, 0), stride=1)\n\n        # Batch norm layers\n        self.batchnorm1 = nn.BatchNorm2d(num_features=128)\n        self.batchnorm2 = nn.BatchNorm2d(num_features=128)\n        self.batchnorm3 = nn.BatchNorm2d(num_features=128)\n        self.batchnorm4 = nn.BatchNorm2d(num_features=128)\n        self.batchnorm5 = nn.BatchNorm2d(num_features=128)\n        self.batchnorm6 = nn.BatchNorm2d(num_features=128)\n\n        # Pooling layers\n        self.pool = nn.MaxPool2d(kernel_size=(2, 1), stride=(2, 1))\n\n    # -------------------------------------------------------------------------\n    # Define a forward pass through the network (apply the layers)\n    # -------------------------------------------------------------------------\n\n    def forward(self, x):\n\n        # Layer 1\n        # ---------------------------------------------------------------------\n        x = self.conv1(x)\n        x = func.elu(x)\n\n        # Layers 2 to 3\n        # ---------------------------------------------------------------------\n        convolutions = [self.conv2, self.conv3, self.conv4, self.conv5,\n                        self.conv6, self.conv7]\n        batchnorms = [self.batchnorm1, self.batchnorm2, self.batchnorm3,\n                      self.batchnorm4, self.batchnorm5, self.batchnorm6]\n\n        for conv, batchnorm in zip(convolutions, batchnorms):\n            x = conv(x)\n            x = batchnorm(x)\n            x = func.elu(x)\n            x = self.pool(x)\n\n        # Layer 8\n        # ---------------------------------------------------------------------\n        x = self.conv8(x)\n        x = func.sigmoid(x)\n\n        return x\n\n    # -------------------------------------------------------------------------\n\n\n# -----------------------------------------------------------------------------",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/train/models.py",
+        "start": 45,
+        "end": 94,
+        "startLoc": {
+          "line": 45,
+          "column": 2,
+          "position": 485
+        },
+        "endLoc": {
+          "line": 94,
+          "column": 80,
+          "position": 912
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/sanity_check_1.00s_vs_0.75s.py",
+        "start": 75,
+        "end": 124,
+        "startLoc": {
+          "line": 75,
+          "column": 2,
+          "position": 650
+        },
+        "endLoc": {
+          "line": 124,
+          "column": 33,
+          "position": 1077
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 21,
+      "fragment": "(SampleGenerator):\n\n    def __init__(self, sample_length, sampling_rate, max_n_injections,\n                 waveforms, real_strains, white_strain_std, psds, noise_type,\n                 max_delta_t=0.01, loudness=1.0, pad=3.0, event_position=None):\n\n        # Inherit from the SampleGenerator base class\n        super().__init__(sample_length=sample_length,\n                         sampling_rate=sampling_rate,\n                         max_n_injections=max_n_injections,\n                         waveforms=waveforms,\n                         real_strains=real_strains,\n                         white_strain_std=white_strain_std,\n                         psds=psds,\n                         noise_type=noise_type,\n                         max_delta_t=max_delta_t,\n                         loudness=loudness,\n                         pad=pad,\n                         event_position=event_position)\n\n        # Remove the padding again",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/sample_generation/sample_generators.py",
+        "start": 547,
+        "end": 567,
+        "startLoc": {
+          "line": 547,
+          "column": 11,
+          "position": 4491
+        },
+        "endLoc": {
+          "line": 567,
+          "column": 27,
+          "position": 4636
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/sample_generation/sample_generators.py",
+        "start": 403,
+        "end": 423,
+        "startLoc": {
+          "line": 403,
+          "column": 12,
+          "position": 3284
+        },
+        "endLoc": {
+          "line": 423,
+          "column": 38,
+          "position": 3429
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 14,
+      "fragment": ")}\n\n    # Read the HDF files into numpy arrays and store them in a dict\n    real_strains = dict()\n    for ifo in ['H1', 'L1']:\n\n        # Make the full path for the strain file\n        strain_path = os.path.join(data_path, 'strain', real_strain_file[ifo])\n\n        # Read the HDF file into a numpy array\n        with h5py.File(strain_path, 'r') as file:\n            real_strains[ifo] = np.array(file['strain/Strain'])\n\n    print",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/sample_generation/generate_samples.py",
+        "start": 51,
+        "end": 64,
+        "startLoc": {
+          "line": 51,
+          "column": 12,
+          "position": 256
+        },
+        "endLoc": {
+          "line": 64,
+          "column": 6,
+          "position": 356
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/test_samplegeneration_timeseries.py",
+        "start": 36,
+        "end": 50,
+        "startLoc": {
+          "line": 36,
+          "column": 6,
+          "position": 165
+        },
+        "endLoc": {
+          "line": 50,
+          "column": 44,
+          "position": 262
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 79,
+      "fragment": "):\n    \"\"\"\n    Take a signal in the time domain, and a precalculated Power Spectral\n    Density, and color the signal according to the given PSD.\n\n    Args:\n        signal_t: A signal in time domain (i.e. a 1D numpy array)\n        psd: A Power Spectral Density, e.g. calculated from the detector noise.\n            Should be a function: psd(frequency)\n        sampling_rate: Sampling rate of signal_t\n        apply_butter: Whether or not to apply a Butterworth filter to the data.\n\n    Returns: color_signal_t, the colored signal in the time domain.\n    \"\"\"\n\n    # First set some parameters for computing power spectra\n    signal_size = len(signal_t)\n    delta_t = 1 / sampling_rate\n\n    # Go into Fourier (frequency) space: signal_t -> signal_f\n    frequencies = np.fft.rfftfreq(signal_size, delta_t)\n    signal_f = np.fft.rfft(signal_t)\n\n    # Divide by the given Power Spectral Density (PSD)\n    # This is the 'whitening' = actually adding color\n    color_signal_f = signal_f / (np.sqrt(psd(frequencies) / delta_t / 2))\n\n    # Go back into time space: color_signal_f -> color_signal_t\n    color_signal_t = np.fft.irfft(color_signal_f, n=signal_size)\n\n    # In case we want to use a Butterworth-filter, here's how to do it:\n    if apply_butter:\n\n        # Define cut-off frequencies for the filter\n        f_low = 42\n        f_high = 800\n\n        # Calculate Butterworth-filter and normalization\n        numerator, denominator = butter(4, [f_low*2/4096, f_high*2/4096],\n                                        btype=\"bandpass\")\n        normalization = np.sqrt((f_high - f_low) / (sampling_rate / 2))\n\n        # Apply filter and normalize\n        color_signal_t = filtfilt(numerator, denominator, color_signal_t)\n        color_signal_t = color_signal_t / normalization\n\n    return color_signal_t\n\n\n# -----------------------------------------------------------------------------\n\n\ndef get_psd(real_strain, sampling_rate=4096):\n    \"\"\"\n    Take a detector recording and calculate the Power Spectral Density (PSD).\n\n    Args:\n        real_strain: The detector recording to be used.\n        sampling_rate: The sampling rate (in Hz) of the recording\n\n    Returns:\n        psd: The Power Spectral Density of the detector recordings\n    \"\"\"\n\n    # Define some constants\n    nfft = 2 * sampling_rate  # Bigger values yield better resolution?\n\n    # Use matplotlib.mlab to calculate the PSD from the real strain\n    power_spectrum, frequencies = mlab.psd(real_strain,\n                                           NFFT=nfft,\n                                           Fs=sampling_rate)\n\n    # Interpolate it linearly, so we can re-sample the spectrum arbitrarily\n    psd = interp1d(frequencies, power_spectrum)\n\n    return psd\n\n\n# -----------------------------------------------------------------------------",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/sample_generation/sample_generation_tools.py",
+        "start": 56,
+        "end": 134,
+        "startLoc": {
+          "line": 56,
+          "column": 5,
+          "position": 284
+        },
+        "endLoc": {
+          "line": 134,
+          "column": 80,
+          "position": 636
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/get_snr_distributions_from_testing.py",
+        "start": 28,
+        "end": 106,
+        "startLoc": {
+          "line": 28,
+          "column": 6,
+          "position": 134
+        },
+        "endLoc": {
+          "line": 106,
+          "column": 45,
+          "position": 486
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 8,
+      "fragment": "# Read in the actual waveforms, the config string (and parse from JSON),\n    # and the indices of the failed waveforms\n    with h5py.File(waveforms_path, 'r') as file:\n        waveforms = np.array(file['waveforms'])\n        config = json.loads(file['config'].value.astype('str'))['injections']\n        failed_idx = np.array(file['failed'])\n\n    # Create a Pandas DataFrame containing only the relevant columns from the",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/sample_generation/sample_generation_tools.py",
+        "start": 169,
+        "end": 176,
+        "startLoc": {
+          "line": 169,
+          "column": 5,
+          "position": 715
+        },
+        "endLoc": {
+          "line": 176,
+          "column": 74,
+          "position": 795
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/make_0100_1200_waveforms_sample.py",
+        "start": 23,
+        "end": 29,
+        "startLoc": {
+          "line": 23,
+          "column": 5,
+          "position": 98
+        },
+        "endLoc": {
+          "line": 29,
+          "column": 6,
+          "position": 177
+        }
+      }
+    },
+    {
+      "format": "python",
+      "lines": 20,
+      "fragment": "def get_envelope(signal):\n    # Pad the signal with zeros at the beginning and end to reduce edge effects\n    padded_signal = np.pad(signal, 100, 'constant', constant_values=0)\n\n    # Calculate the raw envelope using the Hilbert transformation\n    analytic_signal = hilbert(padded_signal)\n    amplitude_envelope = np.abs(analytic_signal)\n\n    # Smoothen the envelope using a median filter and a rolling average\n    smooth = amplitude_envelope\n    smooth[0:200] = medfilt(smooth[0:200], kernel_size=25)\n    smooth = np.convolve(smooth, np.ones(10), mode='same') / 10\n\n    # Remove the zero padding again to match the original signal length\n    result = smooth[100:-100]\n\n    return result\n\n\n# -----------------------------------------------------------------------------",
+      "tokens": 0,
+      "firstFile": {
+        "name": "../../11_envri_validation_set/convwave/src/sample_generation/sample_generation_tools.py",
+        "start": 237,
+        "end": 256,
+        "startLoc": {
+          "line": 237,
+          "column": 1,
+          "position": 1087
+        },
+        "endLoc": {
+          "line": 256,
+          "column": 80,
+          "position": 1237
+        }
+      },
+      "secondFile": {
+        "name": "../../11_envri_validation_set/convwave/src/jupyter/signal_envelope.py",
+        "start": 217,
+        "end": 239,
+        "startLoc": {
+          "line": 217,
+          "column": 1,
+          "position": 1496
+        },
+        "endLoc": {
+          "line": 239,
+          "column": 9,
+          "position": 1649
+        }
+      }
+    }
+  ]
 }
