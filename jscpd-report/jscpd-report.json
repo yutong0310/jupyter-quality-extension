@@ -1,204 +1,12 @@
 {
   "statistics": {
-    "detectionDate": "2025-06-09T22:58:47.505Z",
+    "detectionDate": "2025-06-22T03:05:22.169Z",
     "formats": {
       "python": {
         "sources": {
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/evaluation/evaluator.py": {
-            "lines": 264,
-            "tokens": 1911,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/evaluation/notebook_converter.py": {
-            "lines": 70,
-            "tokens": 486,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/test_notebooks/test_example.py": {
-            "lines": 47,
-            "tokens": 212,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/lifecycle/stage_manager.py": {
-            "lines": 38,
-            "tokens": 166,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/loc_counter.py": {
-            "lines": 118,
-            "tokens": 919,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/gitleaks_runner.py": {
-            "lines": 89,
-            "tokens": 532,
-            "sources": 1,
-            "clones": 1,
-            "duplicatedLines": 35,
-            "duplicatedTokens": 236,
-            "percentage": 39.33,
-            "percentageTokens": 44.36,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/modularity_checker.py": {
-            "lines": 63,
-            "tokens": 434,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/pylint_runner.py": {
-            "lines": 68,
-            "tokens": 423,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/howfairis_runner.py": {
-            "lines": 86,
-            "tokens": 378,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/radon_runner.py": {
-            "lines": 317,
-            "tokens": 1675,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/unit_test_checker.py": {
-            "lines": 66,
-            "tokens": 412,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/dependency_checker.py": {
-            "lines": 145,
-            "tokens": 1098,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/jscpd_runner.py": {
-            "lines": 210,
-            "tokens": 1276,
-            "sources": 1,
-            "clones": 1,
-            "duplicatedLines": 35,
-            "duplicatedTokens": 236,
-            "percentage": 16.67,
-            "percentageTokens": 18.5,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/assertion_counter.py": {
-            "lines": 102,
-            "tokens": 634,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/tools/bandit_runner.py": {
-            "lines": 120,
-            "tokens": 899,
-            "sources": 1,
-            "clones": 2,
-            "duplicatedLines": 24,
-            "duplicatedTokens": 208,
-            "percentage": 20,
-            "percentageTokens": 23.14,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/run_quality_scan.py": {
-            "lines": 5,
-            "tokens": 17,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "/Users/yt/Documents/folder2024/course/Thesis/Dev/jupyter-quality-extension/extension.py": {
-            "lines": 164,
-            "tokens": 1097,
+          "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set_test/-Predicting-Survival-in-Titanic-Disaster/titanic_prediction_model.py": {
+            "lines": 691,
+            "tokens": 5086,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -210,104 +18,31 @@
           }
         },
         "total": {
-          "lines": 1972,
-          "tokens": 12569,
-          "sources": 17,
-          "clones": 2,
-          "duplicatedLines": 47,
-          "duplicatedTokens": 340,
-          "percentage": 2.38,
-          "percentageTokens": 2.71,
+          "lines": 691,
+          "tokens": 5086,
+          "sources": 1,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
       }
     },
     "total": {
-      "lines": 1972,
-      "tokens": 12569,
-      "sources": 17,
-      "clones": 2,
-      "duplicatedLines": 47,
-      "duplicatedTokens": 340,
-      "percentage": 2.38,
-      "percentageTokens": 2.71,
+      "lines": 691,
+      "tokens": 5086,
+      "sources": 1,
+      "clones": 0,
+      "duplicatedLines": 0,
+      "duplicatedTokens": 0,
+      "percentage": 0,
+      "percentageTokens": 0,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
   },
-  "duplicates": [
-    {
-      "format": "python",
-      "lines": 36,
-      "fragment": "def run_gitleaks_secret_scan():\n    \"\"\"\n    Runs Gitleaks on the current project directory (cwd).\n    Returns a dictionary formatted for display under \"Project-Level Results\".\n    \"\"\"\n    try:\n        # Use current working directory as project root\n        root_path = os.getcwd()\n        report_dir = os.path.join(root_path, \"gitleaks-report\")\n        os.makedirs(report_dir, exist_ok=True)\n\n        report_path = os.path.join(report_dir, \"gitleaks_report.json\")\n\n        # Run Gitleaks\n        result = subprocess.run(\n            [\"gitleaks\", \"detect\", \"--source\", root_path,\n             \"--report-format\", \"json\", \"--report-path\", report_path],\n            capture_output=True,\n            text=True,\n            check=False\n        )\n\n        # If gitleaks fails (not 0 or 1), return the error\n        if result.returncode not in [0, 1]:\n            return {\n                \"status\": \"fail\",\n                \"message\": f\"Gitleaks execution error: {result.stderr.strip()}\"\n            }\n\n        # Load the report\n        if os.path.exists(report_path):\n            with open(report_path, \"r\") as f:\n                findings = json.load(f)\n\n            if findings:\n                messages",
-      "tokens": 0,
-      "firstFile": {
-        "name": "tools/jscpd_runner.py",
-        "start": 150,
-        "end": 185,
-        "startLoc": {
-          "line": 150,
-          "column": 1,
-          "position": 863
-        },
-        "endLoc": {
-          "line": 185,
-          "column": 9,
-          "position": 1099
-        }
-      },
-      "secondFile": {
-        "name": "tools/gitleaks_runner.py",
-        "start": 5,
-        "end": 41,
-        "startLoc": {
-          "line": 5,
-          "column": 1,
-          "position": 13
-        },
-        "endLoc": {
-          "line": 41,
-          "column": 15,
-          "position": 251
-        }
-      }
-    },
-    {
-      "format": "python",
-      "lines": 13,
-      "fragment": ")\n    styled_results = \"<div style='margin-left: 20px; color: gray; font-size: 90%;'>\"\n    for issue in filtered:\n        file = issue.get(\"filename\")\n        line = issue.get(\"line_number\")\n        severity = issue.get(\"issue_severity\")\n        msg = issue.get(\"issue_text\")\n        rule = issue.get(\"test_id\")\n        styled_results += f\"• [{severity}] {msg} (File: <code>{file}</code>, Line: {line}, Rule: {rule})<br>\"\n    styled_results += \"</div>\"\n\n    return {\n        \"status\": \"fail\"",
-      "tokens": 0,
-      "firstFile": {
-        "name": "tools/bandit_runner.py",
-        "start": 107,
-        "end": 119,
-        "startLoc": {
-          "line": 107,
-          "column": 5,
-          "position": 769
-        },
-        "endLoc": {
-          "line": 119,
-          "column": 7,
-          "position": 873
-        }
-      },
-      "secondFile": {
-        "name": "tools/bandit_runner.py",
-        "start": 86,
-        "end": 97,
-        "startLoc": {
-          "line": 86,
-          "column": 9,
-          "position": 610
-        },
-        "endLoc": {
-          "line": 97,
-          "column": 7,
-          "position": 713
-        }
-      }
-    }
-  ]
+  "duplicates": []
 }

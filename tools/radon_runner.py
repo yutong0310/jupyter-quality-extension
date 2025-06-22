@@ -34,12 +34,72 @@ def run_radon_maintainability_index(filepath):
         # '--json' makes sure we get structured output that we can parse
         output = subprocess.check_output(
             ['radon', 'mi', '--json', filepath],  # CLI command: radon mi --json target.py
-            stderr=subprocess.STDOUT,             # Capture any errors in output too
+            stderr=subprocess.DEVNULL,             # Capture any errors in output too
             text=True                             # Return output as a string, not bytes
         )
 
+        output = output.strip()
+
+        # ✅ Debug print: show what radon actually returned
+        # print(f"\n[DEBUG] Raw radon output:\n{output[:300]}...")
+
+        # ✅ Ensure output is valid JSON
+        try:
+            results = json.loads(output)
+        except json.JSONDecodeError as e:
+            return {
+                "status": "fail",
+                "message": f"Radon JSON decode error: {e.msg}. Output: {output[:200]}"
+            }
+        
+        # THE BUGS ARE:
+            # THE RADON CLI EMITS BOTH:
+                # STDERR_LIKE WARNINGS (E.G., SYNTAXWARNING)
+                # AND THE REAL JSON
+            # BUT WE'RE CAPTURING ALL OF IT INTO OUTPUT - SO THE JSON PARSER CRASHES 
+            # BECAUSE THE BEGINNING ISN'T JSON.
+
+
+        output = output.strip()
+
+        # Extract only the last line, assuming it's JSON (warnings come first)
+        # lines = output.splitlines() 
+        # json_line = lines[-1].strip() if lines else ""
+
+        # ✅ Debug: Show what will be parsed
+        # print(f"\n[DEBUG] Cleaned radon JSON:\n{json_line}")
+
+        # try:
+        #     results = json.loads(json_line)
+        # except json.JSONEncoder as e:
+        #     return {
+        #         "status": "fail",
+        #         "message": f"Radon JSON decode error: {e.msg}. Output: {json_line[:200]}"
+        #     }
+
+        # Try to find the line that looks like JSON and parse only that
+        lines = output.splitlines()
+        for line in lines:
+            line = line.strip()
+            if line.startswith('{') and line.endswith('}'):
+                try:
+                    results = json.loads(line)
+                    break
+                except json.JSONDecodeError as e:
+                    return {
+                        "status": "fail",
+                        "message": f"Radon JSON decode error: {e.msg}. Line: {line[:200]}"
+                    }
+        else:
+            # No valid JSON found
+            return {
+                "status": "fail",
+                "message": f"Radon output did not contain valid JSON. Output: {output[:200]}"
+            }
+
+
         # Step 3: Convert radon's JSON output into a Python dictionary
-        results = json.loads(output)
+        # results = json.loads(output)
 
         # Step 4: Extract the result for the specific file being analyzed
         file_result = results.get(filepath, {})  # Safely get result block or empty dict
@@ -87,11 +147,6 @@ def run_radon_maintainability_index(filepath):
             
             styled_note = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>{mi_note}</i></div>"
             styled_tip = f"<div style='margin-left: 20px; color: gray; font-size: 90%;'><b>Tip:</b> {mi_tip}</div>"
-
-            # full_message = (
-            #     f"MI Score: {mi_score:.2f}, Grade: {mi_rank}"
-            #     f"{styled_note}{styled_tip}"
-            # )
 
             styled_rank_note = (
                 "<div style='margin-left: 20px; color: gray; font-size: 90%;'><i>"
@@ -144,10 +199,36 @@ def run_radon_cyclomatic_complexity(filepath):
         # Run Radon as a subprocess to get cyclomatic complexity in JSON format
         output = subprocess.check_output(
             ['radon', 'cc', '--json', '--no-assert', filepath],
-            stderr=subprocess.STDOUT,
+            stderr=subprocess.DEVNULL,
             text=True
         )
-        results = json.loads(output)
+
+        # Remove leading warnings (e.g., SyntaxWarning)
+        # lines = output.strip().splitlines()
+        # json_line = lines[-1].strip() if lines else ""
+
+        # Optional debug
+        # print(f"\n[DEBUG] Cleaned radon JSON:\n{json_line}")
+
+        # Parse the last line as JSON
+        # results = json.loads(json_line)
+
+        json_start = output.find('{')
+        if json_start != -1:
+            cleaned_output = output[json_start:]
+        else:
+            cleaned_output = output 
+        
+        try:
+            results = json.loads(cleaned_output)
+        except json.JSONDecodeError as e:
+            return {
+                "status": "fail",
+                "message": f"Radon JSON decode error: {e.msg}. Output: {output[:200]}"
+            }
+
+
+        #results = json.loads(output)
         file_results = results.get(filepath, [])
 
         if not file_results:
@@ -251,12 +332,38 @@ def run_radon_comment_density(filepath):
         # Step 2: Run radon raw analysis with --json output
         output = subprocess.check_output(
             ['radon', 'raw', '--json', filepath],
-            stderr=subprocess.STDOUT,
+            stderr=subprocess.DEVNULL,
             text=True
         )
 
+
+        # Clean any leading warnings (e.g., SyntaxWarning)
+        # lines = output.strip().splitlines()
+        # json_line = lines[-1].strip() if lines else ""
+
+        # Optional debug: print raw JSON line
+        # print(f"\n[DEBUG] Cleaned radon raw JSON:\n{json_line}")
+
+        # Parse the output JSON into a Python dictionary
+        # results = json.loads(json_line)
+
+        json_start = output.find('{')
+        if json_start != -1:
+            cleaned_output = output[json_start:]
+        else:
+            cleaned_output = output 
+        
+        try:
+            results = json.loads(cleaned_output)
+        except json.JSONDecodeError as e:
+            return {
+                "status": "fail",
+                "message": f"Radon JSON decode error: {e.msg}. Output: {output[:200]}"
+            }
+
+
         # Step 3: Parse the output JSON into a Python dictionary
-        results = json.loads(output)
+        # results = json.loads(output)
 
         # Step 4: Extract the values for the specified file
         stats = results.get(filepath, {})

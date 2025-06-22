@@ -1,27 +1,55 @@
 {
   "errors": [
     {
-      "filename": "./.github",
+      "filename": "./__init__.py",
       "reason": "No such file or directory"
     },
     {
-      "filename": "./AnnotatedTransformer.py",
+      "filename": "./assertion_counter.py",
       "reason": "No such file or directory"
     },
     {
-      "filename": "./docs",
+      "filename": "./bandit_runner.py",
       "reason": "No such file or directory"
     },
     {
-      "filename": "./images",
+      "filename": "./dependency_checker.py",
       "reason": "No such file or directory"
     },
     {
-      "filename": "./writeup",
+      "filename": "./gitleaks_runner.py",
+      "reason": "No such file or directory"
+    },
+    {
+      "filename": "./howfairis_runner.py",
+      "reason": "No such file or directory"
+    },
+    {
+      "filename": "./jscpd_runner.py",
+      "reason": "No such file or directory"
+    },
+    {
+      "filename": "./loc_counter.py",
+      "reason": "No such file or directory"
+    },
+    {
+      "filename": "./modularity_checker.py",
+      "reason": "No such file or directory"
+    },
+    {
+      "filename": "./pylint_runner.py",
+      "reason": "No such file or directory"
+    },
+    {
+      "filename": "./radon_runner.py",
+      "reason": "No such file or directory"
+    },
+    {
+      "filename": "./unit_test_checker.py",
       "reason": "No such file or directory"
     }
   ],
-  "generated_at": "2025-06-10T16:12:39Z",
+  "generated_at": "2025-06-22T01:22:15Z",
   "metrics": {
     "_totals": {
       "CONFIDENCE.HIGH": 0,
