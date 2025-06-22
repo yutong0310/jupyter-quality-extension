@@ -64,17 +64,46 @@ for project in os.listdir(base_dir):
                 message = metric_result["message"]
 
                 # Case 1: Code Smells - keep only pylint score line 
+                # if metric_name == "Code Smells":
+                    
+                #     # lines = message.splitlines()
+
+                #     if isinstance(message, str):
+                #         lines = message.splitlines()
+                #     else:
+                #         lines = str(message).splitlines()
+
+                #     score_line = next(
+                #         (line.strip() for line in lines if line.strip().startswith("Your code has been rated at")),
+                #         None 
+                #     )
+                #     if score_line:
+                #         metric_result["message"] = score_line
+                #     else:
+                #         metric_result["message"] = "N/A"
+                #     continue
+
+
+                # Case 1: Code Smells - keep only pylint score line 
                 if metric_name == "Code Smells":
-                    lines = message.splitlines()
-                    score_line = next(
-                        (line.strip() for line in lines if line.strip().startswith("Your code has been rated at")),
-                        None 
-                    )
-                    if score_line:
-                        metric_result["message"] = score_line
-                    else:
-                        metric_result["message"] = "N/A"
+                    try:
+                        soup = BeautifulSoup(str(message), "html.parser")
+                        divs = soup.find_all("div")
+
+                        score_line = None 
+                        for div in divs:
+                            text = div.get_text(strip=True)
+                            if text.startswith("Your code has been rated at"):
+                                score_line = text
+                                break
+
+                        metric_result["message"] = score_line if score_line else "N/A"
+                    
+                    except Exception as e:
+                        metric_result["message"] = f"N/A (parse error: {e})"
+
                     continue
+                    
 
                 # Case 2: Other messages - clean HTML and keep top 1-2 lines only
                 clean_text = BeautifulSoup(message, "html.parser").get_text(separator="\n")

@@ -96,20 +96,59 @@ def evaluate_metrics(metrics, path, github_url=None):
         convert_notebooks_in_dir(path)
         # Collect all Python files (converted or original)
         python_files = []
-        for root, dirs, files in os.walk(path):
 
-            excluded_dirs = {
-                    "venv", "env", "__pycache__", ".git", ".hg", ".svn",
-                    ".ipynb_checkpoints", ".mypy_cache", ".pytest_cache",
-                    "build", "dist", ".tox", ".nox", "site-packages",
-                    ".idea", ".vscode", ".DS_Store", "__pypackages__",
-                    "jscpd-report", "bandit-report", "gitleaks-report"
-            }
-            dirs[:] = [d for d in dirs if d not in excluded_dirs]
+        # for root, dirs, files in os.walk(path):
+
+        #     excluded_dirs = {
+        #             "venv", "env", "__pycache__", ".git", ".hg", ".svn",
+        #             ".ipynb_checkpoints", ".mypy_cache", ".pytest_cache",
+        #             "build", "dist", ".tox", ".nox", "site-packages",
+        #             ".idea", ".vscode", ".DS_Store", "__pypackages__",
+        #             "jscpd-report", "bandit-report", "gitleaks-report"
+        #     }
+        #     dirs[:] = [d for d in dirs if d not in excluded_dirs]
             
+        #     for file in files:
+        #         if file.endswith(".py") and file != "__init__.py":
+        #             python_files.append(os.path.join(root, file))
+
+
+        # Define filters
+        excluded_dirs = {
+            "venv", "env", "__pycache__", ".git", ".hg", ".svn",
+            ".ipynb_checkpoints", ".mypy_cache", ".pytest_cache",
+            "build", "dist", ".tox", ".nox", "site-packages",
+            ".idea", ".vscode", ".DS_Store", "__pypackages__",
+            "jscpd-report", "bandit-report", "gitleaks-report"
+        }
+
+        irrelevant_filenames = {
+            "__init__.py", "setup.py", "install.py", "version.py", "manage.py"
+        }
+
+        irrelevant_subpaths = [
+            "/migrations/", "/__pycache__/"
+        ]
+
+        # Walk through directory and apply filters
+        for root, dirs, files in os.walk(path):
+            dirs[:] = [d for d in dirs if d not in excluded_dirs]
+
             for file in files:
                 if file.endswith(".py"):
-                    python_files.append(os.path.join(root, file))
+                    if file in irrelevant_filenames:
+                        continue 
+
+                    full_path = os.path.join(root, file)
+                    if any(sub in full_path for sub in irrelevant_subpaths):
+                        continue
+
+                    # Optional: skip test files too
+                    if file.startswith("test_") or file.endswith("_test.py"):
+                        continue
+
+                    python_files.append(full_path)
+
 
     elif path.endswith(".ipynb"):
         # Convert this single notebook to Python
