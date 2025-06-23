@@ -2,6 +2,8 @@ import json
 import os
 import re
 from collections import defaultdict
+from batch_analysis.metric_plots import passfail_summary_plot
+
 
 # === Path to results JSON ===
 json_path = "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set_results/batch_development_results.json"
@@ -67,5 +69,38 @@ for project, sections in all_results.items():
                         except ValueError:
                             continue
 
-# === Export or pass this to plotting code ===
-# You could return `extracted_data` from a function if modularizing
+# === Pass/Fail Summary for All 8 Metrics ===
+status_summary = {
+    "Maintainability Index": {"pass": 0, "fail": 0},
+    "Cyclomatic Complexity": {"pass": 0, "fail": 0},
+    "Comment Density": {"pass": 0, "fail": 0},
+    "Code Smells": {"pass": 0, "fail": 0},
+    "Software Size (LoC)": {"pass": 0, "fail": 0},
+    "Code Duplication": {"pass": 0, "fail": 0},
+    "Percentage of Assertions": {"pass": 0, "fail": 0},
+    "Dependency Management": {"pass": 0, "fail": 0},
+}
+
+# Re-iterate to collect status info
+for project, sections in all_results.items():
+    for section_name, metrics in sections.items():
+
+        if "Project-Level Results" in section_name:
+            for metric_name, metric in metrics.items():
+                if metric_name in status_summary:
+                    status = metric.get("status", "").lower()
+                    if status in ["pass", "fail"]:
+                        status_summary[metric_name][status] += 1
+
+        elif section_name.endswith(".py"):
+            for metric_name, metric in metrics.items():
+                if metric_name in status_summary:
+                    status = metric.get("status", "").lower()
+                    if status in ["pass", "fail"]:
+                        status_summary[metric_name][status] += 1
+
+# Optional: print summary
+print("\n=== Pass/Fail Summary ===")
+for metric, counts in status_summary.items():
+    print(f"{metric}: ✅ {counts['pass']} pass, ❌ {counts['fail']} fail")
+

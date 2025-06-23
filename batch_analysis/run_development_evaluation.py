@@ -5,13 +5,13 @@ from bs4 import BeautifulSoup # For stripping HTML
 from pathlib import Path 
 
 # --- Configuration ---
-base_dir = "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set"  
+base_dir = "/Users/yt/Documents/folder2024/course/Thesis/11_envri_validation_set_test"  
 selected_stage = "Development"  
 
 parent_dir = os.path.dirname(base_dir) # Get parent directory of base_dir
 results_dir = os.path.join(parent_dir, "11_envri_validation_set_results") # Define results directory path
 os.makedirs(results_dir, exist_ok=True)  # Make sure the folder exists
-output_file = os.path.join(results_dir, "batch_development_results.json") # Define output file path inside the results directory
+output_file = os.path.join(results_dir, "batch_development_results_test.json") # Define output file path inside the results directory
 
 summary_results = {}  # Final dictionary to hold all project outputs
 
