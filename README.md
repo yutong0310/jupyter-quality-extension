@@ -13,6 +13,10 @@ This tool is designed for research software and helps researchers evaluate noteb
 
 ## Installation
 
+This project was developed and tested with:
+- Python 3.13.2  
+- pip 25.0
+
 ### 1. Clone this repository
 
 ```
