@@ -1,15 +1,15 @@
 # Core metric tools
-pylint
-radon
-jscpd
-bandit
-howfairis
+pylint==3.3.6
+radon==5.1.0
+# jscpd must be installed separately via: npm install -g jscpd
+bandit==1.8.3
+howfairis==0.14.2
 
 # gitleaks must be installed manually 
 
 # UI and Jupyter support
-ipywidgets
-notebook
-IPython
-nbconvert
-nbformat
+ipywidgets==8.1.6
+notebook==7.4.0
+IPython==9.1.0
+nbconvert==7.16.6
+nbformat==5.10.4
