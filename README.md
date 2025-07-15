@@ -25,6 +25,12 @@ cd jupyter-quality-extension
 ```
 pip install -r requirements.txt
 ```
+```
+npm install -g jscpd
+```
+```
+brew install gitleaks # (MacOS) or refer to the official instructions: https://github.com/gitleaks/gitleaks
+```
 
 ## How to Use
 
